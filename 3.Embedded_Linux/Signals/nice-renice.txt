@@ -1,0 +1,38 @@
+
+
+Nice value is a user-space and priority PR is the process's actual priority that use by Linux kernel.
+
+In linux system priorities are 0 to 139 in which 0 to 99 for real time and 100 to 139 for users. 
+
+nice value range is -20 to +19 where -20 is highest, 0 default and +19 is lowest. relation between nice value and priority is :
+
+PR = 20 + NI
+
+so , the value of PR = 20 + (-20 to +19) is 0 to 39 that maps 100 to 139.
+
+According to top manual:
+
+PR -- Priority The scheduling priority of the task. If you see 'rt' in this field, it means the task is running under 'real time' scheduling priority.
+
+NI is nice value of task.
+
+NI -- Nice Value The nice value of the task. A negative nice value means higher priority, 
+
+whereas a positive nice value means lower priority.Zero in this field simply means 
+
+priority will not be adjusted in determining a task's dispatch-ability
+
+By default when a program is launched in Linux, 
+
+it gets launched with the priority of '0'. 
+
+However you can change the priority of your programs by either of the following methods.
+
+You can launch a program with your required priority using
+
+nice -n nice_value program_name
+
+you can also change the priority of an already running process using
+
+renice -n nice_value -p process_id
+

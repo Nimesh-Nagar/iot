@@ -1,0 +1,30 @@
+iot$ ls | grep input-output.txt
+input-output.txt
+iot$ ls | grep input-output.txt
+iot$ ls | grep input
+input-output.sh
+input-output.txt
+iot$ ls | grep -wi input
+input-output.sh
+input-output.txt
+INPUT-OUTPUT.txt
+iot$ ls | grep -wic input
+3
+iot$ ls | grep -wi -A 2 input
+input-output.sh
+input-output.txt
+INPUT-OUTPUT.txt
+ip-op.sh
+login-page.sh
+-----------------------------
+grep
+grep -w                     #match with a speicific word
+grep -wi                    #case insensitive 
+grep -win                   #will display with line number
+grep -n                     # search specific patterns prints line number as well example: iot$ cat Helloworld.c | grep -n main
+                                                                                                2:int main()
+grep -wic                   #count of the lines where word has matched
+grep -w -A                  #print the after lines of the matched word -A 1 (one line after)
+grep -w -B                  #before
+grep -w -C                  #after and before both
+---------------------------------------

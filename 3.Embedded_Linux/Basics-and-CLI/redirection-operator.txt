@@ -1,0 +1,68 @@
+#Redirection Operator
+-----------------------------
+What is Redirection?
+---------------------------------
+>> Redirection is a feature in Linux such that when      executing a command, you can change the standard input/output devices. 
+
+>> The basic workflow of any Linux command is that it takes an input and give an output.
+
+>> The standard input (stdin) device is the keyboard.
+>> The standard output (stdout) device is the screen.
+---------------------------------------------------------
+Output Redirection
+
+Symbol ">" is used for output(STDOUT) redirection
+
+Input Redirection
+
+Symbol "<" is used for input(STDIN) redirection
+----------------------------------------------------------
+Let us do some handson
+---------------------------
+What will do the below command?
+
+>> ls -l    # will display the list of files and directoried of current directory on screen/console.
+
+Let us do the redirection
+
+ls -l > listing.txt
+
+echo "we are experiencing the new way of learning" > motivation.txt
+
+echo "Online classes is fun" >> motivation.txt
+
+Note:
+1. symbol ">" overwrites the content (if any content is present)
+2. symbol ">>" append the content in the existing file
+---------------------------------------------------------
+
+Input redirection
+----------------------
+cat < file1.txt
+
+tee command:
+Use case:
+prints stdout at the same time write to the file system:
+
+df -hi | tee disk_file_usage.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

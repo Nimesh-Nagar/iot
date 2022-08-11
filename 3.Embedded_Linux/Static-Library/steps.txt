@@ -1,0 +1,73 @@
+library - collection of fucntions and header files
+used by programmers for code reusability and efficiency
+---------------------------------------------------------------
+Staic Library - used at compile time
+(can be stated as : locked with program at compile time)
+always comes with .a extension
+-------------------------------------------
+First step : 
+Create four function definitions
+1. add function (add.c)
+2. subtract function (sub.c)
+3. Multiplication function(mul.c)
+4. Division function (div.c)
+----------------------------------------------------
+Second Step:
+compile all the files and generate object files
+gcc -c add.c
+gcc -c sub.c
+gcc -c mul.c
+gcc -c div.c 
+----------------------------------------------------
+
+Note : 
+We need to use archive(ar) command to create a static library
+Here : libasic.a is static library which is archive of
+add.o sub.o mul.o div.o
+--------------------------------------------
+Third Step
+-------------------------------------
+#command
+--> ar rs libbasic.a add.o sub.o mul.o div.o 
+
+
+--> r - include file into archive (if exist replace)
+--> s - provide index number to the archive (.a file)
+
+--------------------------------------------------------------
+4th step:
+Create Header file for all the user defined functions 
+u created
+---------------------------------
+--> basic-header.h
+write function declarations in it : 
+int add(int int)
+int sub(int int)
+int mul(int,int)
+int div(int, int)
+------------------------------------------------------------
+5th step:
+----------------
+Create a separate folder say(Test-Static-Lib) to test the static library
+Step 5.1 -> copy basic-header. h in this directory
+Step 5.2 -> copy static library libbasic.a in this directory 
+--------------------------------------------------------------
+6th step : (inside Test-Static-Lib)
+create the main business logic file
+--------------------------------------------
+--> say calculator.c
+6.1 --> compile the main file
+gcc -c calculator.c
+6.2 --> link with object file of calculator.c
+gcc -o targetoutput calculator.o  -libbasic.a
+
+or
+
+gcc -o targetoutput -L . calculator.o -lbasic
+
+    -L says “look in directory for library files”
+    . (the dot after ‘L’) represents the current working directory
+    -l says “link with this library file”
+    basic is the name of our library. Note that we omitted the “lib” prefix and “.a” extension. The linker attaches these parts back to the name of the library to create a name of a file to look for.
+
+

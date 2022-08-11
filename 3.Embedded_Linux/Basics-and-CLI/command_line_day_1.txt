@@ -1,0 +1,85 @@
+--> echo $SHELL
+    /bin/bash  ---- Shell Name
+Environment variable - 
+--> There values are already defined in the system you just need to use it.
+--> more system related    
+--> there are always written in the capital letter
+echo - commands is used to print the values like printf in c.
+# print the home directory Name
+--> echo $HOME
+iot$ whoami             #utility to print user name
+bhupendra
+Package manager - (apt)
+------------------------
+--> ubuntu is debian based OS.
+--> default package manager is apt
+--> helps to install packages from the remote debian repos.
+More - https://help.ubuntu.com/community/Repositories/CommandLine
+
+#any package to be install on the system must be done by sudo/root user
+e.g - xournal software/application
+--> sudo apt install xournal
+--> sudo apt install xournal -y  #explicit yes
+
+#update the system packages
+--> sudo apt update <packagename>
+#will upgrade to latest packages
+--> sudo apt-get upgrade <packagename>
+#delete/remove an exiting package
+--> sudo apt purge <packagename> // apt-purge use -y while on servers
+
+#Run multiple commands at once
+update the system and then install net-tools 
+--> sudo apt update -y && sudo apt install net-tools -y
+
+Assignment:
+1. Remove the package net-tools and install the package net-tools in 
+one line
+2. Write a basic C Program and compile and run in one line.
+
+Solution:
+gcc test.c -o test.out && ./test.out   #test.c is a c program file
+
+
+#print ip address
+--> ifconfig                // net-tools or ifconfig -a
+--> ip address
+--> ip addr
+
+--> 127.0.0.1 - is known as loopback address
+--> used for debug and test internal services
+--> interface name - lo 
+other interfaces wlp5s0 -- for wireless name may be changes w - wireless
+                 enp4s0 -- for ethernet name may be change   
+
+
+#navigation based commands
+cd --  to change directory
+
+Assignment
+--> redirect to home directory using cd and environment variable
+cd $Home
+
+other ways
+----------------------------------------------
+--> cd ~
+
+--> cd /home/<username>
+
+--> pwd  -- show current directory name
+
+
+Assignment 02-04-2022 :
+1. Explore about GNU : http://www.gnu.org/philosophy/philosophy.html
+2. Difference between Unix and Linux.
+3. philosophy behind Linux Development.
+4. Different types of Linux Distros and Desktops.
+5. What is difference between apt update and apt upgrade
+6. What is difference between apt remove and apt purge
+
+
+
+
+
+
+

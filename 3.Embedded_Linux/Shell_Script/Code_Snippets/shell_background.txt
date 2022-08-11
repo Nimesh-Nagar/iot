@@ -1,0 +1,13 @@
+to run a process or command in background:
+
+<commandname> &
+
+firefox &
+
+man ls &
+
+to bring it in foreground:
+
+--> fg
+------------------------------------------------------
+

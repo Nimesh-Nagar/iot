@@ -1,0 +1,7 @@
+#Once you done with the dynamic library creation and done with the simple app
+----------------------------------------------------------------------------------
+1. Test any application with the functions available in dynamic library
+2. while running don't forget to link with library file
+3. In this application testdl.c link it with -laddsub
+4. command --> gcc testdl.c -laddsub
+5. ./a.out 

@@ -1,0 +1,71 @@
+ Important Points to remember:
+ 1. usually identified by .so extension (shared object)
+ 2. example subadd.so
+ 3. These modules are not required to bound in program at link time.
+ 4. Instead your program is linked at the run time.
+ 5. Position Independent Code means that the generated machine code is not dependent on being located 
+     at a specific address in order to work.
+ ----------------------------------------------------------------------------
+ Step 1 :
+ Create two functions defintion
+ 1. addTwoNumbers
+ 2. subTwoNumbers
+ -----------------------------------------
+Step 2: 
+Create a headerfile for both the functions say addsub.h
+int addTwoNumbers(int, int)
+int subTwoNumbers(int, int)
+
+ Step 3:
+ Note : Object file to be created at compile time position independent (-fPIC)
+ 2.1 --> compile both the functions with the below command
+ gcc -fPIC -c addTwoNumbers.c
+ gcc -fPIC -c subTwoNumbers.c
+ -----------------------------------------------------------------------------------
+ Step 4:
+ Create a dynamic library (.so --> shared object)
+
+ gcc -shared -o libaddsub.so addTwoNumbers.o subTwoNumbers.o
+
+ Step 5 : 
+ Create the mainfile say --> mainbusinesslogic.c
+ generate object code of the mainfile 
+ gcc -c mainbusinesslogic.c 
+
+ Step 6:
+ Create executable for main program say : mainbusinesslogic.c 
+ 
+ gcc -o targetout -L . libaddsub.so mainbusinesslogic.o
+
+ or
+
+ gcc -o targetout -L . -laddsub mainbusinesslogic.o
+
+Step 7:
+move the shared library to /usr/lib using below command
+
+-->     sudo mv laddsub /usr/lib
+
+        or
+
+        sudo mv libaddsub.so /usr/lib
+ Step 8 : 
+ 
+ configure dynamic linker run-time bindings using ldconfig
+
+--> sudo ldconfig
+
+Note:
+ldconfig creates the necessary links and cache to the most recent
+shared libraries found in the directories specified on the command line
+----------------------------------------------------------------------------
+step 9 :
+sudo mv addsub.h /usr/include
+
+step 10:
+
+sudo ldconfig (create a link for headerfile)
+
+Step 11:
+#(run the program)
+./targetout

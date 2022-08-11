@@ -1,0 +1,76 @@
+ssh - secure shell
+default port number - 22
+-----------------------------------
+--> Helps to login remote host machines/systems/nodes
+--> Data is encrypted over the network.
+
+Primary Infomation required:
+1. IP Address
+2. username 
+----------------------------------
+client side requirements.
+1. for windows based system - putty is recommended (UI based)
+2. for linux/mac --> ssh utility / putty optional
+server side:
+--------------------------------------------------------------
+--> ssh server must be installed 
+--> Port number 22 should be open to listen incoming requests.
+--> No firewall/proxy shold block port number 22
+---------------------------------------------------------------
+#install openssh server on ubuntu if not installed:
+sudo apt-get install openssh-server
+#enable the ssh service
+sudo systemctl enable ssh
+#start the service
+sudo systemctl start ssh
+or 
+sudo service ssh start 
+#check the ssh service status
+sudo service ssh status 
+or 
+sudo systemctl status ssh 
+
+
+#login to remote machines --->
+ssh userName@Your-server-name-IP
+----------------------------------------
+Step1:
+-------------
+Get the username : whoami
+get the ipaddress of the system you want to connect : 
+--> ifconfig
+--> ip addr 
+--> ip a 
+-------------------------------------------------------
+How to access the ssh log:
+-------------------------------------------------------
+cat /var/log/auth.log
+
+#ssh for key based communication:
+
+ssh -i <key> username@ip 
+example:
+ssh -i test.pem iot@3.7.10.22
+
+scp - secure copy
+--------------------------------------------------------
+#scp username and password based 
+
+scp <file> username@ip:<pathofthefile--wheretocopyonserver>
+example:
+scp test.txt diot@192.168.77.37:/home/diot/
+
+Key based:
+scp -i <key> test.txt diot@192.168.77.37:/home/diot/
+
+
+
+
+
+
+
+
+
+
+
+

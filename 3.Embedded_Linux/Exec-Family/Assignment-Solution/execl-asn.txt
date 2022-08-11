@@ -1,0 +1,10 @@
+#Assignment on execl
+---------------------------------------------------------------------------------------------------------
+Test cases : 
+1. Write a code snippet in C environment that perform subtraction of two numbers
+2. Write a code snippet in python3 environment that perform sum of two numbers
+3. Write a main code snippet in which if user enters 1 then it should print the subtrcation of two numbers 
+and if user enters 2 it should display sum of two numbers
+4. python code snippet must complete its execution using execl library function
+5. C code snippet must complete its compilation and execution using system function
+----------------------------------------------------------------------------------------------------------

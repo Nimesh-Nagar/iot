@@ -1,0 +1,7 @@
+/ #the root directory - where all begins
+cd / #do ls - observer
+cd /bin #ls
+#bin contains binary(programs) that must be present at boot anf run time
+cd /boot #ls
+#boot contains linux kernel, bootloader, initial ram disk image( for drivers required at boot time)
+

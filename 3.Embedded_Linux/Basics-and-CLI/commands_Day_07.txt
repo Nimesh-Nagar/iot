@@ -1,0 +1,31 @@
+#word count 
+wc
+wc -c <filename> #number of bytes
+#character count
+wc -m <filename>
+#new line count
+wc -l <filename>
+#number of words
+wc -w <filename>
+#length or width of longest line
+wc -L <filename>
+#lines words characters count from a file
+wc filename
+--------------------------------------------
+bc #arbitary precision calculator language
+#combining commands
+wc <filename> ; ls -l <filename>
+man #manual pages
+whatis #display one-line manual page descriptions
+whatis cp #example
+
+#print or set the system date and time
+>> date
+#Set a date and time of system 
+sudo date -s "Fri Apr 17 10:12:28 IST 2020"
+
+#calendar
+cal 
+
+---------------------------------------------------
+

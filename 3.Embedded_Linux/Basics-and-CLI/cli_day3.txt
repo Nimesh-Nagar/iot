@@ -1,0 +1,60 @@
+Online Hositing ubuntu:
+https://www.onworks.net/
+
+Re-direction Operator (>)
+---------------------------------------
+iot$ echo "This is my test file" 
+This is my test file
+iot$ echo "This is my test file" > test_data.txt
+Note : > operator write the data from the beginning of the line
+if no data is present else it will overwrite the existing data.
+------------------------------
+How to append the data?
+-----------------------------------
+use >> (append)
+echo "IoT is next gen tech" >> test_data.txt
+
+#Remove a directory that has no file
+rmdir <directoryname>
+
+ot$ mkdir test_dir
+iot$ ls
+test_data.txt  test_dir
+iot$ rmdir test_dir/
+iot$ mkdir test_dir
+iot$ rmdir -v test_dir/
+rmdir: removing directory, 'test_dir/'
+iot$ mkdir test_dir && cd test_dir && touch 1.txt
+iot$ tree
+.
+└── 1.txt
+
+0 directories, 1 file
+
+How to delete a directory which contains file?
+iot$ rmdir -v test_dir/
+rmdir: removing directory, 'test_dir/'
+rmdir: failed to remove 'test_dir/': Directory not empty
+(rmdir will not work)
+What next?
+rm -rf test_dir/
+r -- recursive
+f -- force
+---------------------------
+Question:
+1. create a directory test/1/2/3
+2. Navigate to 3
+3. create a file 1.txt inside 1 dir and write "IoT is awesome"
+in this file without providing the absolute path.
+Solution:
+echo "Iot is awesome" > ../../1.txt
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+write a shell script to take three input from user:
+1. studentname must be string
+2. branchname must be string
+3. age must be number
+4. salary must be number
+if student and branch name matches display you are part of this
+organization else you are not allowed to enter.
+if salary and age matches then you are no more student but employee
+else:
+you are still student work hard to become employee.
+--------------------------------------------------------------------------------
+if
+if
+fi
+else
+fi
+if
+if
+fi
+else
+fi
+--------------------------------
+Comparison operators:
+--> string1 = string2 and string1 == string2.
+--> The equality operator returns true if the operands are equal.
+= operator should be used with test command
+== operator should be used with test condiiton [[]] for pattern matching.
+
+Example:
+#!/bin/bash
+read -p "enter first string : " str1
+read -p "enter second string : " str2
+if [ $str1 = $str2 ]; then
+    echo "Strings are equal"
+else
+    echo "Strings are not equal"
+fi
+#Recommended for pattern matching but not mandetory.
+if [[ $str1 == "Hi" ]]; then
+    echo "Strings are equal"
+else
+    echo "Strings are not equal"
+fi
+
+Point to note:
+1. [ string1 = string2] returns true if both matches
+2. [[ string1 == string2 ]] returns true if both matches
+inequality operators:
+> -greater than
+< -less than
+-z if string length is zero
+-n if tsring length is non zero
+logical and : &&
+logical or : ||
+https://linuxize.com/post/how-to-compare-strings-in-bash/
+
+Compare numbers in shell Script:
+-------------------------------------
+num1 -eq num2                  check if 1st  number is equal to 2nd number
+num1 -ge num2                  checks if 1st  number  is greater than or equal to 2nd number
+num1 -gt num2                  checks if 1st  number is greater than 2nd number
+num1 -le num2                   checks if 1st number is less than or equal to 2nd number
+num1 -lt num2                   checks if 1st  number  is less than 2nd number
+num1 -ne num2                  checks if 1st  number  is not equal to 2nd number

@@ -1,0 +1,5 @@
+Write a shell script that ask user to enter the command
+and display the output in the desired format.
+Expected Output:
+Hello Mr./Ms You have entered command {commandname here} and 
+value returned by shell is {commandvalue}'

@@ -1,0 +1,51 @@
+List partitions:
+--------------------------
+sudo fdisk -l 
+Major partitions:
+/dev/sda --> Internal HDD
+----> /dev/sda* example:
+    /dev/sda1
+    /dev/sda2
+--> /dev/nvme0n1   --> internal SSD
+External HDD/SD cards etc.
+--> /dev/sdb
+--> /dev/sdc
+
+more details --> refer : fdisk_data.txt
+
+difk file usage:
+--> df -h (explore inode number concept)
+---------------------------------------------------
+What is script?
+--> In script first line should be shebang
+--> shebang is nothing but the intrepreter path
+--> It must be start with #!<followed by path>
+for example:
+python3 --> #!/usr/bin/python3
+bash    --> #!/bin/bash
+Script can be run from the background and at run time.
+example : ./filenameofscript.
+1. Bash Programming can be writeen as bash script too.
+2. Python Programming can be writeen as a script too.
+3. For scripting language must be dynamically typed/intrepreter based.
+4. Script must have executable permission.
+
+Sample script:
+Write a bash script that creates a directory and creates a file
+and write the data "My first shell script"
+#!/bin/bash
+mkdir shell_p && cd shell_p 
+echo "My first shell script" > program1.txt 
+
+How to run the shell program?
+bash <filename.sh>
+How to run shell script?
+chmod 700 <filename.sh>
+./filename.sh    #with executable permission 
+
+
+
+
+
+
+

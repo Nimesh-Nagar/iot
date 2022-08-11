@@ -1,0 +1,158 @@
+#to check Desktop environment
+#major distributions gnome and kde
+>> ls /usr/bin/*session
+----------------------------
+#releaese
+>> lsb_release - print distribution-specific information
+--------------------------------------------------------
+linux standard base
+-------------------------
+>> lsb_release -a
+------------------
+for more information
+>> lsb_release --help
+-----------------------------------------------------------
+#print system specific information
+>> uname
+------------
+#Kernel name
+>> uname -s
+#Node name
+>> uname -n
+>> uname -a #all the details
+#more information
+>> man uname
+#to print hostname
+>> hostname
+#to print effective username
+>> whoami
+#displaying information about USB buses in the system and the devices connected to them.
+>> lsusb
+# displaying information about PCI buses in the system and devices connected to them
+>> lspci
+-----------------------
+Cursor Movement
+----------------------------------------------------------
+up-arrow # to see previous command
+tab - to print remaning words in a command
+-------------------------------------------------------
+#Some more commands
+#displaying calendar
+cal
+#to display the amount of free memory
+free
+#to close a terminal session
+exit
+------------------------------------------------------
+ls -l <nameoffile>  #list specific file
+---------------------------------------
+field explanation
+first field:
+file permission
+    – normal file
+    d : directory
+    s : socket file
+    l : link file
+    p: pipe
+-rw-r--r--  1 bhupendra bhupendra        60 Aug 28 21:09 ntp-server.txt
+user,group,any/others
+Field 2 – Number of links: (like 1,2,3 depends)
+Field 3 – Owner
+Field 4 – Group
+Field 5 – Size (bytes)
+Field 6 – Last modified date and time
+Field 7 – File name
+ls -a #list all the hidden files and directories
+--------------------------------------------- 
+#to write some content inside a file
+echo 
+echo <somemsg> > <nameoffile> #if file NA on the file is created, overright of data is already available
+echo <somemsg> >> <name of the file> #append contents in a file
+#change permission of the file
+chmmod #change file mode bits
+--> chmod command is used to change the existing permission
+    on the files or directories.
+
+numeric -
+0 - nothing
+4 -only read
+2 - only write
+1 - only execute
+4+1 = 5 read and execute
+4+2 = 6 read and write both
+4+2+1 = 7 read,write and execute
+chmod 700 a.txt #readwriteexeute to user only
+
+Some more examples:
+iot$ ls -l tee_demo.sh 
+-rw-rw-r-- 1 bhupendra bhupendra 63 Apr 11 07:55 tee_demo.sh
+iot$ chmod 764 tee_demo.sh 
+iot$ ls -l tee_demo.sh 
+-rwxrw-r-- 1 bhupendra bhupendra 63 Apr 11 07:55 tee_demo.sh
+How to run file as script:
+./filename.<extention>
+example:
+./filename.sh
+./fiilename.py
+
+
+--------------------------letters
+r -read
+w - write
+x -execute
+u -user
+g -group
+o -other
+a - all
++ - add 
+- - remove
+= - assign
+-----------------------------------------
+chmod u+rwx a.txt  #user have read write and execute (+ to add) 
+chmod u-rwx a.txt  #user doesn't read write and execute (- to remove)
+
+
+---------------------------------------------------------------
+#copy a file
+cp <sourcepath> <destinationpath>
+#move file
+mv <sourcepath> <destinationpath>
+--------------------------------------------------------------------
+iot$ mkdir f1
+iot$ mkdir f2
+iot$ touch f1/f1.txt
+iot$ touch f2/f2.txt
+iot$ cp f1/f1.txt f2/
+iot$ ls -l f2
+total 0
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:27 f1.txt
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f2.txt
+iot$ ls -l f1
+total 0
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f1.txt
+iot$ mv f2/f2.txt f1/
+iot$ ls -l f1
+total 0
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f1.txt
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f2.txt
+iot$ ls -l f2
+total 0
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:27 f1.txt
+---------------------------------------------------------
+you can use mv to rename a file as well.
+say change f1.txt to f1_1.txt
+mv f1.txt f1_1.txt
+
+iot$ mv f1.txt f1_1.txt
+iot$ ls -l
+total 0
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f1_1.txt
+-rw-rw-r-- 1 bhupendra bhupendra 0 Apr 11 09:26 f2.txt
+
+
+Note:
+Always remember that if a directory doesn't have
+executable permission cd command will not work.
+iot$ chmod 600 shell_p/
+iot$ cd shell_p/
+bash: cd: shell_p/: Permission denied

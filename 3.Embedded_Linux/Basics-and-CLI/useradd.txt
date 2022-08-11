@@ -1,0 +1,44 @@
+What useradd do?
+
+1. It add entry of a newly created user in /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow
+2. Creates and populates a home directory for the new user.
+3. Sets permissions and ownerships to the home directory.
+-----------------------------------------------------------
+-> sudo useradd <username> say test1 #creates a user test1 
+
+whenever new user is created in it is in locked state -
+add password to unlock it. 
+
+#add password to user:
+passwd <username>     #enter the new password 
+
+Once the user is created - entry is populated in the /etc/passwd
+
+-----------------------------------------------------------------------
+
+sudo useradd -d /data/projects cdac   #with custom directory name
+sudo passwd cdac
+
+#create a userwith custom userid
+
+useradd -u 1002 cdac1
+passwd cdac1 
+
+#create a user with specifif GID
+useradd -u 1005 -g cdac2 cdac      #cdac is username
+
+#to verify users GID :
+id <username>   #
+#create new groups 
+groupadd developer
+groupadd tester 
+
+Add Existing user to a group 
+sudo usermod -a -G dialout $USER 
+
+#create a user without home directory
+useradd -M testnew
+
+
+
+

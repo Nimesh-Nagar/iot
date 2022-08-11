@@ -1,0 +1,19 @@
+key_t ftok(const char *path, int id); 
+ftok(): is use to generate a unique key.
+This key is generated with the combination of file (that must exist in the system anywhere and positive integer value(2nd argument)
+Note:
+ 1. The function returns the same key for all paths that point to the same file when called with the same id value. 
+ 2. If ftok() is called with different id values or "path points to different files" on the same file system, it returns different keys. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+msgget(): either returns the message queue identifier for a newly created message 
+queue or returns the identifiers for a queue which exists with the same key value.
+---> This key is used for producing and consuming the data
+---------------------------------------------------------------------------------------------------
+msgsnd(): Data is placed on to a message queue by calling msgsnd().
+
+msgrcv(): messages are retrieved from a queue.
+
+msgctl(): It performs various operations on a queue. Generally it is use to 
+destroy message queue.
+----------------------------------------------------------------------------------------------------
+ 

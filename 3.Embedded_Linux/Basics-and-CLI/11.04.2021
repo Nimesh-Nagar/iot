@@ -1,0 +1,36 @@
+Q1.
+create a python program say helloworldsc.py 
+and print hello world.
+helloworldsc.py should be run as a script.
+file should have read,write and execute(rwx) permission for owner
+r,w too group members and no permissions to the others.
+--------------------------------------------------------------------
+#to check python3 intrepreter path :
+--> whereis python3
+To run a python program as a script first line:
+#!/usr/bin/python3
+print("Hello World")
+
+chmod 764 helloworldsc.py 
+./helloworldsc.py 
+--------------------------------------
+2. Create a file file1.txt and provide user to read and write (rw) 
+permission and no permission to group and others.
+Answer: 
+chmod 600 file1.txt
+chmod u+rw,u-x,g-rwx,o-rwx file1.txt
+3. Create a file file1.txt and provide user to read and write (rw) 
+permission and read permission to group and rw to others.
+Answer: chmod u+rw-x,g=r,o=rw
+4. Create a file file1.txt and provide user to write (w) 
+permission group to read and others to execute permissions.
+Answer:
+
+-----------------
+iot$ chmod u+rw-x,g=r,o=rw file2.txt 
+iot$ ls -l file2.txt 
+-rw-r--rw- 1 bhupendra bhupendra 0 Apr 11 09:20 file2.txt
+iot$ chmod a=rwx file2.txt 
+iot$ ls -l file2.txt 
+-rwxrwxrwx 1 bhupendra bhupendra 0 Apr 11 09:20 file2.txt
+

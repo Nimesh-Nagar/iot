@@ -1,0 +1,100 @@
+login as a root user
+-------------------------
+--> sudo su
+iot$ sudo su
+root@iot:/etc/apt# whoami
+root
+root@iot:/etc/apt# 
+Note : 
+1. root user has all the privileges.
+2. whenever we run command with sudo our normal user get all
+   the privileges that root posseses.
+#to check where a utility/command is located
+whereis <nameofutility>
+iot$ whereis python3
+python3: /usr/bin/python3.6 /usr/bin/python3.8-config /usr/bin/python3.8 /usr/bin/python3 /usr/bin/python3.6m /usr/lib/python3.9 /usr/lib/python3.6 /usr/lib/python3.8 /usr/lib/python3 /etc/python3.6 /etc/python3.8 /etc/python3 /usr/local/lib/python3.6 /usr/local/lib/python3.8 /usr/include/python3.8 /usr/share/python3 /usr/share/man/man1/python3.1.gz
+----------------------------------------------
+#to create a directory:
+mkdir <dirname>
+example:
+mkdir linux   #linux directory will be created
+mkdir -v linux1 #will print background process too ( -v verbose)
+Assignment:
+------------------
+Navigate to linux and create a directory practice in one statement.
+Note:
+move into home directory from anywhere just type: cd 
+
+go one directory back: use ..
+
+example:
+
+cd ~/elxp/day2p
+ cd ..
+ pwd:
+ /home/diot/elxp
+
+How to create directory inside directory in one command
+for example : create 1/2/3/4 inside elxp
+
+mkdir -p 1/2/3/4
+
+#to check directory hierarchy use tree command
+
+#install tree
+
+sudo apt install tree
+
+--> tree
+iot$ tree
+.
+└── 1
+    └── 2
+        └── 3
+            └── 4
+
+4 directories, 0 files
+
+#create a blank file using touch command
+touch <nameodfile>
+iot$ touch 1.txt
+iot$ ls
+1  1.txt
+
+#display the content of a file use cat command
+
+cat 1.txt
+
+#write some data inside a file with echo and redirction operator
+
+echo " Hello this is my first file" > 1.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

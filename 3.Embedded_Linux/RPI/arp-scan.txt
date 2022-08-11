@@ -1,0 +1,31 @@
+sudo apt-get install arp-scan
+
+sudo arp-scan -l    #Scans the local network
+
+sudo arp-scan 192.168.1.0/24     #Scans 192.168.1.0 255.255.255.0
+
+sudo arp-scan 192.168.1.1-192.168.1.254     #Scans the obvious range
+---------------------------------------------------------------------
+sudo apt-get install nmap
+------------------------------
+nmap -v -sn 192.168.0.1/24 192.168.0.250/24
+-----------------------------------------------
+detailed information
+
+nmap -A -v -v 192.168.1.0/24 gives a lot of information, even SO in some cases
+
+sudo nmap -sn 192.168.1.0/24 gives the MAC and IP addresses. Very Useful too
+
+sudo nmap -PU 192.168.1.0/24 explains every IP address
+
+------------------------------------------------------------
+vnc problem in the system/rpi
+------------------------------
+sudo apt-get purge --auto-remove tightvncserver
+------------------------------------------------
+download vncserver for rpi
+and install
+------------------------------------------------
+ensure to put screennumber after ip displayed after keeping
+vncserver in the cmd
+---------------------------------------------------------------

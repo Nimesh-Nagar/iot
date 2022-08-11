@@ -1,0 +1,177 @@
+cat command ops:
+--------------------------
+display contents of file:
+cat <filename>
+Assignment:
+create file1.txt file2.txt and file3.txt
+and write the content 1 and 2 in file1.txt 3,4 in the file2.txt, 
+5,6 in file3.txt and display the contents at a time of using cat.
+Note: Use echo for file creation and data write/append
+sample output:
+1
+2
+3
+4
+5
+6
+Question2.
+redirect stdout (above output) in a file say result.txt
+Sample output:
+cat result.txt
+1
+2
+3
+4
+5
+6
+Standard file descriptor:
+stdin - takes input from the console/terminal   
+stdout - prints output from the console/terminal.
+stderr - prints error on console/terminal.
+file descriptor mapping values(in programming-read/write):
+0 - stdin
+1- stdout
+2 - stderr
+---------------------------
+tty - print the file name of the terminal connected to standard input
+example:
+tty
+sample output:
+/dev/pts/0 or /dev/pts/* 
+iot$ tty
+/dev/pts/0
+iot$ 
+----------------------------------------
+communication between terminals
+Open two terminal and note down the file system associated 
+with the terminal
+example: terminal1 = /dev/pts/0
+terminal2 = /dev/pts/1
+Precuations:
+make sure while doing communication both termial is Open
+----------------------------------------------------------------
+iot$ tty
+/dev/pts/2
+Terminal 1:
+-------------------------------
+iot$ tty
+/dev/pts/0
+iot$ echo "Hello from /dev/pts/0" > /dev/pts/2
+Terminal 2:
+----------------
+iot$ tty
+/dev/pts/2
+iot$ Hello from /dev/pts/0
+-----------------------------------------------------------
+iot$ cat -n test.c
+     1	#include <stdio.h>
+     2	int main()
+     3	{
+     4	    printf("Hello in C\n");
+     5	    return 0;
+     6	}iot$ cat test.c
+#include <stdio.h>
+int main()
+{
+    printf("Hello in C\n");
+    return 0;
+}iot$ 
+
+-------------------
+iot$ cat 1.txt 
+hi
+iot$ cat test_data.txt 
+This is my test file new
+IoT is next gen tech
+iot$ cat 1.txt > res.txt
+iot$ cat test_data.txt >> res.txt 
+iot$ cat res.txt 
+hi
+This is my test file new
+IoT is next gen tech
+------------------------------------------------------
+cat command without argument prompts to stdin 
+---------------------------------------------------
+in order to make cursor move to new line after writing the
+data <Hit Enter> and then hit <ctrl + D> to stop the process.
+
+iot$ cat > quote.txt
+Hardwork is key to success!!
+iot$ cat quote.txt 
+Hardwork is key to success!!
+iot$ cat >> quote.txt 
+God helps those who helps themselves
+iot$ cat quote.txt 
+Hardwork is key to success!!
+God helps those who helps themselves
+------------------------------------------------------------
+To print commands history:
+--> history
+to clear the history
+--> history -c 
+-------------------------------------------------------------
+head and tail commands 
+-------------------------------
+head -n # n stands numeric values
+tail -n 
+head -n --> display n lines from the starting of the file
+tail -n  --> display n lines from te bottom of the file 
+------------------------------------------------------------
+head -n <file.txt>
+tail -n <file.txt>
+------------------------------
+Works well and practiced with pipe (|) operator
+----------------------------------------------------
+ls -l | head -5
+cat hi.txt | head -3
+ls -l | tail -2
+cat hi.txt | tail -3
+-------------------------------------------------------
+head -5 hi.txt
+tail -4 hi.txt 
+------------------------------------------------------
+pipe : used for Inter process input
+It redirects the output of one process to the input 
+of another process
+Example:
+ls -l | head - 5
+here the ls -l output is eventully becoming the input of
+head - 5 process 
+
+iot$ cat 1.txt | cat > 9.txt
+iot$ cat 9.txt 
+hi
+iot$ cat 1.txt 
+hi
+iot$ cat 1.txt > cat
+iot$ cat 1.txt | cat
+hi
+iot$ cat 1.txt | cat | cat
+hi
+------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

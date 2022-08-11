@@ -1,0 +1,37 @@
+Shell Programming/Shell Scripting
+also known as bash scripting
+-----------------------------------------
+Mostly used for automation - log montiring, generating alerts
+performing operations to fetch system related values
+like cpuload etc.
+
+#First line is known as shebang
+#!/bin/sh
+#!/bin/bash
+-------------------------
+Shell program must have executable permission.
+ls -l <shellprogram>
+chmod 700 <shellprogram>
+To run a shell script
+
+./<shellfilename>
+
+-------------------------------
+create a directory <test1>
+navigate to this directory
+create an empty file <HelloWorld.txt>
+Hello world in shell in the file created
+
+bash <filename.sh>
+
+
+
+
+
+
+
+
+
+
+
+

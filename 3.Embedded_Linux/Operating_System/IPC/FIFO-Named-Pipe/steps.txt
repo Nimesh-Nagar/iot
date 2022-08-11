@@ -1,0 +1,20 @@
+Named Pipe : FIFO steps:
+------------------------------
+1. gcc FIFO-write.c -o fifowr
+2. ./fifowr
+3. gcc FIFO-read.c -o fiforead
+4. ./fiforead
+5. Now type the message you want to send to pipe for reading purpose 
+Note : Opening the FIFO/named pipe for writing is blocked until another process
+opens the FIFO for reading.
+----------------------------------------------------------------------------------
+Named Pipe -> via command line
+--------------------------------------------------------------
+mkfifo /tmp/likhil
+ls -l /tmp/likhil
+say redirect calendar to pipe
+open a terminal - say A
+cal > /tmp/likhil
+open another terminal say B:
+cat /tmp/likhil
+-------------------------------------------------------------------

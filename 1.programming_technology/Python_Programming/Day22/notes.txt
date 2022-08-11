@@ -1,0 +1,95 @@
+Python
+->Open source
+->free
+->Large community support
+->GPL
+->Interpreted language
+->Identation based language
+
+->Check python version:
+python --version
+
+
+Two methods of executing code:
+->Python shell : Acts like terminal
+->Python code file:
+
+Python shell:
+python
+python3
+How to exit:
+->ctrl+d(Means EOF character)
+
+Datatype:
+->Datatypes are available in python
+->(but dont mention it)
+
+Variable:
+a=10
+->No declaration of variable
+->create variable by initializing it
+->We can assign any differnt datatype value
+
+Print on screen:
+print("string")
+
+
+Python code file:
+->File exetnsion is .py
+->Execution:
+python filename
+
+Comments:
+#single line comments
+
+User Input:
+input() ->return string
+
+String:
+->double quotes
+->Single quotes
+
+Typecasting:
+int(data) ->Convert to integer
+str(data) ->Convert to string
+
+Control structure:
+if Syntax:
+if expression :
+	statements
+
+Else syntax:
+if expression:
+	statements
+else :
+	statements
+
+If-Else-IF syntax:
+if expression:
+	statements
+elif expression:
+	statements
+else:
+	statements
+
+
+Logical operator:
+and -> for and operation
+or -> for or operation
+
+Loop syntax:
+1.while
+while expression:
+	statements
+2.for
+
+
+
+
+
+
+
+
+
+
+

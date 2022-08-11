@@ -1,0 +1,5 @@
+->Download anaconda
+->Give executable permission
+->Execute anaconda file
+->Open other temrinal
+->execute jupyter lab  or jupyter notebook

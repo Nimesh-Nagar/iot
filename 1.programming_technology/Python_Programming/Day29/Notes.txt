@@ -1,0 +1,5 @@
+conda deactivate
+pip3 install pandas
+sudo apt install zlib1g-dev
+sudo apt install libjpeg-dev
+pip3 install matplotlib

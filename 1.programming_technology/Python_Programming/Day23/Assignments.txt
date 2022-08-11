@@ -1,0 +1,19 @@
+1.Write code to check string is palindrome or not
+2.Write a code to check user given integer is palindrime or not
+
+data="""The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction."""
+
+3.Write a code to convert substring next 5 character to upper case and print on terminal(Find substring in data)
+4.Write a code to check given input is integer or not
+5.Write a code to check given input is alphabets or not
+
+
+6.Write  menu driven Student names storage system:
+->Add student name
+->Delete student name
+->Check Student is present or not in list
+->display
+
+7.Write a code to reverse every word of a paragraph
+8.Count the occurance of word in paragraph
+9.Write a code to change every alternate order word to Upper case

@@ -1,0 +1,18 @@
+1.Write program to print day of the week(Take user input)
+2.Write a menu driven calculator
+3.Write a program to find greater number from 4 numbers (take input from  user)
+4.Write a program to find the given number is even or odd
+
+Try following expression in print statements:(Analyze the output or error)
+"a"*10
+"abc"*10
+"a"+'b'
+"abcd "xyz"cc"
+"abcd 'xyz'cc"
+'abcd "xyz"cc'
+'abcd 'xyz'cc'
+int(3.14)
+str(3.14)
+int("sid")
+int("1000000000000000000000000000000000000000000000000000000")
+int(333)

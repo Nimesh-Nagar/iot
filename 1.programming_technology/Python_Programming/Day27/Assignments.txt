@@ -1,0 +1,37 @@
+string = "A computer is a machine that can be programmed to carry out sequences of
+ arithmetic or logical operations automatically. Modern computers can perform
+ generic sets of operations known as programs. These programs enable computers
+ to perform a wide range of tasks. A computer system is a complete computer
+ that includes the hardware operating system main software  and peripheral
+ equipment needed and used for full operation. This term may also refer 
+to a group of computers that are linked and function together"
+
+1.Write the above string into file data1.txt
+2.Write the above string alternate index words into the file data2.txt
+3.Write the above string into 10 files data3.txt,data4.txt and so on.. 
+
+Projects Assignment:
+1.Console ERP project
+Implement using dictionary:
+	-Add Employee
+	-Delete Employee
+	-Search Employee by name
+	-Change Employee Data
+		=>Change name
+		=>change age
+		=>Change gender
+		=>change salary
+	-Manage All Teams
+		-Create new Team
+		-Display team
+		-Manage Team(Particular Team)
+			-Rename Team(optional)
+			-Display Members
+			-Add Members
+			-Delete Members
+		-Delete Team
+	-Display 
+
+Properties:Empid, Name,age,gender,place,salary,previous_company,joining_date
+Date format "21/04/2021" dd/mm/yyyy
+

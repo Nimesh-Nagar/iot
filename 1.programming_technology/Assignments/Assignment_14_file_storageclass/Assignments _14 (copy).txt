@@ -1,0 +1,18 @@
+
+
+
+3.Try Writing structure variable to the file and read structure variable from file.
+	Student{
+		int prn;
+		char name[100];
+		}
+
+4.Change scanf and printf to fscanf and fprintf to read data from user in above assignments
+
+
+
+
+
+
+
+

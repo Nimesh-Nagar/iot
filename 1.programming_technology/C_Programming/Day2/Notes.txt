@@ -1,0 +1,92 @@
+How to write code?
+->First write code
+->Save the file filename.c(.c is must)
+->Compile the code
+gcc filename.c -o filename.out
+->Execute the file
+./filename.out
+
+Skeleton:
+#include<stdio.h>
+
+int main(){
+	//Statements
+	return 0;
+}
+
+Print on th terminal:
+printf("Hello Sid!");
+
+Comment:
+-> Instruction for the developer
+->Compiler does not compile it
+//single line comment
+/*
+	multi line comment
+*/
+
+
+Variables:
+->We can change value of variable
+->variable name can have letters digits and underscore
+->first character can be letter or underscore
+->Language is case sensitive
+->variable name cant be keyword
+
+Datatypes:
+short 
+Integer: 4 bytes : int
+Character : 1 Bytes : char
+Value with . float : 4 bytes : float
+Big integer values : 8 bytes : long
+Big float values : 8 bytes : double
+
+
+Format Specifier:
+int -> %d
+unsigned int -> %u
+char -> %c
+float -> %f
+long -> %l
+
+Operators:
++,-,/,*,%,<,>,>=,<=,
+== -> equal to
+!= -> not equal to
+&& -> and
+|| -> or
+
+ASCII characters:
+American standard code for Information interchange:
+A -> 65
+B -> 66
+.......
+a -> 97
+b -> 98
+......
+
+0 -> 48
+1-> 49 
+.....
+
+Escape sequence:
+\n -> New line
+\t ->Tab
+\r -> carrige return
+\% -> 
+
+
+
+If-else construct:
+
+
+
+
+
+
+
+
+
+
+
+

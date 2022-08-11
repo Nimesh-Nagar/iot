@@ -1,0 +1,4 @@
+1.Implement calculator using macros(Use three file architecture)
+->Write macros in Header file
+->Call functions in main file
+

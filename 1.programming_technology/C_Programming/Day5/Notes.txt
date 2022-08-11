@@ -1,0 +1,15 @@
+Array:
+->Same datatype
+->Continous memory allocation
+
+datatype Variable[size]
+int arr[10]
+
+->Index always start from 0
+-> Access Each element by Index
+arr[index]
+arr[0]
+arr[1]
+arr[2]
+
+

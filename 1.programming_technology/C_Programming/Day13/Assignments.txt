@@ -1,0 +1,22 @@
+Q1.Create a Employee structure to store the EMPID,NAME,Phone,Email,Salary.(Use array of structure)
+
+
+Q2. Create a structure for student/employee information with suitable
+members and do the following
+- Creating variables, input, output operations
+- create a pointer of struct type, and assign address of variable
+- access members from the pointer using arrow operator
+- create alias for the structure type, pointer type using typedef
+
+Q3. In the student structure created above modify marks member as an
+array(array of 5 subjects), create an array of struct variables and do
+some input,output operations.(Marks of ith student in jth subject etc).Find
+the student wise totals, subject wise totals.
+
+Q4. Create an employee structure with the following members
+empid, employee name, salary, year of joining etc.
+Accept the data for certain no. of employees and find their total,
+average, max, min salary.
+Also find out the employees with maximum, minimum service,use a
+function to find service for each employee element in the array.
+

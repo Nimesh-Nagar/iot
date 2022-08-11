@@ -1,0 +1,10 @@
+
+For Practice
+Use function:
+1.Write a program in C to display the n terms of odd natural number and their sum
+2.Write a program in C to display the n terms of harmonic series and their sum.
+3.Write a program in C to convert a binary number to octal
+4.Write a program in C to find the maximum number between two numbers using a pointer
+5.Write a program in C to store n elements in an array and print the elements using pointer.
+6.Write a program in C to count the number of vowels and consonants in a string using a pointer.
+7.Write a program to get the word count.(Use dynamic memory allocation)

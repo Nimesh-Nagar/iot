@@ -1,0 +1,74 @@
+Q1. WAP to Convert from one type of pointer/address to other using void*
+
+Q2. WAP to Test arithmetic operation on void pointers
+
+Q3. Try some nested calls sqrt(pow(2,abs(x))), putchar(toupper(ch)) etc
+
+Q4. Write a function to swap two variables Pass by reference (Allocate memory on heap)
+
+Q5. Study about various functions which can convert from string to
+different types
+atoi, atol, atoll, atof
+strtoimax, strtol, strtoul, strtof, strtod etc
+man -k strto – for more listing
+
+Q6. WAP to Addition of two arrays(Allocate on heap)
+
+Q7.Create a IOT Home device Management:(Use Dynamic memory allocation)
+1.Add new Home
+2.Display Home
+3.Search Home by HomOwner
+4.Change device name
+5.Search Device by DeviceName
+Home Data members : homeId,HomeOwner,Address,Device[2] 
+Device Data members: deviceId, DeviceName,DeviceType(Sensors/Actuators),voltage
+
+
+
+Observe the below questions:
+Q1. Try the following code
+union A
+{
+int x;
+int y;
+char ch;
+};
+union A a1;
+a1.x=0x10;
+a1.y=0x1121; print a1.x, a1.ch
+Calculate size of union , offset of each member
+
+Q2. Analyse the following code
+union A
+{
+int x;
+float y;
+double z;
+int arr[2];
+}a1;
+a1.y=6.25f;
+printf(“x=%x\n”,a1.x);
+a1.z=0.15625;;
+printf(“%x%x\n”,a1.arr[1],a1.arr[0]);
+
+Q3. Whats wrong in the following code, suggest a fix for this.
+struct A
+{
+int x;
+char *str; // (or) char str[20];
+};
+struct A a1 = { 101, “abc” } , a2;
+a1.x=10;
+a1.str=”hello”; //works?
+scanf(“%d%s”,&a1.x,a1.str); //works?
+a2 = a1; //shallow copy or deep copy?
+What if str is declared as an array instead of pointer, i.e. charstr[20]
+
+
+
+
+
+
+
+
+

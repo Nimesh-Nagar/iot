@@ -1,0 +1,30 @@
+Q1. Given int a[5] = {10, 20, 30, 40, 50 };
+int *p=a, *q=*(&a+1) - 1;
+evaluate following expressions
+*p++, *++p, (*p)++, ++(*p), ++*p, *(p++), *(++p)
+*q--, *--q, --(*q), --*q,
+(*q)--, *(q--), *(--q)
+
+Q2. Write a function to swap two variables using Pass by value, Pass by
+reference
+
+Q3. Write a single function to return sum, product of two no.s
+
+Q4. Whats wrong in this code, any fixes to the problem?
+int* test(int x)
+{
+int y=x*x;
+return &y;
+}
+
+Q5. Define your own iterative functions for
+(using array notation as well as exclusively using pointers)
+a) finding length
+b) concatenation
+c) comparision
+d) reversing in memory
+e) finding first occurrence of given character
+f)finding last occurrence of given character
+h)counting no.of occurences of a given character
+i) finding a substring in a main string
+

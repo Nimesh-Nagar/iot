@@ -1,0 +1,13 @@
+1. Implement a C program based on integer array. Implement method
+to find average, sum, min element, max element.
+
+2. Implement a C program for number conversions (decimal, binary,
+octal, hexadecimal).
+
+3.Finding day of week based on reference date, say 1 st January 1970
+which is Thursday.
+(Hint:- calculate no.of days elapsed from reference date to given date)
+
+4.Write a program to implement display and reverse display function
+for integer array element.
+5. Write a program to implement display and reverse display function character array.

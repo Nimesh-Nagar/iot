@@ -1,0 +1,37 @@
+How to write code?
+->First write code
+->Save the file filename.c(.c is must)
+->Compile the code
+gcc filename.c -o filename.out
+->Execute the file
+./filename.out
+
+Skeleton:
+#include<stdio.h>
+
+int main(){
+	//Statements
+	return 0;
+}
+
+Print on th terminal:
+printf("Hello Sid!");
+
+Comment:
+-> Instruction for the developer
+->Compiler does not compile it
+//single line comment
+/*
+	multi line comment
+*/
+
+
+Variables:
+->We can change value of variable
+
+Datatypes:
+Integer: 4 bytes : int
+Character : 1 Bytes : char
+Value with . float : 4 bytes : float
+Big integer values : 8 bytes : long
+Big float values : 8 bytes : double

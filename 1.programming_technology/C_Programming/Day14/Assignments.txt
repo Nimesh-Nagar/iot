@@ -1,0 +1,26 @@
+Q1. Create Employee structure
+    struct Date{
+        int day,
+        int month,
+        int year    
+    } 
+    struct Address{
+        int flatNo,
+        char City[100],
+        char State[100]
+        
+    }  
+     struct Employee{
+        char name[100],
+        int EmpId ,	
+        struct Date DOB
+        struct Address add
+    }.
+
+
+Store Employee record in above structure and display it.
+Write menu driven program.Add following menu:
+1.Add Employee
+2.Display Employee
+3.Search employee by EmpId
+4.Change name of given employee(by empid)

@@ -1,0 +1,9 @@
+1.Write a program to write your name into the file
+2.Write a menu driven program to read data from  file and perform airthmatic calculation.
+3.Write a program to write your name and prn and dob into the file in given format
+101|sid|10.2.1994
+4.Try storing a structure into the file
+Student{
+	char name[100];
+	int prn
+}

@@ -1,0 +1,13 @@
+Structure Padding and packing:
+Structure Padding: 
+->Add padding bytes
+->Tries to make block of multiple of int
+->Compile time(System architecture dependent)
+Structure packing:
+->Packaging the structre with true datatype size(Not supported on many hardwares )
+->Add this attribute with structure __attribute__((packed)); and use -Wpacked
+
+Bitfield:
+Use case :
+->Embedded Programming
+->Less memory usage

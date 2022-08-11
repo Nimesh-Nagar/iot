@@ -1,0 +1,18 @@
+Airthmatic operation :+,-,/,*,%
+
+1.Try airthmatic operation on numerical Value
+2.Try airthmatic operation on float value
+3.Try adding 1 to character 'A'
+4.Try adding some number to character 'B'
+
+char c = 'A'
+c + 1
+
+
+5.Write a program to compare three numbers(== ,<,>)
+6.Try Comparing 'A' with 65(int)
+7.Try Comparing 'A' with 65( unsigned int)
+8.Try Comparing 'A' with 65.0(float)
+9.Try comparing true == 100
+10.Try comparing false == 100
+11.Try comparing false == 0

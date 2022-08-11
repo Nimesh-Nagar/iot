@@ -1,0 +1,15 @@
+1.Write a program to calculate the sum of all user input numbers(User can enter number any number of time Its upto you to decide)(Create input_add function to take input and add number)(Dont return anything and dont use pointer)(Use static variable)
+2.Create three files(Header file, Code file and main file)
+Code file contains the function to perform addition of n numbers and n(global variable)
+Main file contains main function that takes input from user for n variable and call the function to perform the addition of n numbers
+
+3.Try Writing structure variable to the file and read structure variable from file.
+Student{
+	int prn;
+	char name[100];
+}
+
+4.Change scanf and printf to fscanf and fprintf to read data from user in above assignments
+5.Read /proc/loadavg file and print on terminal
+6.Read /proc/cpuinfo file.Print whole file on terminal
+

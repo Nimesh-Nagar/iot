@@ -1,0 +1,42 @@
+
+Q1. Store Employee record in above structure and display it.
+Write menu driven program.Add following menu:
+1.Add Employee
+2.Display Employee
+3.Search employee by EmpId/
+4.Change name of given employee(by empid)
+
+Q2.Create Menu driven Library Management
+1.Add new book
+2.Display book
+Book Data Members : bookId, BookName, ISBN no.,Author
+
+Q3.Create a IOT Home device Management:
+1.Add new device
+2.Display Device
+3.Search Device
+4.Change device name
+Home Data members : homeId,HomeOwner,Address,Device[2] 
+Device Data members: deviceId, DeviceName,DeviceType(Sensors/Actuators),voltage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

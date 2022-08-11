@@ -1,0 +1,24 @@
+1.Write a program to caculate the sum of n numbers(Use static varaibles)
+
+2.Create three files(Header file, Code file and mail file)
+Code file contains the function to perform addition of n numbers and n variable
+Main file contains main function that takes input from user for n variable and call the function to perform the addition of n numbers
+
+3.Try Writing structure variable to the file and read structure variable from file.
+	Student{
+		int prn;
+		char name[100];
+		}
+
+4.Change scanf and printf to fscanf and fprintf to read data from user in above assignments
+
+
+
+
+5.Read /proc/loadavg file and print on terminal	(cat /proc/loadavg)
+6.Read /proc/cpuinfo file.Print whole file on terminal (cat /proc/cpuinfo)
+
+
+
+
+

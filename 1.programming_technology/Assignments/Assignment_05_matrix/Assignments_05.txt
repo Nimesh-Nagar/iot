@@ -1,0 +1,11 @@
+Q1. WAP for Checking whether given matrix is identity or not?
+Q2. WAP to calculate the Determinant of 2x2 matrix
+
+
+Q3. Differentiate between
+const int * p;
+int const * p
+int * const p = &x;
+const int * const p = &x;
+Try *p=20, p++, (*p)++, p=&y in each case
+

@@ -1,0 +1,19 @@
+
+
+
+
+
+
+Q5. Define your own iterative functions for
+(using array notation as well as exclusively using pointers)
+a) finding length
+b) concatenation
+c) comparision
+d) reversing in memory
+
+e) finding first occurrence of given character
+f)finding last occurrence of given character
+h)counting no.of occurences of a given character
+i) finding a substring in a main string
+
+

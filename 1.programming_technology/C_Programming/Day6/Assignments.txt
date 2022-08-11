@@ -1,0 +1,5 @@
+Q1. WAP to Reverse an array in memory(Dont creates new array variable store in same array)
+Q2. WAP to Addition of two arrays
+
+Q3. WAP for Addition, Subtraction, Multiplication of two matrices
+Q4. WAP for Transpose of a matrix

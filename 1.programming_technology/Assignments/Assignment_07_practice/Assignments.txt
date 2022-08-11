@@ -1,0 +1,17 @@
+Use Functions:
+Practice Questions:
+1.Write a program to calculate the area and circumference of circle.
+2.Write a program to convert Fahrenheit to celcius
+3.Write a program to convert a given character to uppercase
+4.Write a program to convert a given character to lowercase
+5.Write a program to implement a interest calculator
+6.Write a program to find given number is palindrome or not
+
+For Everyone:
+
+7.Write a program to print n even numbers(take n input from user)
+8.Write a program to print n fibonnaci numbers(Take n from user)
+9.Write a program to find given number is prime number or not
+10. Write program to print the pattern as given in 1.png and 2.png image:
+
+

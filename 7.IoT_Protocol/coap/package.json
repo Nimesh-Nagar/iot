@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "coap": "^1.0.11"
+  }
+}

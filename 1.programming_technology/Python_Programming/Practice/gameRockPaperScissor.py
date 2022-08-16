@@ -18,7 +18,7 @@ while(i<=5):
     game = ["rock","paper","scissor"]
     str=random.choices(game)
     computer=" ".join(str)
-    print(f"Computer chooses =",computer)
+    print(f"Computer chooses = ",computer)
 
     i=i+1
 

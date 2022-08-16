@@ -1,0 +1,6 @@
+snum,sname,city,comm
+1001,Peel,London,.12
+1002,Serres,San Jose,.13
+1004,Motika,London,.11
+1007,Rifkin,Barcelona,.15
+1003,Axelrod,New York,.10

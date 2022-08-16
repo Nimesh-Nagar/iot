@@ -1,0 +1,110 @@
+aProblem # 1: Write a query to display the member id, member name, city and membership status who are all having life time membership. Hint: Life time membership status is “Permanent”.
+
+ SELECT member_id, member_name, city, membership_status
+ FROM lms_members
+ WHERE initcap(MEMBERSHIP_STATUS) = initcap('Permanent')
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Problem # 2: Write a query to display the member_name,book code, publication, price and supplier name of the book which has been issued to a member.
+
+ SELECT DISTINCT MEMBER_NAME, bi.book_code, publication, price , supplier_name
+ FROM LMS_MEMBERS mem INNER JOIN LMS_BOOK_ISSUE bi ON(mem.MEMBER_ID = bi.MEMBER_ID)
+ INNER JOIN LMS_BOOK_DETAILS bd ON(bi.BOOK_CODE = bd.BOOK_CODE)
+ INNER JOIN LMS_SUPPLIERS_DETAILS sd ON(bd.SUPPLIER_ID = sd.SUPPLIER_ID)
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 3: Write a query to display the member id, member name who have taken the book with book code 'BL000002'.
+
+ SELECT DISTINCT mem.MEMBER_ID, mem.MEMBER_NAME, bi.BOOK_CODE
+ FROM LMS_MEMBERS mem INNER JOIN LMS_BOOK_ISSUE bi ON(mem.MEMBER_ID = bi.MEMBER_ID)
+ WHERE bi.BOOK_CODE = 'BL000002'
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 4: Write a query to display the book code, book title and author of the books whose author name begins with 'P'.
+
+SELECT BOOK_CODE,BOOK_TITLE,AUTHOR 
+FROM LMS_BOOK_DETAILS
+WHERE AUTHOR LIKE 'P%'
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 5: Write a query to display the total number of Java books available in library with alias column name ‘NO_OF_BOOKS’.
+
+SELECT CATEGORY, COUNT (CATEGORY)NO_OF_BOOKS
+FROM LMS_BOOK_DETAILS 
+WHERE initcap(CATEGORY)=initcap('java')
+GROUP BY CATEGORY
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 6: Write a query to list the category and number of books in each category with alias name ‘NO_OF_BOOKS’.
+
+SELECT CATEGORY, COUNT (CATEGORY)NO_OF_BOOKS
+FROM LMS_BOOK_DETAILS 
+GROUP BY CATEGORY
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 6-1: Write a query to list the category and number of books in each category with alias name ‘NO_OF_BOOKS’ such that the number of books are greater than 2 .
+
+SELECT CATEGORY, COUNT (*)NO_OF_BOOKS
+FROM LMS_BOOK_DETAILS
+GROUP BY CATEGORY 
+HAVING COUNT(CATEGORY) > 2
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem # 7: Write a query to display the number of books published by "Prentice Hall” with the alias name “NO_OF_BOOKS”.
+SELECT PUBLICATION, COUNT (PUBLICATION)NO_OF_BOOKS
+FROM LMS_BOOK_DETAILS
+GROUP BY PUBLICATION
+HAVING lower(PUBLICATION) = lower('Prentice Hall')
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Problem # 8: Write a query to display the book code, book title of the books which are issued on the date "1st April 2012".
+SELECT bi.BOOK_CODE, bd.BOOK_TITLE, bi.DATE_ISSUE
+FROM LMS_BOOK_ISSUE bi INNER JOIN LMS_BOOK_DETAILS bd ON(bi.BOOK_CODE = bd.BOOK_CODE)
+WHERE DATE_ISSUE = to_date('01-04-2012','dd-mm-yyyy')
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Problem # 9: Write a query to display the member id, member name, date of registration and expiry date of the members whose membership expiry date is before APR 2013.
+SELECT MEMBER_ID, MEMBER_NAME, DATE_REGISTER, DATE_EXPIRE
+FROM LMS_MEMBERS
+WHERE DATE_EXPIRE < TO_DATE('04-2013','mm-yyyy')
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Problem # 10: write a query to display the member id, member name, date of registration, membership status of the members who registered before "March 2012" and membership status is "Temporary"
+
+SELECT MEMBER_ID , MEMBER_NAME, DATE_REGISTER, DATE_EXPIRE 
+FROM LMS_MEMBERS 
+WHERE DATE_REGISTER < TO_DATE('03-2012','mm-yyyy') and upper(MEMBERSHIP_STATUS) = upper('Temporary')
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Problem #11: Write a query to display the member id, member name who’s City is CHENNAI or DELHI. Hint:case insenstive search and display the member name in title/sentence case with alias name 'Name'.
+
+SELECT MEMBER_ID, MEMBER_NAME, CITY
+FROM LMS_MEMBERS
+WHERE upper(CITY) in (upper('CHENNAI'),upper('DELHI'))
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Problem #12: Write a query to concatenate book title, author and display in the following format. Book_Title_is_written_by_Author Example: Let Us C_is_written_by_Yashavant Kanetkar Hint: display unique books. Use “BOOK_WRITTEN_BY” as alias name.
+
+SELECT DISTINCT Book_Title || '_is_written_by_' || Author BOOK_WRITTEN_BY
+FROM LMS_BOOK_DETAILS
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

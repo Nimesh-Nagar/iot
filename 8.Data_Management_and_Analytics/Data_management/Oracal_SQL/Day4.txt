@@ -1,0 +1,280 @@
+/* count of suppliers who stay in PUNE/MUMBAI/DELHI against their city  */
+select address , count(*) cnt_of_suppliers
+from lms_suppliers_details 
+where address in ('PUNE','MUMBAI','DELHI')
+group by address
+
+/* number of books in each category that are placed in rack_num A1/A2/A3 */
+select category , count(*) cnt_against_category
+from lms_book_details
+where rack_num in ('A1','A2','A3')
+group by category
+
+/* number of books issued in the month of APRIL/MAY  */
+select decode(extract ( month from date_issue ),4,'APRIL',5,'MAY') Month_ , count(*) cnt_of_books
+--select extract ( month from date_issue ) , count(*) cnt_of_books
+from lms_book_issue
+where extract ( month from date_issue ) in (4,5)
+group by extract ( month from date_issue ) ;
+
+
+/* count of members against their status and city */
+
+status city count
+temp   Pune  90
+perm   Pune  90
+
+select membership_status ,city, count(*)
+from lms_members 
+group by membership_status , city ;
+
+/* count of suppliers against their respective category of email accounts 
+who have gmail and yahoo accounts eg: gmail/yahoo
+category cnt 
+gmail     6
+yahoo     2
+*/
+
+select substr(email,-9) category, count(*) cnt_against_category
+from lms_suppliers_details sd
+where email like '%gmail.com' or email like '%yahoo.com'
+group by substr(email,-9);
+
+/* string functions */
+select substr('sing@gmail.com',5) from dual;
+select instr('sing@gmail.com','i',1,2) from dual;
+
+select upper('sing@gmail.com') from dual;
+select lower('sing@gmail.com') from dual;
+select initcap('sing@gmail.com') from dual;
+
+select trim('   sing@gmail.com    ') from dual;
+select rtrim('   sing@gmail.com    ') from dual;
+select ltrim('   sing@gmail.com    ') from dual;
+
+
+select substr('sing@gmail.com',-9) from dual;
+select substr('sing@yahoo.com',-9) from dual;
+
+
+/* count of suppliers against their respective category of email accounts 
+categories should be  gmail/ yahoo/ others 
+
+category cnt 
+gmail     6
+yahoo     2
+others    6 
+*/
+
+select substr(email,-9) category, count(*) cnt_against_category
+from lms_suppliers_details sd
+where email like '%gmail.com' or email like '%yahoo.com'
+group by substr(email,-9);
+
+select email, instr ( email ,'@' ) from lms_suppliers_details sd;
+
+
+select substr(email,instr ( email ,'@' ) ) category,
+decode
+( substr(email,instr ( email ,'@' ) ),
+'@yahoo.com','yahoo',
+'@gmail.com','gmail',
+'others'
+)
+new_category,
+count(*) cnt_against_category
+from lms_suppliers_details sd
+--where email like '%gmail.com' or email like '%yahoo.com'
+group by substr(email,instr ( email ,'@' ) );
+
+select 
+decode( substr(email,instr ( email ,'@' )) ,'@yahoo.com','yahoo','@gmail.com','gmail','Others')
+category, count(*) cnt_against_category
+from lms_suppliers_details sd
+group by decode( substr(email,instr ( email ,'@' )) ,'@yahoo.com','yahoo','@gmail.com','gmail','Others');
+
+/* category of book , total number of books under that category such that the category
+has more than 2 books */
+select category , count(*) no_of_books
+from lms_book_details 
+group by category
+having count(*) > 2 
+
+/* book_code and name of the book which has been issued atleast twice  */
+select  det.book_code, det.BOOK_TITLE
+from lms_book_details det  inner join lms_book_issue iss on ( det.book_code = iss.book_code)
+group by det.book_code,det.BOOK_TITLE
+having count(*) >=2;
+
+
+/* book_code and name of the book which has been issued more than 4 times and has more than 0 suppliers (Note: Java how to program has 2 book codes because of different published date) */
+
+select lms_book_issue.BOOK_CODE,lms_book_details.BOOK_TITLE, count(*) from
+lms_book_details INNER JOIN  lms_book_issue on (lms_book_issue.BOOK_CODE = lms_book_details.BOOK_CODE)
+where lms_book_details.supplier_id is not null 
+group by lms_book_issue.BOOK_CODE,lms_book_details.BOOK_TITLE
+having count(book_issue_no) > 4 
+-- ORDER BY lms_book_details.BOOK_TITLE DESC
+
+
+-- name of the supplier along with his contact number with an  flag 'Y' or 'N'
+-- 'y' -> he had supplied a book which has been issued to two or more members 
+-- 'n' --> he had supplied a book which has been issued to  less than two members 
+-- 'NA' --> if he hasn't supplied any book 
+
+/*
+supplier_name supplier_contact flag
+xyz             9090            Y   -> he had supplied a book which has been issued to two or more members 
+abc             9090            N   -> he had supplied a book which has been issued to  less than two members 
+efg             9090            NA  -> if he hasn't supplied any book 
+*/
+
+/* illustrate inline views for the above question  start */
+select  supplier_name,address from lms_suppliers_details ;
+select upper(city) address ,count(*) cnt_of_members from lms_members group by city ;
+
+supplier_name,address, cnt_of_members 
+
+select supplier_name,sd.address, cnt_of_members 
+from lms_suppliers_details sd inner join 
+(select upper(city) address ,count(*) cnt_of_members from lms_members group by city ) temp 
+on ( sd.address = temp.address ) ;
+
+/* illustrate inline views for the above question  ends */
+-- solution 
+select sd_outer.supplier_id,sd_outer.supplier_name , sd_outer.contact , 
+decode(temp.flag,NULL,'NA',temp.flag) flag
+from lms_suppliers_details sd_outer left join 
+(
+    select  sd.supplier_id
+    , count(*),
+    case when count(*) >=2 then 'Y' 
+         when count(*) <2 then 'N' 
+    end  flag
+    from lms_suppliers_details sd inner join lms_book_details bd on ( sd.supplier_id = bd.supplier_id ) 
+    left join lms_book_issue bi  on ( bd.book_code = bi.book_code )
+    group by sd.supplier_id
+) temp on (temp.supplier_id = sd_outer.supplier_id );
+
+/*
+
+PUNE 'YOU ARE IN MY WORKING LOCATION'
+CHENNAI 'HAVE A GREAT VACATION'
+DELHI  'WELCOME BACK HOME '
+         'I DONT KNOW WHEN THE HELL YOU ARE'   
+
+*/
+
+--- case illustration
+select city ,
+decode( city ,
+       'PUNE','YOU ARE IN MY WORKING LOCATION',
+       'CHENNAI','HAVE A GREAT VACATION',
+       'DELHI','WELCOME BACK HOME ',
+       'I DONT KNOW WHERE THE HELL YOU ARE'   ) decode_welcome_message,
+       
+case when city = 'PUNE'        then 'YOU ARE IN MY WORKING LOCATION'
+     when city = 'CHENNAI'        then 'HAVE A GREAT VACATION'
+     when city = 'DELHI'        then 'WELCOME BACK HOME'
+     else 'I DONT KNOW WHERE THE HELL YOU ARE'
+end case_welcome_message     
+
+from lms_members ;
+
+
+
+
+
+
+
+
+---------------------------
+--- order by demo 
+--------------------------
+
+select <mandatory>
+from <Mandatory>
+order by 
+
+/* name of the members ordered on their names ascending */
+select * from lms_members order by member_name;
+select * from lms_members order by membership_status asc , member_name desc;
+
+select * from lms_book_details order by supplier_id desc nulls last;
+
+/* list the book_name and issuance_date , date_of_expected_return 
+Such that the books that are to be returned at the earliest are seen at the top */
+select book_title,date_issue,date_return;
+
+select * 
+from lms_book_details bd inner join  lms_book_issue iss on (bd.book_code = iss.book_code)
+order by date_return asc nulls last;
+
+/*  list all the members such that the oldest member (the very first member to my LMS) 
+    of my LMS appears at the top
+*/ 
+select * 
+from lms_members 
+order by date_register asc nulls last ;
+
+/*  list all the members such that the longest duration of membership member(as of today)
+    appears at the top and the member is active right now  */ 
+    
+-- tried explaining why not use the difference in dates     
+select name,sysdate,date_register,round((sysdate-date_register)/365) from
+(
+    select 'Sagar' name , to_date('01-01-2010','dd-mm-yyyy') date_register from dual 
+    union 
+    select 'Gaurav' name , to_date('01-01-2001','dd-mm-yyyy') date_register from dual
+) lms_members
+-- order by (sysdate-date_register) desc
+order by date_register asc;
+
+select * 
+from lms_members 
+where sysdate < date_expire
+order by date_register asc nulls last ;
+
+/* provide the supplier name , their city , no_of_books supplied
+  based on the person who has supplied  most books comes at the top
+  note : we would have suppliers who have not supplied any books at the bottom of the output
+  and the count would be 0*/ 
+
+select sd.supplier_id,supplier_name , address , count( bd.supplier_id) cnt
+from lms_suppliers_details sd  left join  lms_book_details bd on (sd.supplier_id= bd.supplier_id)
+group by sd.supplier_id,supplier_name,address
+order by count( bd.supplier_id)  desc;
+
+
+/* provide the book codes and book names based on the least issued book comes at the top 
+  note : we would have books who have not been issued at the top of the output */
+
+/* provide the name of the member,total_fine based on the most fined member comes at the top
+  note : we would have members who have not been issued books at the bottom of the output */
+
+
+
+Assignment: 
+-- total number of books placed on given rack number 
+-- such that edition of the book is atleast 3 -- ( done)
+-- and it is supplied by a supplier who has a rediff / gmail account  -- ( done)
+-- and the book is issued to the students who are permanent in status -- ( done )
+/* sample O/P
+RACK_NUM	Total
+A1			2
+A3			1
+*/
+
+
+ -- total of number of all the books that have been issued to a member who stays in Delhi / Mumbai / Pune 
+ -- and book that was issued has arrived later than 1st July 2000
+ -- and supplied by a supplier who belongs to  Delhi / Mumbai / Pune / Chennai
+/* 
+ -- Sample o/p
+ member_name  city  total 
+ Amruta       Pune   1 
+*/ 
+
+
+
+

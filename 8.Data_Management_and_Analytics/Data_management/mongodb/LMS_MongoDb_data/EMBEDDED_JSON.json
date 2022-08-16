@@ -1,0 +1,44 @@
+{
+	"BOOK_CODE": "BL000001",
+	"BOOK_TITLE": "Java How To Do Program",
+	"CATEGORY": "JAVA",
+	"AUTHOR": "Paul J. Deitel",
+	"PUBLICATION": "Prentice Hall",
+	"PUBLISH_DATE": ISODate("1999-12-10T00:00:00.000+0000"),
+	"BOOK_EDITION": NumberInt(6),
+	"PRICE": NumberInt(600),
+	"RACK_NUM": "A1",
+	"DATE_ARRIVAL": ISODate("2011-05-10T00:00:00.000+0000"),
+	"BOOKS_SUPPLIED": [
+
+		{
+			"SUPPLIER_ID": "S01",
+			"SUPPLIER_NAME": "SINGAPORE SHOPPEE",
+			"ADDRESS": "CHENNAI",
+			"CONTACT": NumberLong(9894123555),
+			"EMAIL": "sing@gmail.com"
+		},
+		{
+			"SUPPLIER_ID": "S02",
+			"SUPPLIER_NAME": "JK Stores",
+			"ADDRESS": "MUMBAI",
+			"CONTACT": NumberLong(9940123450),
+			"EMAIL": "jks@yahoo.com"
+		}
+
+	]
+
+},
+{
+	"BOOK_CODE": "BL000002",
+	"BOOK_TITLE": "Java: The Complete Reference",
+	"CATEGORY": "JAVA",
+	"AUTHOR": "Herbert Schildt",
+	"PUBLICATION": "Tata Mcgraw Hill",
+	"PUBLISH_DATE": ISODate("2011-10-10T00:00:00.000+0000"),
+	"BOOK_EDITION": NumberInt(5),
+	"PRICE": NumberInt(750),
+	"RACK_NUM": "A1",
+	"DATE_ARRIVAL": ISODate("2011-05-10T00:00:00.000+0000")
+}
+

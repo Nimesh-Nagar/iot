@@ -1,0 +1,155 @@
+[
+	{
+		"_id": "C001",
+		"name": "Gaurav",
+		"address": "Pune",
+		"billing_address": {
+			"street_no": 123,
+			"landline_no": 74654
+		},
+		"contact": 1234566543,
+		"email_id": "gaurav@gmail.com",
+		"dob": "2008-04-23T00:00:00.000Z",
+		"gender": "Male",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X001",
+					"quantity_of_product": 5,
+					"date_added": "2021-10-20T00:00:00.000Z"
+				},
+				{
+					"product_id": "X002",
+					"quantity_of_product": 2,
+					"date_added": "2021-10-01T00:00:00.000Z"
+				}
+			],
+			"total_cost": 899
+		}
+	},
+	{
+		"_id": "C002",
+		"name": "Tabish",
+		"address": "Pune",
+		"billing_address": {
+			"street_no": 345,
+			"landline_no": 234
+		},
+		"contact": 456789922,
+		"email_id": "Tabish@gmail.com",
+		"dob": "2010-04-12T00:00:00.000Z",
+		"gender": "Male",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X003",
+					"quantity_of_product": 5,
+					"date_added": "2021-11-20T00:00:00.000Z"
+				},
+				{
+					"product_id": "X001",
+					"quantity_of_product": 2,
+					"date_added": "2021-03-01T00:00:00.000Z"
+				}
+			],
+			"total_cost": 340
+		}
+	},
+	{
+		"_id": "C003",
+		"name": "Shreyas",
+		"address": "Pune",
+		"billing_address": {
+			"street_no": 789,
+			"landline_no": 9808080
+		},
+		"contact": 543149893,
+		"email_id": "shreyas@gmail.com",
+		"dob": "2008-04-02T00:00:00.000Z",
+		"gender": "Male",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X001",
+					"quantity_of_product": 13,
+					"date_added": "2021-11-20T00:00:00.000Z"
+				},
+				{
+					"product_id": "X002",
+					"quantity_of_product": 1,
+					"date_added": "2021-03-01T00:00:00.000Z"
+				}
+			],
+			"total_cost": 3478
+		}
+	},
+	{
+		"_id": "C004",
+		"name": "Amruta",
+		"address": "Chennai",
+		"billing_address": {
+			"street_no": 3333,
+			"landline_no": 202745454
+		},
+		"contact": 5638767813,
+		"email_id": "amruta@rediff.com",
+		"dob": "2005-02-02T00:00:00.000Z",
+		"gender": "Female",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X001",
+					"quantity_of_product": 5,
+					"date_added": "2021-10-12T00:00:00.000Z"
+				}
+			],
+			"total_cost": 654
+		}
+	},
+	{
+		"_id": "C005",
+		"name": "Seema",
+		"address": "Bangalore",
+		"billing_address": {
+			"street_no": 567,
+			"landline_no": 287312232
+		},
+		"contact": 2983091983,
+		"email_id": "seema@rediff.com",
+		"dob": "2000-12-02T00:00:00.000Z",
+		"gender": "Female",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X002",
+					"quantity_of_product": 4,
+					"date_added": "2021-02-12T00:00:00.000Z"
+				}
+			],
+			"total_cost": 500
+		}
+	},
+	{
+		"_id": "C006",
+		"name": "Priyanka",
+		"address": "Bangalore",
+		"billing_address": {
+			"street_no": 447,
+			"landline_no": 2138092132
+		},
+		"contact": 2983222983,
+		"email_id": "priyanka@rediff.com",
+		"dob": "2018-12-02T00:00:00.000Z",
+		"gender": "Female",
+		"Cart": {
+			"added_products": [
+				{
+					"product_id": "X001",
+					"quantity_of_product": 1,
+					"date_added": "2021-01-11T00:00:00.000Z"
+				}
+			],
+			"total_cost": 50
+		}
+	}	
+]

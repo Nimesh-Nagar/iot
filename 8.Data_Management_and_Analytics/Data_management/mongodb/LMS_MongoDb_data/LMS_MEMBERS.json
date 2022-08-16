@@ -1,0 +1,225 @@
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc4"), 
+    "MEMBER_ID" : "LM001", 
+    "MEMBER_NAME" : "Akshay", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-26T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc5"), 
+    "MEMBER_ID" : "LM002", 
+    "MEMBER_NAME" : "Amruta", 
+    "CITY" : "PUNE", 
+    "DATE_REGISTER" : ISODate("2020-03-02T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-06-03T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc6"), 
+    "MEMBER_ID" : "LM003", 
+    "MEMBER_NAME" : "Ashish", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-08-17T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc7"), 
+    "MEMBER_ID" : "LM004", 
+    "MEMBER_NAME" : "Bhakti", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-05-12T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc8"), 
+    "MEMBER_ID" : "LM005", 
+    "MEMBER_NAME" : "Gautam", 
+    "CITY" : "BANGALORE", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-11-06T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dc9"), 
+    "MEMBER_ID" : "LM006", 
+    "MEMBER_NAME" : "Hetvi", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-26T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dca"), 
+    "MEMBER_ID" : "LM007", 
+    "MEMBER_NAME" : "Mayur", 
+    "CITY" : "Pune", 
+    "DATE_REGISTER" : ISODate("2019-09-19T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-19T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dcb"), 
+    "MEMBER_ID" : "LM008", 
+    "MEMBER_NAME" : "Nikhil", 
+    "CITY" : "Bangalore", 
+    "DATE_REGISTER" : ISODate("2020-03-09T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-06-03T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dcc"), 
+    "MEMBER_ID" : "LM009", 
+    "MEMBER_NAME" : "Nikita", 
+    "CITY" : "Delhi", 
+    "DATE_REGISTER" : ISODate("2012-12-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2021-12-12T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dcd"), 
+    "MEMBER_ID" : "LM010", 
+    "MEMBER_NAME" : "Preity", 
+    "CITY" : "Kerala", 
+    "DATE_REGISTER" : ISODate("2019-06-17T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-08-11T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dce"), 
+    "MEMBER_ID" : "LM011", 
+    "MEMBER_NAME" : "Priti", 
+    "CITY" : "Punjab", 
+    "DATE_REGISTER" : ISODate("2019-08-19T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2023-12-23T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dcf"), 
+    "MEMBER_ID" : "LM012", 
+    "MEMBER_NAME" : "Rasika", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-26T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd0"), 
+    "MEMBER_ID" : "LM013", 
+    "MEMBER_NAME" : "Renuka", 
+    "CITY" : "PUNE", 
+    "DATE_REGISTER" : ISODate("2020-03-02T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-06-03T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd1"), 
+    "MEMBER_ID" : "LM014", 
+    "MEMBER_NAME" : "Sandeep", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-08-17T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd2"), 
+    "MEMBER_ID" : "LM015", 
+    "MEMBER_NAME" : "Saurabh", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-05-12T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd3"), 
+    "MEMBER_ID" : "LM016", 
+    "MEMBER_NAME" : "Sayali", 
+    "CITY" : "BANGALORE", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-11-06T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd4"), 
+    "MEMBER_ID" : "LM017", 
+    "MEMBER_NAME" : "Shruti", 
+    "CITY" : "CHENNAI", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-26T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd5"), 
+    "MEMBER_ID" : "LM018", 
+    "MEMBER_NAME" : "Smita", 
+    "CITY" : "Pune", 
+    "DATE_REGISTER" : ISODate("2019-09-19T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-10-19T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd6"), 
+    "MEMBER_ID" : "LM019", 
+    "MEMBER_NAME" : "Snehal", 
+    "CITY" : "Bangalore", 
+    "DATE_REGISTER" : ISODate("2020-03-09T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-06-03T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd7"), 
+    "MEMBER_ID" : "LM020", 
+    "MEMBER_NAME" : "Supriya", 
+    "CITY" : "Delhi", 
+    "DATE_REGISTER" : ISODate("2012-12-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2021-12-12T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd8"), 
+    "MEMBER_ID" : "LM021", 
+    "MEMBER_NAME" : "Writankar", 
+    "CITY" : "Kerala", 
+    "DATE_REGISTER" : ISODate("2019-06-17T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-06-17T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dd9"), 
+    "MEMBER_ID" : "LM022", 
+    "MEMBER_NAME" : "Amit", 
+    "CITY" : "Punjab", 
+    "DATE_REGISTER" : ISODate("2019-08-19T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2023-12-23T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459dda"), 
+    "MEMBER_ID" : "LM023", 
+    "MEMBER_NAME" : "Ritesh", 
+    "CITY" : "Bangalore", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-08-17T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Permanent"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459ddb"), 
+    "MEMBER_ID" : "LM024", 
+    "MEMBER_NAME" : "Gaurav", 
+    "CITY" : "Delhi", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-05-12T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+},
+{ 
+    "_id" : ObjectId("5f51518d53f01c44d2459ddc"), 
+    "MEMBER_ID" : "LM025", 
+    "MEMBER_NAME" : "Sagar", 
+    "CITY" : "Kerala", 
+    "DATE_REGISTER" : ISODate("2018-06-12T00:00:00.000+0000"), 
+    "DATE_EXPIRE" : ISODate("2020-11-06T00:00:00.000+0000"), 
+    "MEMBERSHIP_STATUS" : "Temporary"
+}

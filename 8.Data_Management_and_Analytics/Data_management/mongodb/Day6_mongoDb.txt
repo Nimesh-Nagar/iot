@@ -1,0 +1,374 @@
+// insert any one document 
+// createcollection 
+
+// click on IntelliShell  
+show databases 
+use DUMMY // switch to a given database 
+
+
+db.createCollection( "product"); 
+
+show collections
+
+db.getCollectionInfos();
+db.getCollection("product");
+
+// --------- with validator
+db.product.drop();
+db.createCollection( "product"
+,
+{
+   validator: { $jsonSchema: {
+      bsonType: "object",
+     required: [ "product_name", "price" ],
+      properties: {
+               product_name: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            },
+			price: {
+               bsonType: "int",
+               description: "required"
+            }
+      }
+   } }
+}
+
+);
+
+/*
+[ {"name":""} , {"rollno":123} , {"subject":"computer"}]
+
+{
+   validator: { $jsonSchema: {
+      bsonType: "object",
+     required: [ "name"],
+      properties: {
+               name: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            }
+      }
+   } }
+}
+
+
+*/
+
+use demo // switch to demo database 
+
+db.createCollection("my_first_collection")
+show collections;
+
+
+// insert
+insert into demo.my_first_collection (my_first_field) values ('ONE');
+
+db.my_first_collection.insertOne(  { "my_first_field" : "ONE" }   );
+
+alter table demo.my_first_collection  add (my_second_field varchar2(110));
+insert into demo.my_first_collection (my_first_field , my_second_field) values (NULL,'SECOND');
+
+db.my_first_collection.insertOne(  { "my_second_field" : "SECOND" }   );
+db.my_first_collection.insertOne( {
+                                    	"my_first_field": "ONE",
+                                    	"my_second_field": "SECOND"
+                                   }
+                                 );
+
+db.my_first_collection.insertOne( {
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 );
+
+
+// see insert
+select my_first_field,my_second_field,my_third_field from my_first_collection;
+db.my_first_collection.find({},{my_second_field:1,my_third_field:1,my_first_field:1,_id:0 });
+db.my_first_collection.find({},{my_fourth_field:0,_id:0 });
+
+// insert mutliple documents
+db.my_first_collecton.insertMany(
+[
+	{
+											"my_third_field": "THIRD",
+											"my_fourth_field": "FOURTH"
+	},
+	{
+											"my_third_field": "ONE",
+											"my_fourth_field": "TWO"
+	},
+	{
+											"my_third_field": "ONE",
+											"my_fourth_field": "FOURTH"
+	}
+]
+);
+ 
+show collections
+
+db.my_first_collecton.find();
+
+// correct insert many 
+db.my_first_collection.insertMany(
+[
+	{
+											"my_third_field": "THIRD",
+											"my_fourth_field": "FOURTH"
+	},
+	{
+											"my_first_field": "ONE",
+											"my_second_field": "TWO"
+	},
+	{
+											"my_first_field": "ONE",
+											"my_fourth_field": "FOURTH"
+	}
+]
+);
+
+db.my_first_collection.find();
+
+
+// insert one ( case insensitive ) 
+
+db.my_first_collectIon.insertOne( {
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 );
+
+
+show collections
+
+// insert my object _id
+
+db.my_first_collectIon.insertOne( {
+                                    	"_id" : 1234567,
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 ); 
+
+db.my_first_collectIon.insertOne( {
+                                    	"_id" : "My_string",
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 );   
+
+// this fails because of duplicate _id
+db.my_first_collectIon.insertOne( {
+                                    	"_id" : "My_string",
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 );   
+                                 
+
+db.my_first_collectIon.find();                                 
+// lets try to insert same _id against different collection 
+db.my_first_collection.insertOne( {
+                                    	"_id" : "My_string",
+                                    	"my_third_field": "THIRD",
+                                    	"my_fourth_field": "FOURTH"
+                                   }
+                                 );   
+                                                                                                                          
+db.my_first_collection.find();    
+
+--------------------------------------------------------------------
+
+1- create a databasse named BOXOFFICE
+	use BOXOFFICE  //switch to agiven database
+------------------------------------------------------------------------	
+2- create a collection named movie
+	db.createCollection("movie")  //create the collection
+------------------------------------------------------------------------	
+3- insert one document {name: 'Pardes',"Box_office_collection": 900000,"invested_amount": 30000 }
+	
+db.movie.insertOne(
+{"name": 'Pardes',"Box_office_collection": 900000,"invested_amount": 30000 }
+)
+------------------------------------------------------------------------
+4- insert one document {name: "DDLJ"  , "box_office_collection": 4000,"invested_amount": 10000}
+
+db.movie.insertOne(
+{name: "DDLJ",Box_office_collection: 4000,invested_amount: 10000}
+)
+------------------------------------------------------------------------
+5- insert many documents
+	 {name: 'Hulk',"Box_office_collection": 200000,"invested_amount": 10000,"genre": "fiction"}
+	 {name: 'Iron man',"Box_office_collection": 400000,"invested_amount": 343400,"genre": "Marvel studios" }
+	 
+db.movie.insertMany(
+[
+	{name: 'Hulk',"Box_office_collection": 200000,"invested_amount": 10000,"genre": "fiction"},
+	{name: 'Iron man',"Box_office_collection": 400000,"invested_amount": 343400,"genre": "Marvel studios" }
+]
+)
+------------------------------------------------------------------------
+6- display the inserted documents using find function syntax:
+
+db.movie.find();
+------------------------------------------------------------------------
+7-drop the collection named movie.	
+
+db.movie.drop();  
+------------------------------------------------------------------------
+8- display the name of the movie and the invested_amount using find function 
+
+db.movie.find({},{"name":1,"invested_amount":1});
+------------------------------------------------------------------------
+9- dislay the name of the movie and th einvested amount whose name =='DDLJ' using find function 
+
+db.movie.find({'name':'DDLJ'},{"name":1,"invested_amount":1});
+------------------------------------------------------------------------
+10- delete the all DDLJ row/documenet in the table
+
+db.movie.deleteMany({name:"DDLJ"});
+
+db.movie.deleteOne({name:"Hulk"});  //if specific one dele
+------------------------------------------------------------------------
+11- update the invested_amount where name is ddlj.
+
+db.movie.updateMany({name:"DDLJ"},{$set :{invested_amount: 0} });
+
+db.movie.updateOne({name:"Pardes"},{$set :{invested_amount: 90} });
+
+--------------------------------------------------------------------
+ /* insert many documents 
+[
+{name: "HULK" , "Box_office_collection" : 200000 , "invested_amount": 1000},
+{name: "IRON MAN" , "Box_office_collection" : 150000 , "invested_amount": 100},
+{name: "HULK" , "Box_office_collection" : 200000 , "invested_amount": 1000},
+{name: "IRON MAN" , "Box_office_collection" : 150000 , "invested_amount": 100},
+{name: "DOCTOR STRANGE" , "Box_office_collection" : 200000 , "invested_amount": -9999},
+{name: "DOCTOR STRANGE" , "Box_office_collection" : 200000 , "invested_amount": -9999},
+{name: "WAQT" , "Box_office_collection" : 150000 , "invested_amount": -9},
+{name: "WAQT" , "Box_office_collection" : 150000 , "invested_amount": -8}
+]
+*/
+
+db.movie.insertMany([
+{name: "HULK" , "Box_office_collection" : 200000 , "invested_amount": 1000},
+{name: "IRON MAN" , "Box_office_collection" : 150000 , "invested_amount": 100},
+{name: "HULK" , "Box_office_collection" : 200000 , "invested_amount": 1000},
+{name: "IRON MAN" , "Box_office_collection" : 150000 , "invested_amount": 100},
+{name: "DOCTOR STRANGE" , "Box_office_collection" : 200000 , "invested_amount": -9999},
+{name: "DOCTOR STRANGE" , "Box_office_collection" : 200000 , "invested_amount": -9999},
+{name: "WAQT" , "Box_office_collection" : 150000 , "invested_amount": -9},
+{name: "WAQT" , "Box_office_collection" : 150000 , "invested_amount": -8}
+])
+
+
+/* delete all documents that has name = HULK */
+ db.movie.deleteMany({name:"HULK"});
+/* delete any one document that has name = IRON MAN */
+ db.movie.deleteOne({name:"IRON MAN"});
+/* update the invested_amount to 10,000 for all documents that has name=DOCTOR STRANGE */
+ db.movie.updateMany ({name:"DOCTOR STRANGE"},{$set : {invested_amount : 10000 } });
+/* update the invested_amount to 10 for any one document that has name=WAQT */
+ db.movie.updateOne ({name:"WAQT"},{$set : {invested_amount : 10 } });
+
+ 
+ /* increase the invested_amount by 999 for all documents that has name=DOCTOR STRANGE */
+// update movie set  invested_amount = invested_amount+999 where name = 'DOCTOR STRANGE' ;
+ db.movie.updateMany (
+                     {name:"DOCTOR STRANGE"},
+                     {$inc : {invested_amount: 999}   }
+                     );
+// incorrect name field updated 
+ db.movie.updateOne ({name:"WAQT"},{$set : {amount : 10 } });
+
+// Upsert mode on (upsert ===> update + insert operation)
+ db.movie.updateOne ({name:"RANDOM"},{$set : {invested_amount : 10 } },{upsert : true})
+
+
+--------------------
+--SELECT DEMO 
+---------------------
+// select *  from customer 
+db.customer.find({},{});
+
+// select *  from customer where address = 'Pune'
+db.customer.find({address: "Pune"},{});
+db.customer.find({address: { $eq: "Pune" }},{}); // $eq is implicit in above statement
+
+// select * from customer where address like '%pune%'
+
+db.getCollection("customer").find({ "address" : /.*pune.*/});
+db.getCollection("customer").find({ "address" : { $regex: /.*pune.*/ } });
+
+// select * from customer where lower(address) like '%pune%'
+db.getCollection("customer").find({ "address" : /.*pune.*/i}); 
+db.getCollection("customer").find({  "address" : { $regex: /.*pune.*/i } });
+
+// select * from customer where street_no = 123
+db.customer.find({"billing_address.street_no": 123},{});
+db.customer.find({"billing_address.street_no": {$eq: 123}},{});
+
+
+// select * from  customer.Cart.added_products[] where [].product_id = 'X001' // invalid syntax just for reference
+db.customer.find({ "Cart.added_products": {$elemMatch: { "product_id" : "X001"} }  },{});
+
+// select * from  customer.Cart.added_products[] where [].product_id = 'X003' // invalid syntax just for reference
+db.customer.find({ "Cart.added_products": {$elemMatch: { "product_id" : "X003"} }  },{});
+
+// select * from customer where total_cost > 350
+db.customer.find({"Cart.total_cost": {$gt: 350}},{});
+
+// select * from customer where total_cost > 350 and address = 'Pune'
+db.customer.find({"Cart.total_cost": {$gt: 350} , address : "Pune"},{});
+db.customer.find({  $and: [{"Cart.total_cost": {$gt: 350} }, {address : "Pune"}]  }   ,{});
+ 
+// db.customer.find({  $or: [{"Cart.total_cost": {$gt: 350} }, {address : "Pune"}]  }   ,{});
+
+// select * from customer where address in ('Pune','Chennai')
+db.customer.find({address: { $in : ["Pune","Chennai"]}},{});
+
+// select * from customer where lower(address) in ('pune','chennai')
+db.customer.find({address: { $in : [/pune/i,/chennai/i]}},{});
+
+// select * from customer where address != 'Chennai'
+db.customer.find({address: { $ne : "Chennai"}},{});
+
+
+-----------------------------------------------------------------
+/* Output the name of the movie , invested amount of all those whose names have a/A in it */
+
+db.movie.find({name : /a/i},{name:1,invested_amount:1});
+/* Output the name of the movie , invested amount of all those who invested amount is greater than
+10,000 Hint : use $gt operator to do the comparision */
+
+db.movie.find({invested_amount:{$gt:10000}},{name:1,invested_amount:1});
+
+/* Output the name of the movie , invested amount of all those who have genre Fiction 
+( case insensitive search)
+*/
+
+db.movie.find({genre : /fiction/i },{name:1,invested_amount:1});
+
+/* name of the movies who have profit greater than 10,000 */
+//Box_office_collection 
+//db.movie.find({},{name:1});
+-----------------------------
+assignment
+----------------------------
+
+1) Name of the supplier that reside in chennai  [Case insensitive ]
+2) Name of the supplier that reside in chennai/delhi/ahmedabad  [Case insensitive ]
+3) Name of the supplier , contact , email , Address 
+ who resides in either Mumbai Or Delhi [CI] 
+ and email does not belong to gmail account 
+4) book_name,book_publication
+ of all books placed on rack_num = a1 
+ and publication is not equal to tata mcgraw hill 
+5) book_code , member_id of all book issuances which have been fined 
+6) Query for embedded json dataset
+ book_name and publication whose has atleast one supplier from chennai (Case insensitive)
+ hint : $elemmatch
+
+
+

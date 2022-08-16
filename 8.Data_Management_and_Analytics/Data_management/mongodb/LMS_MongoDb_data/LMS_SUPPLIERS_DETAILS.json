@@ -1,0 +1,96 @@
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e2d"), 
+    "SUPPLIER_ID" : "S01", 
+    "SUPPLIER_NAME" : "SINGAPORE SHOPPEE", 
+    "ADDRESS" : "CHENNAI", 
+    "CONTACT" : NumberLong(9894123555), 
+    "EMAIL" : "sing@gmail.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e2e"), 
+    "SUPPLIER_ID" : "S02", 
+    "SUPPLIER_NAME" : "JK Stores", 
+    "ADDRESS" : "MUMBAI", 
+    "CONTACT" : NumberLong(9940123450), 
+    "EMAIL" : "jks@yahoo.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e2f"), 
+    "SUPPLIER_ID" : "S03", 
+    "SUPPLIER_NAME" : "ROSE BOOK STORE", 
+    "ADDRESS" : "TRIVANDRUM", 
+    "CONTACT" : NumberLong(9444411222), 
+    "EMAIL" : "rose@gmail.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e30"), 
+    "SUPPLIER_ID" : "S04", 
+    "SUPPLIER_NAME" : "KAVARI STORE", 
+    "ADDRESS" : "DELHI", 
+    "CONTACT" : NumberLong(8630001452), 
+    "EMAIL" : "kavi@redif.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e31"), 
+    "SUPPLIER_ID" : "S05", 
+    "SUPPLIER_NAME" : "EINSTEN BOOK GALLARY", 
+    "ADDRESS" : "US", 
+    "CONTACT" : NumberLong(9542000001), 
+    "EMAIL" : "eingal@aol.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e32"), 
+    "SUPPLIER_ID" : "S06", 
+    "SUPPLIER_NAME" : "AKBAR STORE", 
+    "ADDRESS" : "MUMBAI", 
+    "CONTACT" : NumberLong(7855623100), 
+    "EMAIL" : "akbakst@aol.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e33"), 
+    "SUPPLIER_ID" : "S07", 
+    "SUPPLIER_NAME" : "GUPTA STORE", 
+    "ADDRESS" : "CHENNAI", 
+    "CONTACT" : NumberLong(9899023555), 
+    "EMAIL" : "rom@gmail.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e34"), 
+    "SUPPLIER_ID" : "S08", 
+    "SUPPLIER_NAME" : "D MART", 
+    "ADDRESS" : "MUMBAI", 
+    "CONTACT" : NumberLong(9940123450), 
+    "EMAIL" : "dance@gmail.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e35"), 
+    "SUPPLIER_ID" : "S09", 
+    "SUPPLIER_NAME" : "BIG BAZAAR", 
+    "ADDRESS" : "TRIVANDRUM", 
+    "CONTACT" : NumberLong(9445511222), 
+    "EMAIL" : "rock@gmail.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e36"), 
+    "SUPPLIER_ID" : "S10", 
+    "SUPPLIER_NAME" : "JIO MART", 
+    "ADDRESS" : "DELHI", 
+    "CONTACT" : NumberLong(8644001452), 
+    "EMAIL" : "free@rediff.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e37"), 
+    "SUPPLIER_ID" : "S11", 
+    "SUPPLIER_NAME" : "GODREJ FARM", 
+    "ADDRESS" : "US", 
+    "CONTACT" : NumberLong(9542440001), 
+    "EMAIL" : "champ@yahoo.com"
+},
+{ 
+    "_id" : ObjectId("5f51535953f01c44d2459e38"), 
+    "SUPPLIER_ID" : "S12", 
+    "SUPPLIER_NAME" : "ZOMATO", 
+    "ADDRESS" : "MUMBAI", 
+    "CONTACT" : NumberLong(7855623440), 
+    "EMAIL" : "money@gmail.com"
+}

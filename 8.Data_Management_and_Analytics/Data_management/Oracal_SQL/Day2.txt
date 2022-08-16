@@ -1,0 +1,257 @@
+
+select * from user_constraints where TABLE_NAME = 'TEST_UNIQUE';
+select * from user_cons_columns;
+---------------------------------------------------------------------------------------------------
+--- Primary KEY constraint
+drop table test;
+create table test 
+(
+name varchar2(10) primary key
+);
+
+create table test 
+(
+name varchar2(10) constraint my_first_IN_pk_cons primary key
+);
+
+create table test 
+(
+name varchar2(10) ,
+constraint my_first_primary_key_cons primary key(name)
+);
+
+
+select * from test;
+
+insert into test values ('gaurav'); 
+
+insert into test values ('sagar'); 
+insert into test values (NULL); 
+
+update test set name = 'XYZ' 
+
+---------------------------------------------------------------------------------------------------
+--- UNIQe KEY constraint
+drop table test_unique;
+create table test_unique 
+(
+name varchar2(10) unique 
+);
+
+create table test_unique 
+(
+name varchar2(10) constraint my_first_uq_cons unique 
+);
+
+create table test_unique 
+(
+name varchar2(10) ,
+constraint my_first_ol_uq_cons unique (name)
+);
+
+insert into test_unique values ('gaurav'); 
+insert into test_unique values ('gaurav'); 
+insert into test_unique values (NULL); 
+
+drop table test_unique1 ;
+create table test_unique1 
+(
+name varchar2(10) ,
+city varchar2(10) unique ,
+constraint my_first_ol_uq_cons unique (name)
+);
+
+insert into test_unique1 values ('gaurav','Pune'); 
+insert into test_unique1 values ('gaurav1','Pune'); 
+
+
+create table test_notnull 
+(
+name varchar2(10) not null
+);
+
+insert into test_notnull values ('gaurav'); 
+insert into test_notnull values ('gaurav'); 
+insert into test_notnull values (NULL); 
+
+
+create table test_check
+(
+age number check (age> 18)
+);
+
+insert into test_check values (19); 
+insert into test_check values (17); 
+
+
+
+create table test_check_not_null
+(
+age number not null check (age> 18)
+);
+
+insert into test_check_not_null values (19); 
+insert into test_check_not_null values (17); 
+insert into test_check_not_null values (null);
+
+----------
+create a table named
+books(book_ISBN(PK),book_title(Not null),book_category['C'/'JAVA'],book_edition,
+book_barcode_number(Unique))
+ISBN,"Let us C" , C , 1 , 9898
+ISBN,"Let us C" , C , 2 , 9696
+ISBN,"Python coding" , Python , 1 , 7878
+ISBN,"JAVA code" , "JAVA" , NUll, 65465
+ISBN,NULL,"C",3,8989
+
+select * from test where name in('gaurav','sagar');
+select * from test where name = 'gaurav' or name = 'sagar';
+
+name varchar2(10) primary key 
+name varchar2(10) unique
+name varchar2(10) not null
+age number check (age> 18)
+
+---------
+drop  table books;
+create table books(
+book_ISBN number primary key ,
+book_title varchar2(4000) not null,
+book_category varchar2(4000) check ( book_category in ('C','JAVA')) ,
+book_edition number,
+book_barcode_number number Unique
+);
+
+
+
+insert into books values (123,'Let us C' , 'C' , 1 , 9898);
+insert into books values (124,'Let us C' , 'C' , 2 , 9696);
+insert into books values (125,'Python coding' , 'Python' , 1 , 7878);
+insert into books values (126,'JAVA code' , 'JAVA' , NUll, 65465);
+insert into books values (127,NULL,'C',3,8989);
+
+--------------------------------------------
+Foreign key demo
+------------------------------------------
+
+create table Department ( dept_id number primary key , dept_name varchar2(100));
+
+drop table employee;
+
+create table employee (Emp_id number primary key ,	Emp_name varchar2(100),	
+dept_identification number ,
+dummy_column varchar2(100) ,
+constraint fk_1 foreign key (dept_identification) references Department(dept_id)
+--,constraint fk_2 foreign key (dummy_column) references Department(dept_name)
+);
+
+insert into Department values ( 1,'CS');
+
+insert into employee values ( 100,'gaurav',1);
+insert into employee values ( 101,'gaurav',100);
+insert into employee values ( 101,'gaurav',NULL);
+
+--------------------
+altering the table to add a constraint
+---------------
+
+
+create table Department ( dept_id number primary key , dept_name varchar2(100));
+create table employee (Emp_id number primary key ,	Emp_name varchar2(100),	
+dept_identification number , dummy_column varchar2(100) 
+);
+
+ALTER TABLE employee ADD CONSTRAINT my_first_altered_cons foreign key (dept_identification) references Department(dept_id);
+
+insert into Department values ( 1,'CS');
+
+insert into employee values ( 100,'gaurav',1,'YYY');
+insert into employee values ( 101,'gaurav',100,'YYY');
+insert into employee values ( 101,'gaurav',NULL,'YYY');
+
+delete from employee where emp_id = 101;
+select * from employee;
+
+creation / insert 
+    parent (lms_supplier_details)
+    child(lms_book_details)
+
+drop
+    child(lms_book_details)
+    parent (lms_supplier_details)
+
+----------------------------------------------------------------------
+Simple Selects Demo
+----------------------------------------------------------------------
+
+
+
+Name of the supplier that reside in chennai/delhi/ahmedabad [CI]
+
+select supplier_name from lms_suppliers_details
+where upper(ADDRESS)  in('CHENNAI','DELHI','AHMEDABAD');
+
+
+select sysdate from dual;
+alter session set nls_date_format = 'dd-MON-yyyy hh24:mi:ss';
+
+/*
+Display 
+Name of the member , City in which he resides , date of membership expiry,
+duration in days in which he is a member as of today
+*/
+
+--select * from lms_members;
+-- insert --- (date_register,date_expire) values ( sysdate , date_register + (1.5*365))
+
+alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss'
+select trunc(sysdate) , sysdate from dual;
+
+SELECT  
+MEMBER_NAME "registered member name",
+CITY,
+DATE_EXPIRE,
+sysdate ,
+trunc(sysdate) truncated_sysdate,
+date_register "date_register",
+round((sysdate - date_register )) first_way,
+trunc(sysdate) - date_register second_way
+from lms_members ;
+
+
+--select * from lms_book_details;
+/*
+a) Name of the book , Year in which it was published , publication name , 
+Category , Type of Language (Java -> Object Oriented Language , C-> Procedural language )
+for book that were published on or after Year 2005 or not published by Tata Mcgraw Hill
+*/
+decode(param1,case1,value1,case2,value2,....,default) 
+decode(CITY,'PUNE','Hurray','Chennai','Thaliava','OMG')
+if city = 'PUNE' then 'Hurray' elsif city = 'Chennai' then 'Thaliava'  else 'OMG'
+
+select city ,initcap(CITY), decode(initcap(CITY),'Pune','Hurray','Chennai','Thaliava','OMG') new_derived_column 
+from lms_members 
+
+alter session set nls_date_format = 'dd-mon-yyyy'
+select sysdate, extract (YEAR from sysdate) from dual;
+
+select book_title, extract (YEAR from publish_date) Publish_year ,PUBLICATION,category,
+decode(category,'JAVA','Obj','C','PP') type_of_language
+from lms_book_details 
+where extract (YEAR from publish_date) >= 2005 or trim(PUBLICATION) != 'Tata Mcgraw Hill';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

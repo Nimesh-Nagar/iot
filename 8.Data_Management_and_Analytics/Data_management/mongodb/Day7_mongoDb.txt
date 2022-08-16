@@ -1,0 +1,558 @@
+--- aggregate function demo
+db.getCollection("movie").find({Box_office_collection : {$gt : 200000}},{name:1,invested_amount : 1 , _id:0 })
+
+db.getCollection("movie").aggregate(
+    [
+        { 
+            "$match" : { 
+                "Box_office_collection" : { "$gt" : 200000.0}
+                        }
+        }, 
+        { 
+            "$project" : { "name" : 1.0, "invested_amount" : 1.0, "_id" : 0.0
+                         }
+        }
+    ]
+);
+
+----------------------
+exercises on aggregate function with simple where and project clauses 
+----------------------
+
+// select *  from customer 
+db.customer.find({},{});
+
+// select *  from customer where address = 'Pune'
+db.customer.find({address: "Pune"},{});
+db.customer.find({address: { $eq: "Pune" }},{}); // $eq is implicit in above statement
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { 
+                "address" : "Pune"
+                       }
+        }
+    ]
+);
+
+
+// select * from customer where street_no = 123
+db.customer.find({"billing_address.street_no": 123},{});
+db.customer.find({"billing_address.street_no": {$eq: 123}},{});
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { 
+                "billing_address.street_no" : 123.0
+            }
+        }
+    ]
+);
+
+// select * from customer where total_cost > 350
+db.customer.find({"Cart.total_cost": {$gt: 350}},{});
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { "Cart.total_cost": {$gt: 350}
+                       }
+        }
+    ]
+);
+
+
+// select * from customer where total_cost > 350 and address = 'Pune'
+db.customer.find({"Cart.total_cost": {$gt: 350} , address : "Pune"},{});
+db.customer.find({  $and: [{"Cart.total_cost": {$gt: 350} }, {address : "Pune"}]  }   ,{});
+
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : {         $and:  [{"Cart.total_cost": {$gt: 350}} , {address : "Pune"}]
+                       }
+        }
+    ]
+);
+
+// db.customer.find({  $or: [{"Cart.total_cost": {$gt: 350} }, {address : "Pune"}]  }   ,{});
+
+// select * from customer where address in ('Pune','Chennai')
+db.customer.find({address: { $in : ["Pune","Chennai"]}},{});
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { address: { $in : ["Pune","Chennai"]}
+                       }
+        }
+    ]
+);
+
+// select * from customer where lower(address) in ('pune','chennai')
+db.customer.find({address: { $in : [/pune/i,/chennai/i]}},{});
+
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { address: { $in : [/pune/i,/chennai/i]}
+                       }
+        }
+    ]
+);
+
+
+
+// select * from customer where address != 'Chennai'
+db.customer.find({address: { $ne : "Chennai"}},{});
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { address: { $ne : "Chennai"}
+                       }
+        }
+    ]
+);
+
+// select * from customer where address like '%pune%'
+db.getCollection("customer").find({ "address" : /.*pune.*/});
+db.getCollection("customer").find({ "address" : { $regex: /.*pune.*/ } });
+
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { "address" : /pune/
+                       }
+        }
+    ]
+);
+
+// select * from customer where lower(address) like '%pune%'
+db.getCollection("customer").find({ "address" : /.*pune.*/i}); 
+db.getCollection("customer").find({  "address" : { $regex: /.*pune.*/i } });
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { "address" : /pune/i
+                       }
+        }
+    ]
+);
+
+// select * from  customer.Cart.added_products[] where [].product_id = 'X001' // invalid syntax just for reference
+db.customer.find({ "Cart.added_products": {$elemMatch: { "product_id" : "X001"} }  },{});
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { "Cart.added_products": {$elemMatch: { "product_id" : "X001"} }
+                       }
+        }
+    ]
+);
+// select * from  customer.Cart.added_products[] where [].product_id = 'X003' // invalid syntax just for reference
+db.customer.find({ "Cart.added_products": {$elemMatch: { "product_id" : "X003"} }  },{});
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { "Cart.added_products": {$elemMatch: { "product_id" : "X003"} }
+                       }
+        }
+    ]
+);
+
+
+
+/* displaying part of the array during projection using the slice operator */
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$project" : 
+            {      name:1,
+                   address:1,
+                   "part_of_array_which_has_X001" :
+                   {
+                      $slice: [
+                        {
+                          $filter: { input: "$Cart.added_products", cond: { $eq: [ "$$this.product_id", "X001" ] } }
+                        },
+                        -1
+                      ] 
+                   }
+                    
+                }
+        }
+    ],
+);
+
+---------------------------------
+/// Aggregate framework
+---------------------------------
+
+// 6) select address , count(*) my_cnt  [$project]
+// 1) from customer  
+// 2) where address in ('Pune','Bangalore','Chennai')   [$match]
+// 3) group by address  [$group]
+// 4) having count(*) > 1  [$match]
+// 5) order by address desc  [$sort]
+
+
+---- drawing parallels from oracle syntax to mongo syntax
+//select address city, count(*) count_of_people
+//from customer
+//where lower(email_id) like '%@gmail.com'
+//group by address 
+// having count(*) > 1 
+// order by count(*) desc;
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { 
+                "email_id" : /gmail.com/
+            }
+        }, 
+        { 
+            "$group" : { 
+                "_id" : { 
+                    "my_grouping_field" : "$address"
+                }, 
+                "my_first_count" : { 
+                    "$sum" : NumberInt(1)
+                }
+            }
+        }, 
+        { 
+            "$match" : { 
+                "my_first_count" : { 
+                    "$gt" : 1.0
+                }
+            }
+        }, 
+        { 
+            "$sort" : { 
+                "count_of_people" : 1.0
+            }
+        }, 
+        { 
+            "$project" : { 
+                "city" : "$_id.my_grouping_field", 
+                "count_of_people" : "$my_first_count", 
+                "_id" : 0.0
+            }
+        }
+    ]
+); 
+
+
+// select * from customers where address = "Pune" order by name asc 
+db.customer.find({address:"Pune"},{}).sort({name: 1});
+db.customer.aggregate ([{ $match:{address: "Pune"}},  {$sort : {name: 1} }    ])
+
+
+db.customer.find({address: { $in : ["Pune","Bangalore","Chennai"]}});
+db.customer.aggregate  // stage 1 : from
+( [    
+       // stage 2 : where 
+       {
+           $match : {      address: { $in : ["Pune","Bangalore","Chennai"]}    }
+       }
+      ,
+       // stage 3 : group by 
+       {
+          $group :  { _id : { address : "$address" } ,"cnt" : { "$sum" : NumberInt(1)} }
+       }
+       ,
+      // stage 4 : having
+       {
+           $match : { cnt : {$gt : 1 }}
+       }
+       ,
+       // stage 5 : order by 
+       {
+          $sort : { "_id.address" : -1 }
+       }
+       ,
+       // stage 6 : Select / Project 
+       {
+          $project : {  address : "$_id.address", my_cnt : "$cnt" , _id : 0 }
+       }
+      ] );
+
+
+db.customer.find({},{});
+
+----------------------------
+Aggregate framework continued  -- GROUP BY 
+------------------------------
+
+db.customer.find({},{});
+
+// give me name of the city(address) , count of number of people in that city(address)
+//such that email_id for that customer is from google ( ends with @gmail.com)
+
+//select address city, count(*) count_of_people
+//from customer
+//where lower(email_id) like '%@gmail.com'
+//group by address ;
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { 
+                "email_id" : /.*@gmail.com/i
+            }
+        }, 
+        { 
+            "$group" : { 
+                "_id" : { 
+                    "address" : "$address"
+                }, 
+                "count_of_people" : { 
+                    "$sum" : 1.0
+                }
+            }
+        }, 
+        { 
+            "$project" : { 
+                "city" : "$_id.address", 
+                "count_of_people" : 1.0, 
+                "_id" : 0.0
+            }
+        }
+    ]
+);
+
+// get the gender and the respective count from customer collection 
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$group" : { 
+                "_id" : { 
+                    "gender" : "$gender"
+                }, 
+                "count_against_genders" : { 
+                    "$sum" : 1.0
+                }
+            }
+        }, 
+        { 
+            "$project" : { 
+                "gender" : "$_id.gender", 
+                "_id" : 0.0, 
+                "count_against_genders" : 1.0
+            }
+        }
+    ]
+);
+
+// Unwind operation Opens the array elements for use 
+    db.getCollection("product").aggregate(
+    
+    	// Pipeline
+    	[
+    		// Stage 1
+    		{
+    			$match: {
+    			    
+    			    "_id" : {$in: ["X004","X005","X002","X001"]}
+    			}
+    		},
+    		// Stage 2
+    		{
+    			$project: {
+    			   product_name : 1 , price: 1 ,Supplier_list: 1
+    			    
+    			}
+    		},
+    
+    		// Stage 3
+    		{
+    			$unwind: {
+    			    path: "$Supplier_list"
+    			    ,includeArrayIndex: "arrayIndex" // optional
+    			    ,preserveNullAndEmptyArrays: true // optional
+    			}
+    		},
+    	]
+    );
+	
+	
+	
+	
+	
+// name of the customer who has a gmail account
+// and has added_products array an element which was added after 01-10-2021
+
+db.getCollection("customer").aggregate(
+    [
+        { 
+            "$match" : { 
+                "email_id" : /.*gmail.com/i
+            }
+        }, 
+        { 
+            "$unwind" : { 
+                "path" : "$Cart.added_products"
+            }
+        }, 
+        { 
+            "$match" : { 
+                "Cart.added_products.date_added" : { 
+                    "$gte" : "2021-10-01T00:00:00.000Z"
+                }
+            }
+        }, 
+        { 
+            "$group" : { 
+                "_id" : { 
+                    "name" : "$name"
+                }
+            }
+        }, 
+        { 
+            "$project" : { 
+                "name" : "$_id.name", 
+                "_id" : 0.0
+            }
+        }
+    ], 
+    { 
+        "allowDiskUse" : false
+    }
+);
+
+---------------------
+exercises
+---------------------
+
+
+
+// -----------------------------
+// join tryout 
+// -----------------------------
+
+// general syntax 
+/*
+
+{
+    from: "<collection to join>",
+    localField: "<field from the input documents>",
+    foreignField: "<field from the documents of the 'from' collection>",
+    as: "<output array field>"
+}
+
+*/
+
+// example translation from oracle inner join to mongodb $lookup
+//select lms_members.* 
+// from lms_members left join lms_book_issue on (lms_members.member_id = lms_book_issue.member_id ) ;
+
+db.LMS_MEMBERS.aggregate([
+{$lookup : 
+    {
+        from: "LMS_BOOK_ISSUE",
+        localField: "MEMBER_ID",
+        foreignField: "MEMBER_ID",
+        as: "output array of_issuances"
+    }
+} 
+  
+]
+);
+
+// Demo Example 
+// all members who have issued a book
+// using joins 
+//select lms_members.* 
+//from lms_members inner join lms_book_issue on (lms_members.member_id = lms_book_issue.member_id ) ;
+/*
+
+// Equality Match [Left JOIN]
+{
+    from: "<collection to join>",
+    localField: "<field from the input documents>",
+    foreignField: "<field from the documents of the 'from' collection>",
+    as: "<output array field>"
+}
++ $match
+*/
+// solution 1 members left join issuances followed by discarding empty issuances 
+db.getCollection("LMS_MEMBERS").aggregate(
+    [
+        { 
+            "$lookup" : { 
+                "from" : "LMS_BOOK_ISSUE", 
+                "localField" : "MEMBER_ID", 
+                "foreignField" : "MEMBER_ID", 
+                "as" : "issued_members"
+            }
+        }, 
+        { 
+            "$match" : { 
+                "<output array field>" : { 
+                    "$ne" : []
+                }
+            }
+        }
+    ]
+);
+
+/// solution 2 issuances left join members but will need to unwind and project member details 
+db.getCollection("LMS_BOOK_ISSUE").aggregate(
+    [
+        { 
+            "$lookup" : { 
+                "from" : "LMS_MEMBERS", 
+                "localField" : "MEMBER_ID", 
+                "foreignField" : "MEMBER_ID", 
+                "as" : "issued_members"
+            }
+        }, 
+        { 
+            "$unwind" : { 
+                "path" : "$issued_members"
+            }
+        }, 
+        { 
+            "$group" : { 
+                "_id" : { 
+                    "MEMBER_ID" : "$issued_members.MEMBER_ID", 
+                    "MEMBER_NAME" : "$issued_members.MEMBER_NAME"
+                }
+            }
+        }, 
+        { 
+            "$project" : { 
+                "MEMBER_ID" : "$_id.MEMBER_ID", 
+                "MEMBER_NAME" : "$_id.MEMBER_NAME", 
+                "_id" : 0.0
+            }
+        }
+    ]
+);
+
+//  name of the suppliers who reside in 'pune/mumbai/chennai'[CI]
+// who have supplied a book placed on rack_numbers A1/A2/A3
+
+
+
+// expr example
+db.getCollection("LMS_BOOK_DETAILS").find();
+db.getCollection("LMS_BOOK_DETAILS").find({ "BOOK_EDITION" :  5 })
+db.getCollection("LMS_BOOK_DETAILS").find({ "BOOK_EDITION" : { $gt : 6 }})
+
+db.getCollection("LMS_BOOK_DETAILS").find({ "BOOK_EDITION" : { $lt : "$PRICE" }})
+
+db.getCollection("LMS_BOOK_DETAILS").find({$expr : { $lt :[ "BOOK_EDITION","PRICE"]} }
+,{_id:0,BOOK_CODE :1 , "NEW_FIELD": $BOOK_EDITION + $PRICE}
+)
+
+
+      

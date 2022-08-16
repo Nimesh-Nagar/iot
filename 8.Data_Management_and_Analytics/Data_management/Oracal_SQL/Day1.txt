@@ -1,0 +1,430 @@
+Databases -- > Collection of data that is stored efficiently 
+and fetched , analysed to make decisions
+
+DBMS -- > Software that host the database 
+Egs : Oracle (RDBMS) / Mongodb (Document store / NOSQL database )
+
+------------------------------------------------------------------------------------
+Opensource -- Postgres / MYSQL (Software is available for production use for Free 
+but the support is paid ) 
+
+Oracle / SQL Server / DB2
+
+------------------------------------------------------------------------------------
+Oracle 
+------------------------------------------------------------------------------------
+
+1) RDBMS 
+) SQL [Structured Query Language ]
+
+DDL (Data Definition Language)
+	Create [Create a schema object ]
+	Drop [Drop a schema object ]
+	Alter [Alter the definition ]
+	Truncate 
+
+DML (Data Manipulation language)
+	Insert / Delete / Update / 
+DCL ( Data Control Language)
+	GRANT / REVOKE 
+
+TCL ( Transaction COntrol Language)
+  COMMIT / ROLLBACK / SAVEPOINT 
+DQL ( Data Query Language)
+	Select 
+
+-------------------------------------
+create table 
+100 
+
+		
+insert A , B    Transaction t1 started 
+	savepoint stage1
+insert A1 , B1 
+insert A2 , B2
+	savepoint stage2
+insert X , Y
+insert X1 , Y1 
+	savepoint stage3
+insert X2 , Y2
+
+
+rollback;
+
+
+select 100 
+
+----------------------------------------------------------
+select * from user_tables ; 
+select * from user_tab_columns ; 
+
+CrEAtE table my_first_table
+(
+rollno number,
+name varchar2(100),
+dob date   
+);
+
+
+drop table my_first_table;
+
+alter table my_first_table add (city varchar2(100));
+alter table my_first_table drop (city);
+alter table my_first_table rename column rollno to roll_number;
+alter table my_first_table modify(name varchar2(200));
+
+
+create table my_second_table
+(
+reg_no number,
+name varchar2(100),
+doe date,
+city varchar2(100)
+);
+
+alter table my_second_table add (event_name varchar2(100));
+alter table my_second_table add (event_owner varchar2(100));
+alter table my_second_table drop (event_owner);
+
+alter table my_second_table rename column event_name to event_NM;
+alter table my_second_table modify (reg_no varchar2(100));
+
+RENAME my_second_table TO my_new_second_table;
+
+----------------------------------------------------------------------------------------------------------
+select * from dual;
+
+select 1+2 from dual ;
+select 1,'gaurav',to_date('01-jan-2001','dd-mon-yyyy') from dual;
+
+insert into my_first_table (roll_number,name,dob)
+values(1,'gaurav',to_date('01-jan-2001','dd-mon-yyyy') );
+
+insert into my_first_table (roll_number,name,dob)
+values(2,'sagar',to_date('10-jan-2001','dd-mon-yyyy') );
+
+insert into my_first_table 
+values(2,'pratik',to_date('11-jan-2001','dd-mon-yyyy') );
+
+select * from my_first_table ;
+
+insert into my_second_table (reg_no,name,doe,city,event_nm)
+values 
+(101,'Gaurav',to_date('27-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+
+select * from my_second_table;
+
+
+---------------------
+Demo Update and delete
+--------------------
+
+create table my_second_table
+(
+reg_no varchar2(100),
+name varchar2(100),
+doe date,
+city varchar2(100),
+event_name varchar2(100)
+);
+
+insert into my_second_table (reg_no,name,doe,city,event_name)
+values 
+(101,'Gaurav',to_date('27-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+
+insert into my_second_table (reg_no,name,doe,city,event_name)
+values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+
+select * from my_second_table where REG_NO = '101';
+
+delete from my_second_table where ???;
+delete from my_second_table where REG_NO = '101';
+
+-----
+update my_second_table set city = 'Banglore' where REG_NO = 102;
+select * from my_second_table;
+
+-- Insert 4 rows with city pune (2)  and bangalore (2)
+-- Update pune to mumbai
+-- delete all rows that have city as bangalore
+
+
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+
+select * from my_second_table where city = 'Pune';
+
+Update my_second_table set city = 'Mumbai' where city = 'Pune';
+select * from my_second_table where city = 'Mumbai';
+
+select * from my_second_table where city = 'Bangalore';
+delete from my_second_table where city = 'Bangalore';
+-----
+
+
+Rollback demo 
+----------------
+
+-- no data found 
+select * from my_second_table; 
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+
+rollback;
+select * from my_second_table; 
+
+---------
+-- no data found 
+select * from my_second_table; 
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+
+Commit;
+select * from my_second_table; 
+-------------------
+---- savepoint demo
+-------------------
+
+
+-- no data found 
+delete  from my_second_table; 
+select * from my_second_table; 
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(102,'Pratik',to_date('28-jun-2022','dd-mon-yyyy'),'Pune','Coding');
+    savepoint after_insert_1;
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+    savepoint after_insert_2;
+insert into my_second_table (reg_no,name,doe,city,event_name) values 
+(101,'Gaurav',to_date('28-jun-2022','dd-mon-yyyy'),'Bangalore','Coding');
+    savepoint after_insert_3;
+rollback to after_insert_2;
+select * from my_second_table; 
+
+
+----------------------- 
+Selects
+ <6> Select  -- project the columns <M>
+ <1> from    -- helps you identify the source of data <M>
+ 
+ <2> where  <expression/s> -- filter the data (O)
+ <3> group by -- group the filtered data into buckets (O)
+ <4> having  -- filters the result of group by (O)
+ <5> order by  -- orders the result  (O)
+ 
+ -----------------------------------------------------------
+  FROM >> WHERE >> GROUP BY >> HAVING >> ORDER BY >> SELECT 
+ -----------------------------------------------------------
+ 
+--------------------
+Select demo 
+--------------------
+create a table named institutions (i_id,i_name,i_city,i_phone_no)
+insert 4 institutions 1) Cdac  2) MIT  --- Commit 3) IIT  -- Rollback 4) BIT
+commit after MIT
+rollback before BIT
+-------------------
+drop table institutions;
+create table institutions(i_id number ,i_name varchar2(100) ,i_city varchar2(100),i_phone_no number);
+
+insert into institutions (i_id,i_name,i_city,i_phone_no)
+values (1,'MIT','Bangalore',5678);
+insert into institutions (i_id,i_name,i_city,i_phone_no)
+values (2,'IIT','Pune',9876);
+insert into institutions (i_id,i_name,i_city,i_phone_no)
+values (2,'NIT','PUNE',9876);
+
+insert into institutions (i_id,i_name,i_city,i_phone_no)
+values (3,'BIT','Mumbai',6754);
+
+select * from institutions;
+---------
+All institutions where they are in Pune 
+
+select * from institutions 
+where upper(i_city) = 'PUNE' and I_name = 'NIT';
+--------
+
+-----------------------------------------------------------------------------------------------------
+Constraints
+-----------------------------------------------------------------------------------------------------
+
+-----
+Super key ()
+	candidate key 
+				--> Primary key 
+				    alternate keys 	
+					
+
+
+tableA
+col1 col2 col3 col4 col5 
+s    a    g     a     r
+s    a    g     c
+
+candidate key
+1)col1 col2 col3 col4 col5  
+2)col1 col2 col3 col4 
+3)col1 col2 col3 
+
+4)col3 col4 col5 
+6)col3 col4 
+7)col1 
+
+
+Candidate keys 
+col1 col2 col3 
+col1 
+col3 col4 
+
+
+
+alternate keys 
+col1 col2 col3 
+col1 
+  
+col3 col4 -- primary key (cannot duplicate values , null values )
+
+Integrity constraints :
+a) primary key : not null + duplicate values -- we use primary keys 
+b) Not null constraints : cannot have null  values -- use not null keyword 
+c) Referential integrity : that the refered column should have a valid value -- foreign keys 
+
+
+employee table 						department
+emp_name dept_id 					dept_id,dept_name
+gaurav   D100	  					D100  , CS
+Sagar    D200						D200 , Mech
+AJAY     null [Passes]				D300 , ENTC
+Sarwesh  450 [Fails]
+
+
+d) Check constriants : 
+column can be applied an expression , if that expression is true then rows are valid
+
+
+check ( dob > to_date('01-01-2010','dd-mm-yyyy')
+employee table 			
+emp_name dept_id 		DOB
+gaurav   D100	  		12/12/12
+Sagar    D200			11/11/11
+AJAY     null			10/10/12	 
+Sarwesh  450            01/09/09 [Fails]
+
+
+e) Unique : value within the column on which it is applied is not duplicate 
+
+
+-----
+DEMO
+------
+
+create table named "Members" (member_no , member_name , member_city , membership_status)
+
+
+Give me all members who are Temporary in status
+
+create table Members
+(member_no number , member_name varchar2(100) , member_city varchar2(100), 
+membership_status varchar2(100));
+
+INSERT into Members values (1,'Gaurav', 'Pune','Permanent');
+INSERT into Members values (2,'Sagar','Mumbai','Permanent');
+INSERT into Members values (3,'Pratik','Chennai','Temporary');
+INSERT into Members values (4,'Hitesh','Bangalore','Temporary');
+
+select * from Members where lower(MEMBERSHIP_STATUS) = 'temporary';
+-- Give me members who have A/a in their names 
+
+select * from Members where lower(MEMBERSHIP_STATUS) = 'temporary';
+
+Welcome <member_name> to Pune and your parent city is <member_city> Welcome_Message
+
+ select CHR(32) from dual ;
+ 
+select  
+M.MEMBER_NAME xyz ,M.MEMBER_CITY abc,
+'Welcome '||member_city Welcome_message
+from Members M
+where member_name like  '%a%';
+
+-- 'Hi' <member_name> you are in following status : <status> welcome_message
+
+select  'Hi ' ||member_name || ' you are in following status : ' || membership_status welcome_message
+from Members M;
+
+--- Primary KEY constraint
+create table test 
+(
+name varchar2(10) primary key 
+);
+
+insert into test values ('gaurav'); 
+insert into test values ('gaurav'); 
+insert into test values (NULL); 
+
+
+--- UNIQe KEY constraint
+create table test_unique 
+(
+name varchar2(10) unique 
+);
+
+insert into test_unique values ('gaurav'); 
+insert into test_unique values ('gaurav'); 
+insert into test_unique values (NULL); 
+
+create table test_unique1 
+(
+name varchar2(10) unique ,
+city varchar2(10) unique 
+);
+
+insert into test_unique1 values ('gaurav','Pune'); 
+insert into test_unique1 values ('gaurav1','Pune'); 
+
+
+create table test_notnull 
+(
+name varchar2(10) not null
+);
+
+insert into test_notnull values ('gaurav'); 
+insert into test_notnull values ('gaurav'); 
+insert into test_notnull values (NULL); 
+
+
+create table test_check
+(
+age number check (age> 18)
+);
+
+insert into test_check values (19); 
+insert into test_check values (17); 
+
+
+
+create table test_check_not_null
+(
+age number not null check (age> 18)
+);
+
+insert into test_check_not_null values (19); 
+insert into test_check_not_null values (17); 
+insert into test_check_not_null values (null);
+

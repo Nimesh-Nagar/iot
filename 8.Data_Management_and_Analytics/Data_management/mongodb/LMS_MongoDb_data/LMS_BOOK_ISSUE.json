@@ -1,0 +1,232 @@
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e47"), 
+    "BOOK_ISSUE_NO" : NumberInt(1), 
+    "MEMBER_ID" : "LM001", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2012-05-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-16T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e48"), 
+    "BOOK_ISSUE_NO" : NumberInt(2), 
+    "MEMBER_ID" : "LM002", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2012-05-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-06T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-16T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R2"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e49"), 
+    "BOOK_ISSUE_NO" : NumberInt(3), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2012-04-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-04-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-04-20T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4a"), 
+    "BOOK_ISSUE_NO" : NumberInt(4), 
+    "MEMBER_ID" : "LM004", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2012-04-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-04-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-04-20T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4b"), 
+    "BOOK_ISSUE_NO" : NumberInt(5), 
+    "MEMBER_ID" : "LM005", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2012-04-20T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-05T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-05T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4c"), 
+    "BOOK_ISSUE_NO" : NumberInt(6), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2012-04-22T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-07T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-25T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R4"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4d"), 
+    "BOOK_ISSUE_NO" : NumberInt(7), 
+    "MEMBER_ID" : "LM001", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2013-05-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-16T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4e"), 
+    "BOOK_ISSUE_NO" : NumberInt(8), 
+    "MEMBER_ID" : "LM002", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2013-05-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-06T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-16T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R2"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e4f"), 
+    "BOOK_ISSUE_NO" : NumberInt(9), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2020-04-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2020-04-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2020-04-20T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e50"), 
+    "BOOK_ISSUE_NO" : NumberInt(10), 
+    "MEMBER_ID" : "LM004", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2020-04-01T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2020-04-16T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2020-04-20T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e51"), 
+    "BOOK_ISSUE_NO" : NumberInt(11), 
+    "MEMBER_ID" : "LM005", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2013-04-20T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-05T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-05T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e52"), 
+    "BOOK_ISSUE_NO" : NumberInt(12), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2013-04-22T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-07T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-25T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R4"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e53"), 
+    "BOOK_ISSUE_NO" : NumberInt(13), 
+    "MEMBER_ID" : "LM001", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2012-05-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-31T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-31T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e54"), 
+    "BOOK_ISSUE_NO" : NumberInt(14), 
+    "MEMBER_ID" : "LM002", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2012-05-06T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-21T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-31T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R2"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e55"), 
+    "BOOK_ISSUE_NO" : NumberInt(15), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2012-04-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-01T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-06T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e56"), 
+    "BOOK_ISSUE_NO" : NumberInt(16), 
+    "MEMBER_ID" : "LM004", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2012-04-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-01T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-06T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e57"), 
+    "BOOK_ISSUE_NO" : NumberInt(17), 
+    "MEMBER_ID" : "LM005", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2012-05-05T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-20T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-05-20T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e58"), 
+    "BOOK_ISSUE_NO" : NumberInt(18), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2012-05-07T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2012-05-22T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2012-06-11T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R4"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e59"), 
+    "BOOK_ISSUE_NO" : NumberInt(19), 
+    "MEMBER_ID" : "LM001", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2013-05-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-31T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-31T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e5a"), 
+    "BOOK_ISSUE_NO" : NumberInt(20), 
+    "MEMBER_ID" : "LM002", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2013-05-06T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-21T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-31T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R2"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e5b"), 
+    "BOOK_ISSUE_NO" : NumberInt(21), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000005", 
+    "DATE_ISSUE" : ISODate("2020-04-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2020-05-01T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2020-05-06T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e5c"), 
+    "BOOK_ISSUE_NO" : NumberInt(22), 
+    "MEMBER_ID" : "LM004", 
+    "BOOK_CODE" : "BL000007", 
+    "DATE_ISSUE" : ISODate("2020-04-16T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2020-05-01T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2020-05-06T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R1"
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e5d"), 
+    "BOOK_ISSUE_NO" : NumberInt(23), 
+    "MEMBER_ID" : "LM005", 
+    "BOOK_CODE" : "BL000002", 
+    "DATE_ISSUE" : ISODate("2013-05-05T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-20T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-05-20T00:00:00.000+0000")
+},
+{ 
+    "_id" : ObjectId("5f5153ca53f01c44d2459e5e"), 
+    "BOOK_ISSUE_NO" : NumberInt(24), 
+    "MEMBER_ID" : "LM003", 
+    "BOOK_CODE" : "BL000001", 
+    "DATE_ISSUE" : ISODate("2013-05-07T00:00:00.000+0000"), 
+    "DATE_RETURN" : ISODate("2013-05-22T00:00:00.000+0000"), 
+    "DATE_RETURNED" : ISODate("2013-06-11T00:00:00.000+0000"), 
+    "FINE_RANGE" : "R4"
+}

@@ -1,0 +1,232 @@
+/* provide the supplier name , their city , no_of_books supplied
+  based on the person who has supplied  most books comes at the top
+  note : we would have suppliers who have not supplied any books at the bottom of the output
+  and the count would be 0*/ 
+
+select sd.supplier_id,supplier_name , address , count( bd.supplier_id) cnt
+from lms_suppliers_details sd  left join  lms_book_details bd on (sd.supplier_id= bd.supplier_id)
+group by sd.supplier_id,supplier_name,address
+order by count( bd.supplier_id)  desc;
+
+
+/* provide the book codes and book names based on the least issued book comes at the top 
+  note : we would have books who have not been issued at the top of the output */
+
+select bd.book_code,bd.book_title, count(iss.book_code) from
+lms_book_Details bd left join lms_book_issue iss on (bd.book_code = iss.book_code)
+group by bd.book_code,bd.book_title
+order by count(iss.book_code) asc nulls last ;
+
+
+/* provide the name of the member,total_fine based on the most fined member comes at the top
+  note : we would have members who have not been issued books at the bottom of the output */
+
+select mem.member_name, decode(sum(fd.fine_amount),NULL,0,sum(fd.fine_amount)) total_fine from
+lms_members mem LEFT JOIN lms_book_issue iss on (mem.member_id = iss.member_id)
+left join  lms_fine_details fd  on ( iss.fine_range = fd.fine_range )
+group by mem.member_name
+order by sum(fd.fine_amount) desc nulls last ;
+
+Assignment: 
+-- total number of books placed on given rack number 
+-- such that edition of the book is atleast 3 -- ( done)
+-- and it is supplied by a supplier who has a rediff / gmail account  -- ( done)
+-- and the book is issued to the students who are permanent in status -- ( done )
+/* sample O/P
+RACK_NUM	Total
+A1			2
+A3			1
+*/
+select det.rack_num , count(distinct iss.book_code) total
+--select det.rack_num , count( iss.book_code) total
+FROM LMS_BOOK_dETAILS det inner join lms_suppliers_details sdet  on (det.supplier_id = sdet.supplier_id)
+inner join lms_book_issue iss on (det.book_code = iss.book_code)
+inner join lms_members mem on(mem.member_id = iss.member_id)
+where det.BOOK_EDITION > = 3 
+and  ( lower(sdet.EMAIL) like '%gmail.com' or lower(sdet.EMAIL) like '%redif.com' ) 
+and lower(mem.MEMBERSHIP_STATUS) = 'permanent'
+group by det.rack_num ;
+
+-- total of number of all the books that have been issued to a member who stays in Delhi / Mumbai / Pune 
+-- and book that was issued has arrived in my library later than 1st July 2000
+-- and supplied by a supplier who belongs to  Delhi / Mumbai / Pune / Chennai
+/* 
+ -- Sample o/p
+ member_name  city  total 
+ Amruta       Pune   1 
+*/ 
+
+
+select member_name,city,count(distinct iss.book_code) total
+from 
+lms_book_details det  inner join lms_book_issue iss on ( det.book_code = iss.book_code)
+inner join lms_members mem  on ( mem.member_id = iss.member_id ) 
+inner join lms_suppliers_details sdet on (sdet.supplier_id = det.supplier_id ) 
+
+where lower(mem.city) in ('delhi','pune','mumbai')
+and lower(sdet.address) in ('delhi','pune','mumbai','chennai') 
+and DATE_ARRIVAL > to_date('01-jul-2000','dd-mon-yyyy')
+
+group by member_name,city;
+
+-----------------------------
+-- Subqueries illustration 
+-----------------------------
+from ( select ---------------------------------------------------------- ) -- inline view 
+
+select temp.* 
+from( 
+        select * from lms_members where city in ('PUNE','MUMBAI')
+    ) temp;
+
+-- where tab1.col1 = (select ----------------------------------------------------------)
+
+-- hardcode
+select * from lms_members where city in ('PUNE','MUMBAI');
+select * from lms_members where city in (select distinct  city from lms_members where city in ('PUNE','MUMBAI'));
+select * from lms_members where city in ('PUNE');
+
+select * from lms_members outer_tab where city in (select distinct  city from lms_members inner_tab where city in ('PUNE','MUMBAI'));
+select * from lms_members outer_tab where city in 
+(select distinct  city from lms_members inner_tab where inner_tab.city in ('PUNE','MUMBAI') and inner_tab.member_name = outer_tab.member_name );
+
+
+-- subquery example 
+--details of the books such the category is JAVA/FUNDAMENTALS 
+--and PUBLISH_DATE is greater than to_date('01-01-2005','dd-mm-yyyy')
+
+select * from 
+LMS_BOOK_DETAILS bd 
+where category in ('JAVA','FUNDAMENTALS')
+and publish_date > to_date('01-01-2005','dd-mm-yyyy');
+
+select * from lms_book_details 
+where book_title
+in
+(
+select  BOOK_TITLE 
+from lms_book_details
+where (CATEGORY = 'JAVA' or CATEGORY = 'FUNDAMENTALS') 
+and PUBLISH_DATE > to_date('01-01-2005','dd-mm-yyyy')
+);
+
+
+---------------------------------------
+--> corelated subqueries 
+----------------------------------------
+
+--  name of the members and the city such that they have atleast one vendor from their city 
+-- hardcode
+select member_name , city from lms_members mem where upper(city) in ('TRIVANDRUM','DELHI','CHENNAI','US','MUMBAI');
+
+-- subquery
+select member_name , city from lms_members mem where upper(city) in (select distinct upper(address) from lms_suppliers_details );
+
+-- corelated subqueries 
+select member_name , city from lms_members mem where upper(city) in (select distinct upper(address) from lms_suppliers_details sup
+                                                                     where  upper(sup.address) = upper(mem.city) );
+-- corelated subqueries ( or using exists) 
+select member_name , city from lms_members mem where 
+exists (select * from lms_suppliers_details sdet where upper(sdet.address) = upper(mem.city) );
+
+-- book_code and name of the books that have been issued 
+
+-- hardcode
+select distinct book_code,book_title from lms_book_details bdet where book_code in ('BL000005','BL000002','BL000007','BL000001');
+
+-- subquery 
+select distinct book_code,book_title from lms_book_details bdet where book_code in (select distinct book_code from lms_book_issue iss );
+
+-- corelated subquery using exists
+select distinct book_code,book_title from lms_book_details bdet where 
+exists  (select * from lms_book_issue iss where iss.book_code = bdet.book_code);
+
+-- using join 
+select distinct bdet.book_code,book_title 
+from lms_book_details bdet inner join lms_book_issue iss on ( bdet.book_code = iss.book_code) ;
+
+
+---------------------------------------------
+Exercises:
+---------------------------------------------
+
+/*
+-- details of the books whose supplier belong to delhi /mumbai / chennai 
+*/
+
+-- using joins 
+select bd.* 
+from lms_book_details bd inner join lms_suppliers_details sd on (bd.supplier_id = sd.supplier_id)
+where lower(sd.address) in ('delhi','pune','chennai');
+
+-- using subqueries 
+select * from lms_book_details bd where bd.supplier_id in 
+(select sd.supplier_id from lms_suppliers_details sd where lower(sd.address) in ('delhi','mumbai','chennai')  );
+
+select * from lms_book_details bd where exists
+(select 'hardcoded_value' from lms_suppliers_details sd where lower(sd.address) in ('delhi','mumbai','chennai') and 
+bd.supplier_id = sd.supplier_id);
+/*
+--- name of the member whose  has issued a book ,
+-- that same book supplier belong to the same city as that of the member
+*/
+
+-- using joins 
+select distinct ( lm.member_name )
+from lms_members lm  inner join lms_book_issue bi on ( lm.member_id = bi.member_id)
+inner join lms_book_details bd on ( bd.book_code = bi.book_code)
+inner join lms_suppliers_details sd on ( bd.supplier_id = sd.supplier_id)
+where lm.city = sd.address
+
+-- using corelated subquery 
+select distinct ( lm.member_name) 
+from lms_members lm 
+where lm.city in (
+            select sd.address 
+            from lms_book_issue bi inner join lms_book_details bd on ( bd.book_code = bi.book_code)
+            inner join lms_suppliers_details sd on ( bd.supplier_id = sd.supplier_id)
+            where sd.address = lm.city  
+            and bi.member_id = lm.member_id 
+)
+
+/*
+-- book_code and name of the book that have been issued 
+*/
+-- joins
+select distinct bd.book_code,bd.book_title 
+from lms_book_details bd inner join lms_book_issue bi on ( bd.book_code = bi.book_code)
+
+-- 
+select distinct bd.book_code,bd.book_title 
+from lms_book_details bd where bd.book_code in ( select bi.book_code from lms_book_issue bi )
+
+-- preferably use exists 
+select distinct bd.book_code,bd.book_title 
+from lms_book_details bd where exists (select bi.book_code from lms_book_issue bi where bi.book_code = bd.book_code)
+
+select distinct bd.book_code,bd.book_title 
+from lms_book_details bd where exists (select 1 from lms_book_issue bi where bi.book_code = bd.book_code)
+
+
+/* book issue details  of the member who belongs to Pune/mumbai/chennai  */
+select * from lms_book_issue
+where member_id in (select member_id from lms_members where lower(city) in ('pune','mumbai','chennai'));
+select * from lms_book_issue 
+where exists (select 1 from lms_members where lower(city) in ('pune','mumbai','chennai') 
+               and lms_members.member_id = lms_book_issue.member_id);
+select lms_book_issue.* 
+from lms_book_issue inner join lms_members on (lms_book_issue.member_id=lms_members.member_id);
+
+/* members who have never issued a book */
+select lms_members.member_id 
+from lms_book_issue right outer join lms_members on (lms_book_issue.member_id=lms_members.member_id)
+where lms_book_issue.member_id is null;
+
+select * from lms_members where member_id not in (select member_id from lms_book_issue);
+
+select * from lms_members mem where not exists (select 1 from lms_book_issue iss 
+where iss.member_id = mem.member_id );
+
+
+
+

@@ -1,0 +1,36 @@
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e6b"), 
+    "FINE_RANGE" : "R1", 
+    "FINE_AMOUNT" : NumberInt(20), 
+    "MAX_DAYS_DELAYED" : NumberInt(5)
+},
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e6c"), 
+    "FINE_RANGE" : "R2", 
+    "FINE_AMOUNT" : NumberInt(50), 
+    "MAX_DAYS_DELAYED" : NumberInt(10)
+},
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e6d"), 
+    "FINE_RANGE" : "R3", 
+    "FINE_AMOUNT" : NumberInt(75), 
+    "MAX_DAYS_DELAYED" : NumberInt(15)
+},
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e6e"), 
+    "FINE_RANGE" : "R4", 
+    "FINE_AMOUNT" : NumberInt(100), 
+    "MAX_DAYS_DELAYED" : NumberInt(20)
+},
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e6f"), 
+    "FINE_RANGE" : "R5", 
+    "FINE_AMOUNT" : NumberInt(150), 
+    "MAX_DAYS_DELAYED" : NumberInt(25)
+},
+{ 
+    "_id" : ObjectId("5f51541653f01c44d2459e70"), 
+    "FINE_RANGE" : "R6", 
+    "FINE_AMOUNT" : NumberInt(200), 
+    "MAX_DAYS_DELAYED" : NumberInt(90)
+}

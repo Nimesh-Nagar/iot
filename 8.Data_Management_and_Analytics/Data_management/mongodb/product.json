@@ -1,0 +1,100 @@
+{ 
+    "_id" : "X001", 
+    "product_name" : "ToothBrush", 
+    "price" : NumberInt(20), 
+    "category" : "Personal Care", 
+    "in_out_stock" : "IN", 
+    "Supplier_list" : [
+        "S001", 
+        "S100"
+    ], 
+    "review" : [
+        {
+            "text" : "Fantastic product", 
+            "star_rating" : NumberInt(5)
+        }, 
+        {
+            "text" : "Pathetic product", 
+            "star_rating" : NumberInt(1)
+        }
+    ]
+}
+{ 
+    "_id" : "X002", 
+    "product_name" : "Oil", 
+    "price" : NumberInt(200), 
+    "category" : "Groceries", 
+    "in_out_stock" : "IN", 
+    "Supplier_list" : [
+        "S002", 
+        "S100"
+    ], 
+    "review" : [
+        {
+            "text" : "Oil has excellent Smell", 
+            "star_rating" : NumberInt(5)
+        }, 
+        {
+            "text" : "Oil is worth the price", 
+            "star_rating" : NumberInt(3)
+        }
+    ]
+}
+{ 
+    "_id" : "X003", 
+    "product_name" : "Chocalate", 
+    "price" : NumberInt(20), 
+    "category" : "Groceries", 
+    "in_out_stock" : "IN", 
+    "Supplier_list" : [
+        "S001", 
+        "S100"
+    ], 
+    "review" : [
+        {
+            "text" : "Taste is Awesome", 
+            "star_rating" : NumberInt(5)
+        }, 
+        {
+            "text" : "Nice Taste", 
+            "star_rating" : NumberInt(3)
+        }
+    ]
+}
+{ 
+    "_id" : "X004", 
+    "product_name" : "Pencil", 
+    "price" : 1.0, 
+    "category" : "Stationary", 
+    "in_out_stock" : "IN"
+}
+{ 
+    "_id" : "X005", 
+    "product_name" : "Rubber", 
+    "price" : 1.0, 
+    "category" : "Stationary", 
+    "in_out_stock" : "IN", 
+    "Supplier_list" : [
+        null
+    ]
+}
+{ 
+    "_id" : "X006", 
+    "product_name" : "Biscuit", 
+    "price" : NumberInt(20), 
+    "category" : "Groceries", 
+    "in_out_stock" : "OUT", 
+    "Supplier_list" : [
+        "S002"
+    ], 
+    "review" : [
+        {
+            "text" : "Taste is Awesome", 
+            "star_rating" : NumberInt(3)
+        }, 
+        {
+            "text" : "Nice Taste", 
+            "star_rating" : NumberInt(1)
+        }
+    ]
+}

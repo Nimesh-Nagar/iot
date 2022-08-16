@@ -1,0 +1,206 @@
+
+/*a) Name of the supplier , contact , email , Address 
+
+who resides in either Mumbai Or Delhi and email does not belong to gmail account*/
+
+select SUPPLIER_NAME,CONTACT,EMAIL,ADDRESS
+from  lms_suppliers_details
+where upper(ADDRESS) in ('MUMBAI' ,'DELHI') and email not like '%gmail.com'
+--(initcap(ADDRESS) = 'Mumbai'  or initcap(ADDRESS) = 'Delhi' ) and email not like '%gmail.com'
+
+
+ /* Name of the book that were published in the year 2012 and price point is greater that 100 */
+
+ select BOOK_TITLE book_name
+ from lms_book_details
+ where extract ( year from PUBLISH_DATE) = 2012 and price > 100 
+
+/* Name of the members whose status is Permanent and have enrolled 
+in the month of June/July/August */
+
+select MEMBER_NAME
+from lms_members 
+where lower(MEMBERSHIP_STATUS) = 'permanent' 
+and extract ( month from DATE_REGISTER) in (6,7,8)
+
+select extract ( month from sysdate) from dual
+
+/* details of issuance of the books that were returned in less than 10 days */
+ 
+ 
+ select * 
+ from lms_book_issue
+ where trunc(DATE_RETURNED) - trunc(DATE_ISSUE) < 10 ;
+ 
+
+ /* name of the book and the supplier name */
+ /* name of the book and supplier name only if the book has a supplier  */
+
+select bd.book_title , sd.supplier_name
+from lms_book_details bd  INNER  join      lms_suppliers_details sd
+on (bd.supplier_id = sd.supplier_id );
+
+create table seta ( col1 number) ; 
+create table setb ( col1 number) ;
+
+insert into seta values (1);
+insert into seta values (2);
+insert into seta values (3);
+insert into seta values (4);
+insert into seta values (5);
+
+insert into setb values (3);
+insert into setb values (4);
+insert into setb values (5);
+insert into setb values (6);
+insert into setb values (7);
+
+select * from seta;
+select * from setb;
+
+ 
+
+/* name of the supplier that has not supplied any book */
+from lms_suppliers_details sd LEFT OUTER JOIN  lms_book_details bd on (bd.supplier_id = sd.supplier_id )
+where bd.supplier_id is null ;
+
+select sd.col1 supplier_id ,bd.col1 book_id from seta sd  LEFT OUTER JOIN  setb bd
+on (bd.col1 = sd.col1 )
+where bd.col1  is null
+
+
+/* name of the supplier who may or may not have supplied a book 
+and if he does display the name of the book */
+
+select supplier_name , book_title
+from lms_suppliers_details sd LEFT OUTER JOIN  lms_book_details bd on (bd.supplier_id = sd.supplier_id )
+
+/* give me details issuances along with fine amount if any and fine ranges that were not used  */
+
+select *
+from lms_book_issue bi full outer join lms_fine_details fd on (bi.fine_range = fd.fine_range)
+order by bi.fine_range, fd.fine_range;
+
+/* need the name of the book , publication , date of publication along with supplier name and his contact number 
+Note : books that have no suppliers should not be displayed*/
+
+ select BOOK_TITLE, PUBLICATION, PUBLISH_DATE , SUPPLIER_NAME, CONTACT 
+ from lms_book_details  INNER JOIN   lms_suppliers_details on(lms_book_details.SUPPLIER_ID = lms_suppliers_details.SUPPLIER_ID)
+ 
+ 
+ /* name of the member , status of his membership who have issued a book and never paid a fine  */
+
+
+select distinct MEMBER_NAME, MEMBERSHIP_STATUS
+from lms_members INNER JOIN  lms_book_issue on (lms_members.MEMBER_ID = lms_book_issue.MEMBER_ID)
+where lms_book_issue.fine_range is null ;
+
+
+
+/* name of the member , status of his membership who have issued a book 
+and paid fine more than 74 rs*/
+
+
+
+select distinct member_name,membership_status
+from lms_members INNER JOIN  lms_book_issue 
+on (lms_members.MEMBER_ID = lms_book_issue.MEMBER_ID)
+INNER JOIN lms_fine_details on (lms_book_issue.FINE_RANGE = lms_fine_details.FINE_RANGE)
+where lms_fine_details.FINE_AMOUNT > 74  ;
+
+
+/* name of the member , status of his membership who have issued a book and paid fine more than 74 rs and the supplier does have gmail account */
+
+select *
+from lms_members INNER JOIN  lms_book_issue on (lms_members.MEMBER_ID = lms_book_issue.MEMBER_ID)
+ INNER JOIN lms_fine_details on (lms_book_issue.FINE_RANGE = lms_fine_details.FINE_RANGE)
+ INNER JOIN  lms_book_details on (lms_book_issue.BOOK_CODE = lms_book_details.BOOK_CODE)
+ INNER JOIN  lms_suppliers_details on (lms_book_details.SUPPLIER_ID = lms_suppliers_details.SUPPLIER_ID)
+where lms_fine_details.FINE_AMOUNT > 74  
+and lower(EMAIL) not like '%gmail.com';
+
+
+/* name of the member who has issued a book which is not placed on any rack*/
+
+select * from 
+lms_members mem inner join lms_book_issue iss on (mem.member_id = iss.member_id)
+inner join lms_book_details bd on ( iss.book_code = bd.book_code)
+where bd.rack_num is null;
+
+
+/* name of the supplier who has not supplied any book 
+and that supplier lives in PUNE/MUMBAI/DELHI*/
+
+select supplier_name from
+lms_suppliers_details sd left join lms_book_details bd
+on ( bd.supplier_id = sd.supplier_id)
+where bd.supplier_id is null
+and aDDRESS in ('PUNE','MUMBAI','DELHI')
+
+
+------- GROUP BY , HAVING , AGGREGATE FUNCTIONS DEMO
+
+----------------------------
+-- aggregate functions introduction
+----------------------------
+create table test_aggregate( col1 number);
+insert into test_aggregate values(1);
+insert into test_aggregate values(2);
+insert into test_aggregate values(3);
+insert into test_aggregate values(4);
+
+select col1 from test_aggregate;
+select sum(col1) from test_aggregate;
+select count(col1) from test_aggregate;
+select min(col1) from test_aggregate;
+select max(col1) from test_aggregate;
+select avg(col1) from test_aggregate;
+
+--------------------
+--Group by , having basic demo
+--------------------
+create table seta ( col1 varchar2(100), col2 varchar2(100));
+insert into seta values ('PUNE','GAURAV');
+insert into seta values ('PUNE','SAGAR');
+insert into seta values ('DELHI','DEVANSHU');
+insert into seta values ('DELHI','PRATIK');
+insert into seta values ('DELHI','DEVANDER');
+insert into seta values ('JAIPUR','SHRUTI');
+
+SELECT * FROM  SETA;
+-- --- NOT VALID --- -- 
+--SELECT * FROM  SETA GROUP BY COL1;
+--SELECT col1,col2 FROM  SETA GROUP BY COL1;
+--SELECT col2 FROM  SETA GROUP BY COL1;
+--SELECT col1 FROM  SETA GROUP BY COL1;
+
+-- VALID 
+SELECT col1,count(*) FROM  SETA GROUP BY COL1;
+--SELECT col1,count(*) FROM  SETA GROUP BY COL1 where  COUNT(*) > = 2 ;
+SELECT col1,count(*) FROM  SETA GROUP BY COL1 having COUNT(*) > = 2 ;
+
+
+/* count of no of members in each city */
+
+select city , count(*)
+from lms_members 
+group by city;
+
+/* count of members against their membership_status */
+status     cnt
+Temporary   12
+Permanant   13
+
+select membership_status status, count(*) cnt
+from lms_members 
+group by membership_status;
+
+/* count of suppliers who stay in PUNE/MUMBAI/DELHI against their city  */
+/* number of books in each category that are placed in rack_num A1/A2/A3 */
+/* number of books issued in the month of JUNE/JULY/AUGUST  */
+
+
+
+
+
+

@@ -1,0 +1,187 @@
+Getting Started with Raspberry PI GPIO(s) - General Purpose Input/Ouput
+----------------------------------------------------------------------------
+/sys file system - Virtual/pseudo File System
+
+it is mouunted on root /.
+
+/sys/class - This directory contains every device class registred with the kernel
+
+Device Class : 
+It describes a functional type of device.
+
+Example:
+Input Devices, network Devices.
+
+--------------------------------------------------------------------------------
+cd /sys/class
+
+ls -l --> observe the output
+
+cd gpio
+
+export and unexport
+
+export and unexport file system assist the programmer to 
+export a specific/particular GPIO of the Raspberry PI
+
+-------------------------------------------------------------------------------
+Raspberry PI GPIOS:
+https://www.raspberrypi.org/documentation/usage/gpio/
+
+https://docs.microsoft.com/en-us/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi
+
+There are two types two access a particular PIN on Raspberry PI.
+
+1. GPIO Board Numbering --> Constant Numbers like 1 2 3 4 
+2. GPIO BCM (Broadcomm) Numbering -> GPIO4 GPIO5 like this (GPIO Diagram)
+
+By Default BCM
+-----------------------------------------------------------------------------
+Test LED:
+3.3 PWR - Positive Terminal of LED (Anode)
+GND - Negative Terminal (Cathode)
+
+---------------------------------------------------------------------------
+Let us use /sys file system to Turn ON/OFF LED
+GPIO4 (BCM) ---> Positive Terminal of LED (Anode)
+GND - Negative Terminal (Cathode)
+
+We have to use GPIO4 ->
+Step1 : 
+export the GPIO4
+echo 4 > /sys/class/gpio/export
+
+Now do ls - & observe that gpio4 is there or not?
+echo <gpio-pinnumber> /sys/class/gpio/export
+
+This will export a GPIO say gpio4 for using both in and out mode
+
+--> cd gpio4 --> /sys/class/gpio/gpio4 (absolute path)
+ls
+There are two main file systems
+1. direction --> in/output
+2. value  --> 1/0
+
+To connect LED with GPIO4 and Turn on/off : 
+
+Ques: What should be the direction of led?
+Answer : out 
+
+To Test default values run below commands
+
+1. cat direction
+
+2. cat value
+
+
+FYI:
+Abosulte Path - 
+direction : /sys/class/gpio/gpio4/direction
+value: /sys/class/gpio/gpio4/value
+
+#We have to make the direction out
+echo "out" > /sys/class/gpio/gpio4/direction 
+#test the direction
+cat sys/class/gpio/gpio4/direction 
+#Turn on the LED (Active High)
+echo 1 > /sys/class/gpio/gpio4/value
+#Turn Off the LED (Active High)
+echo 0 > /sys/class/gpio/gpio4/value
+
+ToDO:
+Export GPIO11 and Turn On/Off
+
+------------------------------------------------
+gpio utility
+
+Install wiringpi - this provides the gpio utility to Access RPI GPIOS
+------------------------------------------------------------------------
+sudo apt install wiringpi
+
+sudo apt-get install --only-upgrade <packagename>
+sudo apt-get install --only-upgrade wiringpi
+
+Raspberry Pi 4 users:
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+
+gpio -v #must be 2.52
+
+gpio -h  #to get al details
+
+gpio readall
+
+#Export pin and set dircetion
+gpio export <pinnumber> out
+e.g GPIOPIN4 (BCM)
+gpio export 4 out
+#Write value 1 to GPIO4
+gpio -g write 4 1
+#Write value 0
+gpio -g write 4 0
+#Toggle Value
+gpio -g toggle 4
+#Blink an LED
+gpio -g blink 4
+#Toggle LED (change the previous state)
+gpio -g toogle 4
+Note : Above commands 4 represents GPIO Numbering
+
+-------------------------------------------------------
+http://wiringpi.com/examples/blink/
+
+#include <wiringPi.h>
+int main (void)
+{
+  wiringPiSetup () ;
+  pinMode (0, OUTPUT) ;
+  for (;;)
+  {
+    digitalWrite (0, HIGH) ; delay (500) ;
+    digitalWrite (0,  LOW) ; delay (500) ;
+  }
+  return 0 ;
+}
+
+gcc -Wall -o blink blink.c -lwiringPi
+sudo ./blink
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

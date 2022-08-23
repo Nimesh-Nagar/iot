@@ -1,0 +1,158 @@
+curl -sSL https://get.docker.com | sh
+sudo sh get-docker.sh
+sudo usermod -aG docker pi
+sudo service docker status
+cat /proc/cpuinfo | grep 'model name'
+uname -a
+cat /etc/os-release
+
+#Pull Raspbian buster
+-->docker pull arm32v7/python:rc-buster
+--> sudo docker image ls
+--> sudo docker build -t ledblink:diot
+--> sudo docker run -it --name ledgpio4 --device /dev/gpiomem ledblink:diot
+--> sudo docker run -it --name ledgpio4 --privileged ledblink:diot
+
+Note : /dev/gpiomem provides the memory access to raspberry PI GPIO
+
+-----------------------------------------------------------------------------
+Interfacing DHT22 with Raspberry PI Python
+---------------------------------------------------------- 
+Refer for sample code:
+
+https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/
+
+DHT22 Docker:
+
+sudo docker build -t dht22rpi:diot .
+
+sudo docker run -it --privileged --name dht22 dht22rpi:diot
+
+for Raspberry PI 4 users:
+
+To Solve: Can not import name Beagle bone black drive from Adafruit_DHT
+
+Path:
+cd /usr/local/lib/python3.7/dist-packages/Adafruit_DHT
+
+cat /proc/cpuinfo - Hardware model : RPI4 : BCM2711
+
+
+sudo nano platform_detect.py
+
+add this line in last: 
+elif match.group(1) == 'BCM2711':
+	return 3
+
+Explore
+https://github.com/szazo/DHT11_Python
+
+
+---------------------------------------------------------------
+Hard Link or Soft Link(Symbolic Link)
+------------------------------------------
+Hard Link : 
+It is a mirror copy of the original file.
+Even if you delete the original link the data remains in the hardlink
+Soft link:
+Actual Link of the original file
+If you delete the original file softlink has no value
+
+-------------------------------------------------------
+Softlink:
+cd ~/
+mkdir test
+cd test
+echo "IoT is Awesome" > sourcefile.txt
+cat sourcefile.txt
+#Create a softlink:
+ln -s sourcefile.txt desfile.txt
+cat desfile.txt  #all the data of source file is now availble in desfile.txt
+
+ln -s sourcefile.txt ~/Desktop
+ln -s ~/Desktop/hi.txt ~/test/
+
+echo "first file" > 1.txt
+
+ln -s 1.txt 2.txt
+
+delete 1.txt  #original file
+rm 1.txt
+
+and you will notice 2.txt is of no use
+
+Hardlink:
+
+How to create a hardlink :
+
+ln <sourcefile> <destinationfile>
+
+echo "firstfile.txt" > 1.txt
+
+ln 1.txt 2.txt
+
+ls -lia 2.txt
+ls -lia 1.txt
+
+echo "hi" > 3.txt
+ln -s 3.txt 4.txt
+
+ls -lia 3.txt
+ls -lia 4.txt
+
+Notice that : 
+Hardlink have same inode number 
+while softlink have differnt number
+
+touch a.txt
+ln -s a.txt b.txt
+ln -P b.txt c.txt
+
+pi@raspberrypi:~/test $ ls -al c.txt
+lrwxrwxrwx 2 pi pi 5 Jan 28 11:28 c.txt -> a.txt
+
+
+
+
+inode number:
+Evry file/Directory in linux has inode number
+They containes : meta data about file :
+1. owner of the file
+2. file permissions etc.
+Other things that inode contains:
+File type: regular file, directory, pipe etc.
+Permissions to that file: read, write, execute
+Link count: The number of hard link relative to an inode
+User ID: owner of file
+Group ID: group owner
+Size of file: or major/minor number in case of some special files
+Time stamp: access time, modification time and (inode) change time
+Attributes: immutable' for example
+Access control list: permissions for special users/groups
+Link to location of file
+
+How to check:
+stat <filename>
+To print index number of files present in a directory
+
+ls -il - i stands for - inode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

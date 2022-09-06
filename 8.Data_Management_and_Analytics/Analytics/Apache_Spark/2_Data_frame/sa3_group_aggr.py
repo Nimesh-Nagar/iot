@@ -10,3 +10,6 @@ group_data = df.groupBy('Company')
 
 group_data.agg({'Sales' : 'sum'}).show()
 
+# group_data.("Sales").sum().show()
+
+

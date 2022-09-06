@@ -15,3 +15,5 @@ if __name__ == "__main__":
     min = numbers.reduce(lambda a,b : min(a,b))
     max = numbers.reduce(lambda a,b : max(a,b))
     print("min is {} and max is {}".format(min,max))
+    
+    

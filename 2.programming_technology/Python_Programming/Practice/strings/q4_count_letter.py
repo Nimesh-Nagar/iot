@@ -9,7 +9,6 @@
 
 # count = 0
 # for i in string:
-   
 #     if(ch == i):
 #         count += 1
 

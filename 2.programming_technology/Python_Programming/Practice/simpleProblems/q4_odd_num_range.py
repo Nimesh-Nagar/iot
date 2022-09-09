@@ -1,6 +1,4 @@
-#
-from ast import Starred
-
+# Q4 Python Program to Print All Odd Numbers in a Range
 
 def odd_in_range(start, limit):
     for i in range(start,limit+1):

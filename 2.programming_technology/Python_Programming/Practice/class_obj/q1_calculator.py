@@ -36,7 +36,7 @@ cal = Calculator(number1,number2)
 
 while True:
     menu()
-    ch = int(input("Enter operation to perform : "))
+    ch = int(input("Choose operation to perform : "))
     if ch == 1:
         cal.sum()    
     elif ch == 2:

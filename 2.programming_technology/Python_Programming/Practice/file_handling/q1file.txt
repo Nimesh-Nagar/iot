@@ -1,0 +1,2 @@
+This is first program of file handling
+I am learning Python Programming

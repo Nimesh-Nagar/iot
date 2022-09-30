@@ -87,7 +87,7 @@ while True:
 #     menu()
 #     ch = input("Enter your choice : ")
 #     match ch:
-#         case "1": 
+#         case 1: 
 #             add_fruit()
 #         case "2":
 #             delete_fruits()  

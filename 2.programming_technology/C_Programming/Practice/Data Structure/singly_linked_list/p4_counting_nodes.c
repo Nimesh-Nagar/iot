@@ -13,7 +13,7 @@ void count_nodes(struct node *head)
 {
     int count = 0;
     if(head == NULL){
-        printf("LInked List is Empty ");
+        printf("Linked List is Empty ");
     }
     else{
         struct node *ptr = NULL;

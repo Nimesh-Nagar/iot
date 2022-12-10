@@ -6,14 +6,14 @@ void input(struct Course* cr, int* num)
 	printf("Enter Course ID : ");	
 	scanf("%d",&cr[*(num)].course_id);
 	
-	printf("Enter course name : ")
+	printf("Enter course name : ");
 	scanf("%s",cr[*(num)].course_name);
 	
 	printf("Enter number of students : ");
 	scanf("%d",&cr[*(num)].no_student);
 	for(int i = 0; i<2; i++);
 	{
-		printf("Enter module details %d : "i);
+		printf("Enter module details %d : ",i);
 		printf("\tEnter module id :");
 		scanf("%d",&cr[*(num)].modules[i].module_id); 
 		printf("\tEnter module name :");

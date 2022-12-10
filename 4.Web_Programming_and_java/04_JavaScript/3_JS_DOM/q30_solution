@@ -1,0 +1,59 @@
+<html>
+<head>
+	<style>
+		#s1,#s2{color:red}
+	</style>
+   <script>
+	   function isValidName(){  //event handler
+		   let cname = document.getElementById("cname").value
+		   if(cname.length < 6){
+			document.getElementById("s1").innerHTML = ("cust name cannot be less than 6 chars")
+			  return false;
+		   }
+		   return true;
+	   }
+
+       function validateDate(){
+           let d1 = new Date(document.getElementById("bd").value)
+		   let d2 = new Date(document.getElementById("sd").value)
+		   console.log(d1, d2)
+		   if(d1 > d2){
+			  document.getElementById("s2").innerHTML = "Billing date cant be greater than ship date"
+			  return false;
+		   }
+		   return true;
+
+	   }
+	   function isValidForm(){
+           if(isValidName() && validateDate() && display())
+		       return true
+			else return false
+	   }
+		
+	function display()
+	{
+		var order = document.getElementById("oid").value
+		var cname = document.getElementById("cname").value
+		var bd = document.getElementById("bd").value
+		var sd = document.getElementById("sd").value
+		var ot = document.getElementById("total").value
+		let str = "Order Id : "+order+"<br>"+"Cust name : "+cname+"<br>"+"Billing name : "+bd+"<br>"+"Shipping date : "+sd+"<br>"+"Order Total : "+ot
+		document.getElementById("sp").innerHTML=str
+		 
+	}
+	
+   </script>
+</head>
+<body>
+   <form onsubmit="return isValidForm()">
+       Order Id : <input id="oid"><br>
+	   Cust name : <input id="cname"><span id="s1"></span><br>
+	   Billing date : <input type="date" id="bd"><br>
+	   Shipping date : <input type="date" id="sd"><span id="s2"></span><br>
+	   Order Total : <input id="total"><br>
+       <input type="submit" value="display"><br>
+		 
+		<span id="sp"></span>
+   </form>
+</body>
+</html>

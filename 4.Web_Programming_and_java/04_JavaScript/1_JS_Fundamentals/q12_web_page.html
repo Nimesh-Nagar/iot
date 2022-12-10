@@ -1,0 +1,58 @@
+<!--Create a web page to calculate the Compound Interest -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compound Interest</title>
+  <!--   <style>
+        td{padding-right:60px;padding-left:60px;}
+    </style>  --> 
+    <script>    
+    function cpi(p,r,n){
+        return (p*Math.pow(1+r/100,n) )-p ;   
+    }
+    </script>
+
+</head>
+<body>
+    <table >
+        <tr>
+            <td colspan="4" id="heading" align="center"> 
+                <p>--------------------------------------------------------------------------</p>
+                <h2>Calculate Compound Interest </h2>
+                <p>--------------------------------------------------------------------------</p>        
+                
+            </td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr align="left">
+            <td>Principle  </td>
+            <td> ------ </td> 
+            <td> <script> let p=prompt("Enter Principle Amount");document.write(parseInt(p))</script></td>
+            <td> Rs. </td>
+        </tr>  
+        <tr align="left">
+            <td>Rate of Interest  </td> 
+            <td> ------ </td> 
+            <td> <script> let r=prompt("Enter rate of Intrest");document.write(parseInt(r))</script></td>
+            <td> % </td>
+        </tr>  
+        <tr align="left">
+            <td>Periods </td>
+            <td> ------ </td>  
+            <td> <script> let n=prompt("Enter total periods");document.write(parseInt(n))</script></td>
+            <td> Yrs. </td>
+        </tr>  
+        <tr align="left">
+            <td>Compound Interest </td>
+            <td> ------ </td>  
+            <td> <script> a=cpi(p,r,n); 
+                    document.write(a)
+                </script></td>
+            <td>  </td>
+        </tr>   
+    </table>
+    
+</body>
+</html>

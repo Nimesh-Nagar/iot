@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sum of Digit</title>
+    <script>
+         function validationNumber(){
+            let num = document.getElementById("num").value
+                if(num=!isFinite(num))
+                {
+                    document.getElementById("s1").innerHTML = "Entered Number is out of range"
+                }
+                else if(num>1000 || num<0)
+                {
+                    document.getElementById("s1").innerHTML = "Entered Number is out of range"
+                }
+                else 
+                return true;
+
+         }
+    </script>
+    
+
+</head>
+<body>
+    <form >
+        Enter Number : <input id="num" name="uname" 
+                            onclick="validationNumber()"
+                            required><span id="s1"></span>   <br><br>
+
+        Sum of digits : <input uname="uname"><br><br>
+        
+        <input type="button" value="Add Digits">
+
+    </form>
+
+    
+</body>
+</html>
+
+
+

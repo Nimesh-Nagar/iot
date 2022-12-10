@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title> List </title>
+	</head>
+		<body>
+		<ol>
+			<li type="1">Language</li>
+				<ol>
+				<li type="i"> English</li>
+					<ul><li type="A"> Prose</li>
+					<li type="A"> Poetry</li></ul>
+					
+				<li type="i"> Hindi</li>
+					<ul><li type="A"> Prose</li>
+					<li type="A"> Poetry</li></ul>
+				<li type="i"> Marathi</li>
+					<ul><li type="A"> Prose</li>
+					<li type="A"> Poetry</li></ul><br>
+				</ol>
+				
+			<li type="1">Social Study</li>
+				<ul><li type="i"> History</li>
+				<li type="i"> Geography</li></ul><br>
+				
+				
+				
+			<li type="1">Science</li>
+				<ul>
+				<li type="i"> Physics</li>
+					<ul><li type="A"> Part1</li>
+					<li type="A"> Part2</li></ul>
+					
+				<li type="i"> Chemistry</li>
+					<ul><li type="A"> Organic</li>
+					<li type="A"> Inorganic</li></ul>
+				<li type="i"> Biology</li>
+					<ul><li type="A"> Botany</li>
+					<li type="A"> Zoology</li></ul><br>	
+			
+				</ul>
+			
+			<li type="1">Maths</li>
+				<ul>	
+				<li type="i"> Algebra</li>
+				<li type="i"> Geometry</li><br>
+				</ul>
+		</ol>
+
+		</body>
+</html>
+

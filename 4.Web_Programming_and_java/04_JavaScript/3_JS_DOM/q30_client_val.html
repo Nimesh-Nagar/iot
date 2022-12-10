@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Client Side Validation</title>
+    <script>
+        function validName(){
+            let nam = document.getElementByiD("cname").value
+            if(nam.length < 6)
+            {
+                document.getElementById("s1").innerHTML= ("Customer Name cannot be < 6 characters ")
+                return false;
+            }
+            return true;
+
+        }    
+
+        function validDate(){
+            let bd = new Date(document.getElementById("bd").value)
+            let sd = new Date(document.getElementById("sd").value)
+            if(bd > sd)
+            {
+                document.getElementById("s2").innerHTML = ("Billing date cannot be > shippling date")
+                return false;
+            }
+            return true;
+        }
+
+        function isValidForm(){
+            if(validName() && validDate()){
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+
+</head>
+<body>
+    <form onsubmit="return isValidForm()">
+
+    Order ID: <input type="text" id="oid"><br>
+    Customer Name: <input type="text" id="cname"><span id="s1"></span><br>
+    Billing date : <input type="date" id="bd"><span id="s2"></span><br>
+	Shipping date : <input type="date" id="sd"><br>
+	Order Total : <input id="total"><br>
+    <input type="submit" value="Display"><br>
+    
+    </form>
+
+</body>
+</html>

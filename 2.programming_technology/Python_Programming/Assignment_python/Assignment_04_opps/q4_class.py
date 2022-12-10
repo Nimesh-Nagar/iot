@@ -11,14 +11,14 @@ class Rectangle:
 	def __init__ (self,length,width):
 		self.length = length
 		self.width = width
-	def add(self):
+	def __add__(self):
 		return self.length+self.width
 	def __str__(self):
 		return "The length is " +str(self.length)+ " and width is " +str(self.width)	
 			
 #1. use of + operator		
 r=Rectangle(10,30)
-print(r.add())
+print(r.__add__())
 
 #3. use of __str__ operator
 s=Rectangle(10,30)

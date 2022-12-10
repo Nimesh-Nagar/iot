@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
     current->link = NULL;
     head->link->link = current;
 
-    // deleting first node
+    // deleting last node
 
     head = del_last(head); 
     struct node *ptr = head;

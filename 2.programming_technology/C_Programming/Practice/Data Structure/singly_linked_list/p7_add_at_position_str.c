@@ -35,7 +35,7 @@ void add_at_pos(struct node *head , char data[20], int pos){
 
     //to add at certain position
     pos--;
-    while(pos !=1){
+    while(pos != 1){
         ptr = ptr->link;
         pos--;
     }

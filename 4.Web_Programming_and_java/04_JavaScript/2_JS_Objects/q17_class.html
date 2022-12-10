@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Date and Time</title>
+    <script>
+    	class Rectangle
+    	{
+    		constructor(len,breath)
+    			{
+    			this.len = len;
+    			this.breath = breath;
+    			}
+    		display()
+    			{
+    			console.log("Length = ",this.len +"\nBreath = ",this.breath)
+    			}   	
+    
+    		//Methods
+    		area()
+    		{
+    			return this.len * this.breath ;
+    		}
+    		perimeter()
+    		{
+				return 2*(this.len + this.breath);    		
+    		}
+    	}
+    	
+    	class Circle{
+    		constructor(radius)
+    		{
+    			this.radius = radius;
+    		}
+    		
+    		cirarea()
+    		{
+    			return Math.PI * this.radius * this.radius
+    		}
+
+    		circumf()
+    		{
+    			return Math.PI * this.radius
+    		}
+    		
+    		display()
+    			{
+    			console.log(this.radius);
+    			}
+    		
+    		
+    	}
+
+    </script>
+
+</head>
+<body>
+   
+   <script>
+   	let r1 = new Rectangle(10,20);
+   	document.write("<br> Area of Rectangle : ",r1.area());
+   	document.write("<br> Perimeter of Rectangle : ",r1.perimeter());
+   	r1.display();
+   	
+	let c1 = new Circle(10);
+    document.write("<br> Area of Circle : ",c1.cirarea());
+   	document.write("<br> Circumference of Ceicle : ",c1.circumf());
+  
+   	
+   	//c1.display();
+
+   	
+   	
+   	
+   	
+   
+    </script>
+</body>
+</html>
+
+

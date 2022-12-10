@@ -1,0 +1,21 @@
+<html>
+	<script>
+		function display()
+		{
+			for(i=0;i<arr.length;i++)
+			{
+				str = ""
+				str += "<table border=1><tr><th>EmpId</th><br><th>EmpName</th><br><th>Salary</th></tr>"
+				str += ("<tr><td>"+arr[i].empid+"</td><td>"+arr[i].empname+"</td><td>"+arr[i].salary+"</td></tr>")
+			}
+				str += "</table>"
+				document.write(str)
+		}
+	</script>
+	<body>
+		<script>
+		var arr = [{"empid":"1","empname":"Sundram","salary":"24000"}]
+		display()
+		</script>
+	</body>
+</html>

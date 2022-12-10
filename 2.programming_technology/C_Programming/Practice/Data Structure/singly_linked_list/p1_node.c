@@ -10,8 +10,8 @@ struct node{
 int main()
 {
     struct node *head = NULL; // "head"  pointer can access data and link of "node"
-    head = (struct node*)malloc(sizeof(struct node)); //allocating memory to "struct node"
-            //malloc returns void pointer and it type casted further we can avoid it also
+    head = (struct node*)malloc(sizeof(struct node)); //allocating memory dynamically to "struct node"
+            //malloc returns void pointer and it is type casted further we can avoid it also
 
     // in head address of "node" is stored, now head is capable to access the node datas
     head->data = 45;

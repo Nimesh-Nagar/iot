@@ -15,10 +15,19 @@ int main()
 		sum +=i;
 		
 	}
-		avg = ((float)sum/num);	//type casting sum variable for profer output
 		
-		printf("\nsum of n numbers is %d",sum);
-		printf("\naverage of n numbers is %.2f ",avg);
+	avg = ((float)sum/num);	//type casting sum variable for proper output
+		
+	printf("\n Sum of n numbers is %d ",sum);
+	printf("\n Average of n numbers is %.2f ",avg);
+	
+	// int add = (num * (num + 1) + 1)/2 ;
+	// float a = ((float)add/num);
+
+	// printf("\n Addition : %d ",add);
+	// printf("\n Average : %.2f \n",a);
+
+
 return 0;
 }
 

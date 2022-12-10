@@ -36,7 +36,10 @@ void add_at_position(struct node *head, int data, int loc){
         loc--;
     }
     
+    //first update the link of "new node" to be inserted 
     ptr2->link = ptr->link;
+
+    //then update the link of "previous node"
     ptr->link = ptr2;
 }
 

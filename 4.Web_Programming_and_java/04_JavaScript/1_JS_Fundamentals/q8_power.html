@@ -1,0 +1,32 @@
+<!-- 8. Write a function pow(x,y) that calculates x y . Do not use the Math predefined object -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power</title>
+        <script>
+            function power(num,exp){
+                result=1;
+                while(exp != 0){
+                    result = result*num;
+                    --exp;
+                }
+                return result
+            }
+        </script>    
+
+</head>
+<body>
+    <script>
+        let x =parseInt(prompt("Enter the number: "))
+        let y =parseInt(prompt("Enter Exponent: "))
+        var res=power(x,y)
+        document.write("power of numbers: ",res);
+
+
+    </script>
+</body>
+</html>

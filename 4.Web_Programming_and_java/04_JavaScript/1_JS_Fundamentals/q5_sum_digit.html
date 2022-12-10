@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sum of 5 digit number</title>
+</head>
+<body>
+    <script>
+     //   var num = 54321;  predefine value
+        var num = parseInt(prompt("Enter any number : "))
+        document.write("Entered number is ",num)
+        var sum =0;
+        while(num != 0)
+        {
+           var rem = num%10;
+                sum += rem;
+                num = Math.floor(num/10);
+               
+        }
+        document.write("<br>Sum of digits is : ",sum);
+
+    </script>        
+
+    
+</body>
+</html>

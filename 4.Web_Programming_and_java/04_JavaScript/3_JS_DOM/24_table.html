@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table</title>
+    <script>
+        function calTable(){
+        var num1 =parseInt(document.getElementById("num1").value)
+        var num2 =parseInt(document.getElementById("num2").value)
+        var mul=parseInt(document.getElementById("mul").value)
+            console.log(num1)
+        for(i=0;i<=num2;i++){
+            documnet.getElementById("txt").value = i*mul
+            }
+    
+        }
+
+        
+    </script>
+</head>
+<body>
+    Start Number : <input id="num1"> &nbsp End Number : <input id="num2"> &nbsp Multiply by : <input id="mul"><br>
+    <input type="button" id="table" value="Times Table" onclick="calTable"><br><br>
+    <input type="reset" value="Reset"><br><br>
+
+    <textarea id="txt" cols="30" rows="10"></textarea>
+
+ </body>
+</html>

@@ -6,11 +6,10 @@ float area(float rad){
 	return a;	
 }
 
-float cirumference(ind rad){
-`	
+// float cirumference(ind rad){
+	
 
-}
-
+// }
 
 
 int main()
@@ -18,6 +17,7 @@ int main()
 	float rad;
 	printf("Enter radius: ");
 	scanf("%f",&rad);
+
 	float a = area(rad);
 	printf("Area of Circle: %.2f \n",a);
 	

@@ -20,7 +20,7 @@ int main()
 	printf("Enter 2nd Number : ");		
 	scanf("%d",&b);
 	
-	//Menu
+//Menu
 	do{
 		menu();
 		int ch;

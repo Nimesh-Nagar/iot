@@ -15,6 +15,7 @@ void add_at_end(struct node *head, int data)
     struct node *ptr ,*temp; 
     ptr = head;
 
+    //new node which we will add at the end of linked list
     temp =(struct node*) malloc(sizeof(struct node));
     temp->data = data;
     temp->link = NULL;
@@ -36,7 +37,7 @@ int main(int argc, char const *argv[])
     struct node *current = (struct node* )malloc(sizeof(struct node));
     current->data = 98;
     current->link = NULL;
-    head->link = current; // providing current addr to previous node
+    head->link = current; // providing current pointer's addr to previous node
 
     current = (struct node*)malloc(sizeof(struct node));
     current->data = 3;

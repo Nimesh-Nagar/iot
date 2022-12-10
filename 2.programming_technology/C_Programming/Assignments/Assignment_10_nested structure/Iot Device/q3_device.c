@@ -9,7 +9,7 @@ Device Data members: deviceId, DeviceName,DeviceType(Sensors/Actuators),voltage
 
 */
 #include<stdio.h>
-#include"device.h"
+#include"q3_device.h"
 void display_data(struct Home_data *hd)
 {
 	printf("Home data members = %d |%s|%s| \n",hd->homeId,hd->HomeOwner,hd->address);

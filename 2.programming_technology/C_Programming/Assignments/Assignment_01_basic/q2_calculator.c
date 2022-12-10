@@ -1,6 +1,6 @@
 // arithmetic calculator
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
@@ -8,7 +8,7 @@ int main()
 	int add,sub,mul;
 	float div;
 
-	printf("\nChoose any one operation: \n1=add, 2=sub, 3=mul, 4=div : ");
+	printf("\nChoose any one operation: \n 1=add, 2=sub, 3=mul, 4=div : ");
 	scanf("%d",&x);
 			
 	printf("\nEnter 1st Number = ");

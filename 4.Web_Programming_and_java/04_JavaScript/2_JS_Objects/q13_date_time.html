@@ -1,0 +1,45 @@
+<!-- Create a web page that displays the current date in the format specified as in example below. 
+Also as per current time, suitable greeting should be printed. 
+
+ Today is Monday, 24 April 2000, Welcome, and Good Afternoon to You. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time</title>
+    <script>
+        
+    </script>
+
+</head>
+<body>
+    <script>
+    let d1=new Date()
+           
+           let date=d1.setDate(24)
+           let mon=d1.setMonth(3)
+           let y=d1.setYear(2000)
+           let day=d1.getDay()
+           var hour=d1.getHours()
+           var minute=d1.getMinutes()
+           var second=d1.getSeconds()
+           if (hour < 12) 
+           {  
+                welcome = "Good Morning to you";  
+           } 
+            else if (hour < 17) 
+           {  
+                welcome = "Good Afternoon to you";  
+           } 
+           else
+           {  
+                 welcome = "Good Evening to you";  
+           }  
+           let daylist=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"]
+           document.write("Today is " +daylist[day] +"," +" 24" +" April" +" 2000, Welcome, and " +welcome)
+    </script>
+</body>
+</html>

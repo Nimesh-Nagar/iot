@@ -11,7 +11,7 @@ def order(n):
 # Function to check whether the given number is Armstrong number or not
 def isAmstrong(num):
     x = order(num)
-   # print(x)
+   
     temp = num
     sum1 = 0  
 
@@ -21,10 +21,11 @@ def isAmstrong(num):
         temp = temp // 10
 
     if sum1 == num :
-        print("Give Number is Armstrong ")
+        print("Given Number is Armstrong ")
     else: 
         print("NOT an Armstrong Number ")        
 
 
-num = int(input("Enter number to check it is Armstrong or Not : "))
-isAmstrong(num)
+if __name__ == "main":
+    num = int(input("Enter number to check it is Armstrong or Not : "))
+    isAmstrong(num)

@@ -17,8 +17,8 @@ int main()
 	int *q = *(&a+1) - 1;//*(1000+4x5bytes)
 		     //*(1020) - 1
 		     // 1020-4bytes = 1016th location value i.e. 50 as data type is int type so after derefrencing it will process 4bytes each
-		     //therefore *q = 
-	//*1000+4bbytes= *1004 = 20
+		     //therefore *q = *1000+4bbytes= *1004 = 20
+			 
 	printf("*p=%d *q=%d &p=%d  &q=%d\n",*p,*q,&p,&q);
 	//	*p=10 *q=50 &p=2320 &q=2328
 	*p++;

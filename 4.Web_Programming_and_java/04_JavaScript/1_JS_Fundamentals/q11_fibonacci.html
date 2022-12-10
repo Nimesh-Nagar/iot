@@ -1,0 +1,34 @@
+<!-- 11. Write a program to display Fibonacci series -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Fibonacci_Series</title>
+     <script>
+         function fibonacci(limit)
+         {
+             let a=0,b=1,c=0;
+             document.write("<br>Fibbonaci Series is : ");
+             for(let i=1;i<=limit;i++)
+               {
+                document.write(" "+a);  
+                c=a+b;
+                a=b;
+                b=c;
+               } 
+
+         }
+
+     </script>
+ </head>
+ <body>
+     <script>
+         let x = prompt(parseInt("Enter the limit for fibonacci: "));
+        fibonacci(x);
+
+
+     </script>     
+ </body>
+ </html>

@@ -1,0 +1,39 @@
+<!-- 16. Write a Javascript program that accepts a number in the range 1 to 50 from the user. It then compares the number against a single dimension array of five integer elements
+ranging in value from 1 to 50. The program displays the message BINGO once the given input is found in the array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>q16 Bingo</title>
+    <script>
+        function bingo(){
+            var n = parseInt(prompt("Enter a number between 1 to 50 : "))
+            for(var i=0;i<arr.length;i++)
+            {
+               if(n == arr[i])
+               {
+                   document.write("BINGO"+"<br>"  )
+					break;
+
+               }
+		       else
+		       {
+		      	  document.write("Better Luch next time ")
+					break;
+		       }
+              
+           }   
+
+        }
+    </script>
+</head>
+<body>
+    <script>
+            var arr = [10,20,30,40,50];
+            bingo()
+
+		    
+    </script>
+    
+</body>
+</html>

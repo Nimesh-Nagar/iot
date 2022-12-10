@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+           $(":input").click(function(){
+               $(this).hide()
+           })
+        })
+    </script>
+</head>
+<body>
+    <form>
+            <h3>!!!Click on input area to see the magic!!!</h3>
+
+            User Name : <input type="text"><br>
+            Password  : <input type="password"><br><br>
+            
+            Gender :
+            <input type="radio" name="abc">male
+            <input type="radio" name="abc">female<br>
+
+            Skills : 
+            <input type="checkbox">HTML
+            <input type="checkbox">JAVA
+            <input type="checkbox">JAVA SCRIPT
+            <input type="checkbox">CSS<br>
+            <br>
+  
+
+            Adderss: <br>
+            <textarea cols="40" rows="10"> </textarea><br>
+           
+
+            <input type="button" value="Register"><br><br>
+
+            <input type="reset" value="RESET"><br>
+        </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        function area(){
+            let radius = parseInt(document.getElementById("r1").value)
+           document.getElementById("area").innerHTML= "Area of Circle : "+(radius*radius*Math.PI)
+           document.getElementById("cirf").innerHTML= "Circumferance of Circle : "+(2*Math.PI*radius)
+
+        }
+    </script>
+
+
+
+</head>
+<body>
+    <form>
+        Enter Radius : <input type="text" name="radius" id="r1"><br>
+        <input type="button" value="display" onclick="area()"><br>
+        <span id="area"> </span><br>
+        <span id="cirf"> </span>
+
+    </form>
+   
+</body>
+</html>

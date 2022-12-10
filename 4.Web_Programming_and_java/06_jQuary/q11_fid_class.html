@@ -1,0 +1,26 @@
+<!-- Assume a web page having 3 divs, one of them having a class applied. Find which div element has class
+applied. Sample data: (output would be div1) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Find Class</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        function findClass(){
+            alert($("div").hasClass("divclass"))
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="div1" </div>
+    <div id="div2" class="divclass"></div>
+    <div id="div3" </div>
+    <input type="button" value="find class"onclick="findClass()">
+</body>
+</html>

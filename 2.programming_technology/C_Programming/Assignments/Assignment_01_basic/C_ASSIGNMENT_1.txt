@@ -6,7 +6,7 @@ Q4. Write a C program to find out given year is leap year or not.
 __________________________________________________________________________
 Q5. Write a C program to find out sum & average of n numbers.
 Q6. Write a C program to calculate the factorial of given number
-Note: Que No 8 to 10 are pattern program make use of nested for loop
+Note: Que No 7 to 9 are pattern program make use of nested for loop
 
 Q7.
 1

@@ -1,5 +1,4 @@
 // convert decimal number to binary , octal and hexadeciaml using recursion
-
 #include <stdio.h>
 
 void convert(int num, int base)
@@ -16,11 +15,7 @@ void convert(int num, int base)
     else{
         printf("%c",rem-10+'A');
     }
-
-    
-
 }
-
 
 int main()
 {
@@ -36,3 +31,6 @@ int main()
     printf("\n");
     return 0;
 }
+
+
+

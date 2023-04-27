@@ -7,6 +7,7 @@ void str_concat(char str1[], char str2[]){
     while(str1[i]!='\0'){   
         i++;
     }
+    printf("index of s1 : %d \n",i);
 //now add second string at the end of first string 
     while(str2[j] != '\0' ){
         str1[i]=str2[j];
@@ -20,14 +21,13 @@ void str_concat(char str1[], char str2[]){
 int main()
 {
     char str1[20], str2[20];
-    printf("Enter Two Strings : ");
+    printf("Enter String S1 : ");
     gets(str1);
+    printf("Enter String S2 : ");
     gets(str2);
 
     // strcat(str1,str2);
     str_concat(str1,str2);
-    // char cpy = str_concat(str1,str2);
-    // printf("First Str1 = %s\tSecond Str2 = %s \n", cpy,str2);
 
     return 0;
 }

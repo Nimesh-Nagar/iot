@@ -20,9 +20,9 @@ void display(){
 
 //display
     if(top == MAX - 1){
-        printf("Stack Overflow ");
+        printf("Stack Overflow \n");
     }
-
+    
     printf("Stack : ");
     for(int i = 0; i < MAX; i++){
         printf("%d ",stack_arr[i]);
@@ -35,6 +35,7 @@ int main()
     push(2);
     push(3);
     push(4);
+//    push(5);
 
     display();
 

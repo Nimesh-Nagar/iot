@@ -44,7 +44,7 @@ print("Reverse:",cars)	#['toyota', 'subaru', 'bmw', 'audi']
 ####################################################################################################################################
 ############# looping through entire list ########################
 print("#"*80)
-"When you want to do the same action with every item in a list, you can use Python’s for loop."
+"When you want to do the same action with every item in a list, you can use Python's for loop."
 
 magicians = ['alice', 'david', 'carolina']
 for i in magicians:	#for loop here i is variable
@@ -70,23 +70,19 @@ players = ['charles', 'martina', 'michael', 'florence', 'eli']
 print("Original list:",players)
 print(players[0:3])	#==> ['charles', 'martina', 'michael']
 						#	0			1			2
-print(players[-3:])
+print(players[-3:]) #==> ['michael', 'florence', 'eli']
 
 std = ["Tushar","Abdur","Abhishek","Sundram"]
 sts = ["Kiran","Vivek","Nancy"]
 
 lst = sts + std
 print(lst) # concatiation of two strings
-print(std.index('Abdur')) # index number of Abdur
+print(std.index('Abdur')) # index number of Abdur = 1 
 
 print(std == sts )	# matches each elements of list --> returns false/true 
 print(std != sts)
 print(std > sts)
 print(std < sts)
-
-
-
-
 
 
 #############	Looping Through a slice 	########## 

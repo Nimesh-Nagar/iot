@@ -1,4 +1,4 @@
-#Q4 Python Program to Determine How Many Times a Given Letter Occurs in a String Recursively
+'''Q4 Python Program to Determine How Many Times a Given Letter Occurs in a String Recursively'''
 
 
 
@@ -18,15 +18,17 @@
 
 def count(str):
     ch = input("count which char: ")
-    if count(str) == ch:
-        count += 1
+    counter = 0
+    if count(str[:]) == ch:
+        counter += 1
         return count
     else:
         return 0 
-
 
 string = "aabbcde fg hhhi"
 #ch = input("count which char: ")
 
 cnt = count(string)
 print(cnt)
+
+

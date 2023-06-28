@@ -1,4 +1,4 @@
-#Q1 Python Program to Check if a String is a Pangram or Not
+"""Q1 Python Program to Check if a String is a Pangram or Not"""
 
 # def check(string):
 #     alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -30,4 +30,5 @@ if len(check) == 26:
     print("Pangram")
 else:
     print("NOT Pangram")
+
 

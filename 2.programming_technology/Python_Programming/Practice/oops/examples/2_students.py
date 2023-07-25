@@ -38,4 +38,8 @@ c = Course("Science", 2)
 c.add_students(s1)
 c.add_students(s2)
 print(c.add_students(s3)) # if we add another student 
+
+
+
+
 print(c.get_average_grade())

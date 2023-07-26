@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  mqttbroker:   #service must be any valid name with lowercase 
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mqttbroker
+    networks:
+      - default
+    expose:   
+      - "1883"
+    volumes: #volume mapping host:container
+      - /home/hi/CDAC/10.edge_and_cloud_computing/docker/compose_practical/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    ports:
+      - "5010:1883"
+
+  publisher:
+    build: ./pub
+    container_name: publisher
+    hostname: mqttpublish
+    depends_on:
+      - mqttbroker
+      - subscriber    
+
+#connect mosquitto_sub from terminal using
+#mosquitto_sub -t test/mqtt/message -h localhost -p 5010
+
+  subscriber:
+    build: ./sub
+    container_name: subscriber
+    hostname: subscriber
+    depends_on:
+        - mqttbroker    
+#docker-compose run subscriber to see subscribed messages where .yml file is present
+#sudo docker-compose up
+
+  

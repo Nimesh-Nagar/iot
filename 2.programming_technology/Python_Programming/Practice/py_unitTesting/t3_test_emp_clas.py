@@ -1,3 +1,7 @@
+#testing Employee Class 
+# setUp() method that allows you to create objects once and
+# then use them in each of your test methods. 
+
 import unittest
 from emp_class import Employee
 

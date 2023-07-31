@@ -1,0 +1,43 @@
+The project create a set of Rest-APIs for POST/GET/UPDATE/DELETE APIs:
+
+/api/customers – GET all customers
+/api/customers/:id – GET a customer by Id
+'/api/customers – POST a customer
+/api/customers/:id – UPDATE a customer by Id
+/api/customers/:id – DELETE a customer by Id
+---------------------------------------------------------------------------
+
+mkdir nodejs-restapi
+cd nodejs-restapi
+
+-----------------------------------------
+npm init to create ‘package.json’ file:
+npm init
+
+nodejs-restapi>npm install express body-parser --save
+
+//In root folder ‘nodejs-restapi’, create a ‘server.js’ file:
+
+//In root folder ‘nodejs-restapi’, create a router folder ‘/app/routes’. Then create a file ‘/app/routes/customer.routes.js’ for routing requests ‘GET/POST/DELETE/UPDATE’:
+
+//Controllers
+In root folder ‘nodejs-restapi’, create a controller folder ‘/app/controllers’. Then create a file ‘/app/controllers/customer.controller.js’ that contains methods for executing above URL requests:
+
+nodejs-restapi>node server.js
+
+
+--------------------------------------
+post - 
+select body
+-----------------
+{
+    "firstname": "abcd",
+    "lastname": "xyz",
+    "age": 6,
+    "id": 5
+}
+
+
+
+
+

@@ -1,0 +1,38 @@
+#Working with curl command (Local Server - Written in Node.Js
+---------------------------------
+Apis are created for following operations
+1. GET  	(idempotent & safe both)
+2. POST		(nor idempotent nor safe)
+3. PUT      (not safe but idempotent)
+4. DELETE   (not safe but idempotent)
+-------------------------------------------------------
+
+curl --header "Content-Type: application/json" --request POST --data '{"firstname":"xyz","lastname":"singh","age":25,"id":8}' http://localhost:8081/api/customers
+-----------------------------------------------------------
+
+curl -H "Content-Type: application/json" -X POST -d '{"firstname":"bhupendra","lastname":"singh","age":23,"id":10}' http://localhost:8081/api/customers
+-----------------------------------------------------------
+#Post data by creating JSON File
+#make sure user.json is in the dedicated path 
+
+curl -H "Content-Type: application/json" -X POST -d @user.json http://localhost:8081/api/customers
+----------------------------------------------------------
+#Update the data
+
+curl -H "Content-Type: application/json" -X PUT -d @user.json http://localhost:8081/api/customers/3
+
+curl -H "Content-Type: application/json" -X PUT -d '{"firstname":"bhupendra","lastname":"singh","age":23,"id":10}' http://localhost:8081/api/customers/10
+
+-----------------------------------------------------------
+#delete the data
+curl -X DELETE http://localhost:8081/api/customers/9
+curl -X DELETE <url of the server>
+
+---------------------------------------------------------
+curl -X GET <URL>
+curl -X GET http://localhost:8081/api/customers/9
+----------------------------------------------------------
+
+Note : Don't forget the same concept tested with the postman client on google-chrome browser
+
+

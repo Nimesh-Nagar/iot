@@ -18,75 +18,7 @@ class Apple:
 
     def app_move(self):
         self.x = random.randint(1,24)*SIZE  # 1000 x 800 res so [ x = 1000/40 = 25
-        self.y = random.randint(1,19
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        )*SIZE  # y = 800/40 = 20
+        self.y = random.randint(1,19)*SIZE  # y = 800/40 = 20
 
 class Snake:
     def __init__(self,parent_screen,length):

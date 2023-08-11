@@ -1,6 +1,6 @@
 """ Access Specifiers
 Specify the access level of an attribute/method.
-Public, Protected, Private.
+Public, Protected or Private.
 """
 # Public are accessible outside the class
 # any member declared without using any underscore is treated as public member.
@@ -14,10 +14,12 @@ class Car:
 
 car_obj = Car('Nexon', 15)
 
+print(car_obj.model)
 print(car_obj.price)
-# we can access/modify the public members
 
+# we can access/modify the public members
 car_obj.model = 'Tesla'
 car_obj.price = 50
 
-print(car_obj.model)
+print(f"After modification : {car_obj.model}")
+print(f"After modification : {car_obj.price}")

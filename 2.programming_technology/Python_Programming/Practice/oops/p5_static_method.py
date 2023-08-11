@@ -1,7 +1,7 @@
 """ Static Method
-STATIC METHOD doesn't pass any default parameter like 'self' and 'cls' as in regular and class method respectively. 
+STATIC METHOD doesn't pass any default parameter like 'self' and 'cls' as in regular and class method. 
 It behaves like regular function, but have some logical connections with class. 
-use '@staticmethod' as decorator to start and nothing as first argument.
+use '@staticmethod' as decorator to start.
 use staticmethod where you don't access the instance or class anywhere within function
 """
 # Take in date and return whether it is working day or not 
@@ -34,17 +34,19 @@ class Employee:
     def from_string(cls,new_str):
         first, last, pay = new_str.split('-')
         return cls(first, last, pay)
-    
+
+#------------- Static method to find wheather it is workking day or not --------------
     @staticmethod
     def is_workday(day):
         if day.weekday() == 5 or day.weekday() == 6:
             return False
         return True
 
-emp1 = Employee('Nimesh', 'Nagar', 50000)
-emp2 = Employee('test', 'user', 60000)
+# emp1 = Employee('Nimesh', 'Nagar', 50000)
+# emp2 = Employee('test', 'user', 60000)
 
 import datetime 
 my_date = datetime.date(2023,7,22)
 
-print(Employee.is_workday(my_date))
+print(Employee.is_workday(my_date))     # ---> False (22/07/2023 Saturday)
+

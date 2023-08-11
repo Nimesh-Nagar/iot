@@ -1,7 +1,8 @@
 """     Class Method and Static Method 
-In Python, a CLASS METHOD is a special method that belongs to the class rather than an instance of the class. 
-It is defined using the '@classmethod' decorator before the method definition. The first parameter of a class 
-method is usually named 'cls', which represents the class itself. 
+In Python, a CLASS METHOD is a special method that belongs to the class rather 
+than an instance of the class. 
+It is defined using the '@classmethod' decorator before the method definition. 
+The first parameter of a class method is usually named 'cls', which represents the class itself. 
 Class methods are commonly used to create "alternative constructors" or perform operations that are related to 
 the class rather than specific instances.
 
@@ -38,12 +39,12 @@ class Employee:
 
 emp1 = Employee('Nimesh', 'Nagar', 50000)
 emp2 = Employee('test', 'user', 60000)
-print(emp1.raise_amt)
+print(emp1.raise_amt)  # ---> 1.05
 
 # raise amount using Class Method
 print("------ After class-method : set-raise-amt ------")
 emp1.set_raise_amt(1.10)
-print(emp1.raise_amt) 
+print(emp1.raise_amt)   # ---> 1.10
 print(emp2.raise_amt)
 
 # Problem: getting data in string and need to parse every time and create employee ...
@@ -54,6 +55,6 @@ emp_str1 = 'leekhil-likhu-65000'
 emp_str2 = 'abhi-sahu-70000'
 
 new_emp1 = Employee.from_string(emp_str1)
-print(new_emp1.email)
-print(new_emp1.pay)
+print(new_emp1.email) # ----> leekhil.likhu@email.com
+print(new_emp1.pay)   # ----> 65000
 

@@ -22,10 +22,10 @@ class Car(Vehicle):
         # protected member is accessible in child class
         print(f"Engine: {self._engine} ")
         print(f"Model : {self._model} ")
-        print(f"Price {self._price} L")
+        print(f"Price : {self._price} L")
 
 
-
+par_obj = Vehicle('Desel')
 obj = Car('electric', 'Nexon', 15)
 
 print(obj.print_info())

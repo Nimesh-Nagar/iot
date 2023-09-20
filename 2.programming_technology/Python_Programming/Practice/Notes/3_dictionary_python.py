@@ -1,10 +1,10 @@
 ################################################	Defining a DICTIONARY	################################################ (page 91)
 
 """ Understanding dictionaries allows you to model a variety of real-world objects more accurately. 
-You’ll be able to create a dictionary represent­ing a person and then store as much information as you want about that person.
+You'll be able to create a dictionary representing a person and then store as much information as you want about that person.
 You can store their name, age, location, profession, and any other aspect of a person you can describe. 
-You’ll be able to store any two kinds of information that can be matched up, such as a list of words and their meanings,
-a list of people’s names and their favorite numbers, a list of mountains and their elevations, and so forth."""
+You'll be able to store any two kinds of information that can be matched up, such as a list of words and their meanings,
+a list of people's names and their favorite numbers, a list of mountains and their elevations, and so forth."""
 
 # Consider a game featuring aliens that can have different colors and point values. This simple dictionary stores information about a particular alien:
 # dictionary is collection of  key : value pairs
@@ -66,8 +66,8 @@ print("-"*50)
 
 # to print both key and values separately
 for key, value in favorite_languages.items():
-	print("keys :",key)
-	print("values : ",value)
+	print("key :",key)
+	print("value : ",value)
 
 # to print only keys
 print("-"*50)

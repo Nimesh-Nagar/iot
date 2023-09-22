@@ -11,8 +11,8 @@ for i in str1:
 
 print(result) 
 
-# Alternative menthod
-a = list(set(str1)|set(str2))
-print("comman letters are: ")
-for i in a :
-    print(i)
+# # Alternative menthod
+# a = list(set(str1)|set(str2))
+# print("comman letters are: ")
+# for i in a :
+#     print(i,end=" ")

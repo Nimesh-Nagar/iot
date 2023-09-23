@@ -1,0 +1,72 @@
+MAC and LLC 	IEEE 802.2
+
+Ethernet 		IEEE 802.3
+Wifi 			IEEE 802.11 
+
+Bluetooth 		IEEE 802.15.1
+				IEEE 802.15.3
+				
+LR-WPANs		IEEE 802.15.4 
+low-rate wireless personal area networks (LR-WPANs)
+
+-----------------------------------------
+LAN standards (802.3) define MAC and physical layer connectivity
+	IEEE 802.3 (CSMA/CD - Ethernet) standard – originally 2Mbps
+	IEEE 802.3u standard for 100 Mbps Ethernet
+	IEEE 802.3z standard for 1000 Mbps Ethernet
+-------------------------------------------
+
+WiFi IEEE 802.11
+
+802.11  	2.4 GHz		2 Mbps (1997)
+802.11b 	2.4 GHz		11 Mbps (1999 home and domestic use)
+802.11a		5 GHz		54 Mbps (1999 commercial and industrial purposes)
+802.11g		2.4 Ghz 	54 Mbps (2003 b+a commonly used)
+802.11n 	2.4 &5 GHz  600 Mbp (2009 operates on both freq. )
+802.11ac 	5GHz		1.3 Gbps (2013 most device working on n and ac)
+802.11ax 	2.4 &5 GHz  10 Gbps (2019 improvement over ac)
+
+-----------------------------------------------
+Bluetooth 		IEEE 802.15.1 
+ 
+Class 3 radios – have a range of up to 1 meter
+Class 2 radios – most commonly found in mobile devices – have a range of 10 meters
+Class 1 radios – used primarily in industrial usecases – have a range of 100 meters
+
+The most commonly used radio Class 2 uses 2.5 mW of power.
+-radios are	powered down when inactive
+Data Rate
+-- 1 Mbps for Version 1.2
+-- Up to 3 Mbps for Version 2.0 
+
+Bluetooth 4.x devices only support a single 1 Mbps PHY rate,
+Bluetooth 5 is a new 2 Mbps PHY.
+
+----------------------------------------------------
+Celular tech
+
+It used 25Mhz spectrum in 900MHz band. Later 1800MHz and 1900Mhz bands were added
+----------------------------------------------------------------------------------------------------------
+
+Wireless Personal Area Networks (WPAN)
+IEEE 802.15
+
+ 802.15.1		WPAN /Bluetooth (Data throughput is 1 Mbp)
+ 802.15.3		High Rate WPAN  (Data throughput is > 20 Mbps)
+ 802.15.4		ZigBee Low Rate WPAN (Data throughput is < 0.25 Mbps) 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+	 
+	
+
+
+

@@ -5,11 +5,11 @@ dict = {
     "last":"nagar"
 }
 
-print(dict.get("age","no key in dictionary")) # get() is used to check the key is present in dict or not 
+print(dict.get("last","no key in dictionary")) # get() is used to check the key is present in dict or not 
     # get("key to search","msg if key not found") # default msg is none 
 
 """it will through error "KeyError" if key not found """
-#print(dict['age']) 
+# print(dict['age']) 
 
 
 # ------------------ Another Approch ------------------ 

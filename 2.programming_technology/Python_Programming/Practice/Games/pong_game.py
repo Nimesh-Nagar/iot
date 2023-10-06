@@ -38,8 +38,8 @@ ball.color("white")
 ball.penup()
 ball.goto(0,0) # middle
 # moving the ball 
-ball.dx = 0.0
-ball.dy = -0.0
+ball.dx = 0.03
+ball.dy = -0.03
 
 # Pen 
 pen = turtle.Turtle()

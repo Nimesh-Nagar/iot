@@ -26,10 +26,12 @@ for ele in string.lower():
     if ele not in check and ele != ' ' and ele.isnumeric() == False:
         check.append(ele) 
 
+print(f"Original String ---> {string}")
+
 if len(check) == 26:
-    print("Pangram")
+    print("String is Pangram")
 else:
-    print("NOT Pangram")
+    print("String is NOT Pangram")
     
 
 

@@ -3,6 +3,7 @@
 str = "abba"
 rev = str[: : -1]
 
+print(f"String -- {str}")
 if rev == str:
     print("String is Palindrome")
 else:

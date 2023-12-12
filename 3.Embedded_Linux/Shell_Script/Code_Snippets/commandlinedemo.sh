@@ -14,4 +14,4 @@ echo "PRN NUMBER: " $2
 echo "name of script: " $0
 echo "Total Arguments: " $#
 echo "process id of current script: " $$
-echo "Arguments supplied are: " $*
+echo "Arguments supplied are: " $*" 

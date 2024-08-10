@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css"> 
+</head>
+<body style="padding: 10px;" >
+    <div class="col-sm-12">
+        <textarea class="col-sm-8" id="msgLogs" style="height: 10rem;" readonly>
+            
+        </textarea>
+        
+    </div>
+    <div class="col-sm-12" style="padding: 10px;">
+        <div class="row">
+            <button class="col-sm-2" onclick="send();">Send</button>
+            <input class="col-sm-6" type="text" id="messages" placeholder="Enter you message">
+        </div>
+    </div>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

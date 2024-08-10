@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css"> 
+</head>
+<body>
+    <div class="row col-sm-12" style="padding: 10px">
+        <div class="col-sm-6" style="border-color: black; border-style: dashed;">
+            <h1  style="text-align:center">Publisher</h1>
+            <div>
+                <label class="col-sm-2" for="inputTopic">Topic</label>
+                <input class="col-sm-4"type="text" placeholder="cdac/diot/class5" id="pubTopic">
+            </div>
+        </br>
+            <div>
+                <label class="col-sm-2" for="inputTopic">QoS Level</label>
+                <input class="col-sm-4"type="text" placeholder="0/1/2" id="pubQoS">
+            </div>
+
+        </br>
+        <div>
+            <label class="col-sm-2" for="inputTopic">Message</label>
+            <input class="col-sm-4"type="text" placeholder="{Temp:24.5}" id="pubMsg">
+        </div>
+        <br>
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-success" onclick="publish();">Publish</button>
+        </div>
+        <br>
+            
+        </div>
+        <div class="col-sm-6"  style="text-align:center; border-color: black; border-style: dashed;">
+            <h1>Subscriber</h1>
+            <div>
+                <label class="col-sm-2" for="inputTopic">Topic</label>
+                <input class="col-sm-4"type="text" placeholder="cdac/diot/class5" id="subTopic">
+            </div>
+        </br>
+        <div>
+            <label class="col-sm-2" for="inputTopic">QoS Level</label>
+            <input class="col-sm-4"type="text" placeholder="0/1/2" id="subQoS">
+        </div>
+
+    </br>
+    <div class="alert alert-dismissible alert-success" style="height: 250px; overflow-y: scroll;">
+        <strong>Messages Received!</strong> 
+        <p id="subMessages">...</p>
+      </div>
+    <br>
+    <div style="text-align:center;">
+        <button type="button" class="btn btn-warning" onclick="subscribe();">Subscribe</button>
+    </div>
+    <br>
+        </div>
+    </div>
+    <script>
+        var data = [];
+        data.push("{Temp:24.5}");
+        const submsg = document.getElementById("subMessages");
+        const subQoS = document.getElementById("subQoS");
+        const subTopic = document.getElementById("subTopic");
+
+        const pubTopic =document.getElementById("pubTopic");
+        const pubMsg = document.getElementById("pubMsg");
+        const pubQoS = document.getElementById("pubQoS");
+        submsg.innerHTML = data
+
+        function subscribe(){
+            alert('subscribed with QoS:' + subQoS.value + 'and topic:' + subTopic.value );
+        }
+
+        function publish() {
+            alert('Published with QoS:' + pubQoS.value + 'and topic:' + pubTopic.value );
+        }
+    </script>
+</body>
+</html>

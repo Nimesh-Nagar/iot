@@ -14,10 +14,10 @@ class Car:
 
 car1 = Car('i20', 7.5)
 
+# we can NOT access/modify the private members outside the Class
 # print(car1.__model) # -->'Car' object has no attribute '__model' & '__price'
 # print(car1.__price)  
 
-# we can NOT access/modify the public members
 car1.__model = 'new model'
 car1.__price = 10.6
 print(car1.__model)  # new model

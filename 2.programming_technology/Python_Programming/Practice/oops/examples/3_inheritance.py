@@ -29,13 +29,13 @@ class Cat(Pet):
         print("Meow")
         
 p = Pet("p cat", 4)
-p.speak()
+p.speak() # I Don't know What I say
 
 # here dog object "d" is created and it is calling init() and show() methods of Pet class 
 d = Dog("TIM",6,"Brown") 
-d.show()
+d.show() # Hello I am TIM and I am 6 years old and I am Brown 
 
 c = Cat("Tom",4)
-c.show()
-c.speak()
+c.show()  # Hello I am Tom and I am 4 years Old 
+c.speak() # Meow
 

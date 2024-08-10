@@ -24,8 +24,8 @@ class Car(Vehicle):
         print(f"Model : {self._model} ")
         print(f"Price : {self._price} L")
 
-
 par_obj = Vehicle('Desel')
 obj = Car('electric', 'Nexon', 15)
 
-print(obj.print_info())
+obj.print_info()
+print(obj._engine)

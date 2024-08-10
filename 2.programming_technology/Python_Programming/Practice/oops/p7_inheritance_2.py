@@ -57,7 +57,9 @@ mgr1 = Manager('sturd','broad','90000',[dev1])
 print(mgr1.email)
 
 mgr1.add_emp(dev2) 
-# mgr1.print_emps()
+mgr1.print_emps()
+
+print("Removing Employee")
 mgr1.remove_emp(dev2) 
 mgr1.print_emps()
 
@@ -68,7 +70,7 @@ print(isinstance(mgr1, Developer)) # FALSE
 
 # issubclass() tells us if class is a subclass of another 
 print("-----------------------------")
-print(issubclass(Developer, Employee)) #TRUE
-print(issubclass(Manager, Employee))
-print(issubclass(Manager, Developer)) # FALSE
+print(issubclass(Developer, Employee))  # TRUE
+print(issubclass(Manager, Employee))    # TRUE
+print(issubclass(Manager, Developer))   # FALSE
 

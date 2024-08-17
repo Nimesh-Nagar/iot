@@ -4,6 +4,8 @@ to find a string or set of strings.
 
 It can detect the presence or absence of a text by matching it with a particular pattern
 and also can split a pattern into one or more sub-patterns.
+
+[CODE BASICS] : https://www.youtube.com/watch?v=sHw5hLYFaIw&t=1217s
 """
 
 # Extract phone numbers 

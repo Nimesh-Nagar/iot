@@ -19,7 +19,7 @@ print(next(my_num))
 print(next(my_num))
 
 # print(next(my_num)) # StopIteration. ---> If more than list size
-print("")
+print("for loop output")
 for num in my_num:
     print(num) 
     
